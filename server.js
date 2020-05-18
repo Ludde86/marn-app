@@ -50,6 +50,19 @@ const data = {
 	body: 'test Body'
 };
 
+// create a new blogpost instance of the model, with our test data
+const testBlogPost = new BlogPostModel(data);
+
+// -> save the blogpost to the database
+// -> create callback if error
+testBlogPost.save((error) => {
+	if (error) {
+		console.log('Something went wrong');
+	} else {
+		console.log('Data saved to database');
+	}
+});
+
 // what to use in the application
 // http request logger
 app.use(morgan('tiny'));
