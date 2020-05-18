@@ -17,6 +17,8 @@ const App = () => {
 		})
 			.then(() => {
 				console.log('Data has been sent to the server');
+				setTitle('');
+				setBody('');
 			})
 			.catch(() => {
 				console.log('Something went wrong');

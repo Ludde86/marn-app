@@ -34,6 +34,16 @@ mongoose.connection.on('connected', () => {
 	console.log('Mongoose is connected!');
 });
 
+// this is like a middleware that is being hooked into express
+// -> this is gonna parse every single json that are coming in, or every single urlencoded
+// -> extended false = how deep we want to go inside this json object
+// true = all the way (if nested object)
+
+// this is making all the requests coming in as json, or url encoded, available on req.body
+// we can now see our data as in the request body
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 // what to use in the application
 // http request logger
 app.use(morgan('tiny'));
