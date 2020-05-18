@@ -15,6 +15,21 @@ const app = express();
 // -> when hosting the application on another service (like Heroku), the host may independently configure the process.env.PORT variable
 const PORT = process.env.PORT || 8080;
 
+const MONGO_URI = 'mongodb+srv://ludde123:ludde123@marndb-w95cn.mongodb.net/test?retryWrites=true&w=majority';
+
+// connect to mongoose
+// -> link of the connection
+// -> options
+mongoose.connect(MONGO_URI, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+});
+
+// check if connected to mongoose
+mongoose.connection.on('connected', () => {
+	console.log('Mongoose is connected!');
+});
+
 // what to use in the application
 // http request logger
 app.use(morgan('tiny'));
