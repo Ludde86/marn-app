@@ -17,6 +17,8 @@ const PORT = process.env.PORT || 8080;
 
 const MONGO_URI = 'mongodb+srv://ludde123:ludde123@marndb-w95cn.mongodb.net/test?retryWrites=true&w=majority';
 
+const routes = require('./routes/api');
+
 // connect to mongoose
 // -> link of the connection
 // -> options
@@ -53,5 +55,9 @@ mongoose.connection.on('connected', () => {
 // what to use in the application
 // http request logger
 app.use(morgan('tiny'));
+
+// configure the api route
+// -> starting point, and the required (imported) route
+app.use('/', routes);
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
