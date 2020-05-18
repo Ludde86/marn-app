@@ -1,19 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const App = () => {
+	const [ title, setTitle ] = useState('');
+	const [ body, setBody ] = useState('');
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const payload = {
+			title,
+			body
+		};
+		axios({
+			url: 'http://localhost:8080/api/save',
+			method: 'POST',
+			data: payload
+		})
+			.then(() => {
+				console.log('Data has been sent to the server');
+			})
+			.catch(() => {
+				console.log('Something went wrong');
+			});
+	};
 	return (
 		<div>
 			<h2>Form</h2>
-			<form>
-				<div>
-					<label>Title</label>
-					<input type="text" name="title" value="" onChange={2} />
+			<form onSubmit={handleSubmit}>
+				<div className="form-input">
+					<input
+						type="text"
+						name="title"
+						placeholder="Title"
+						value={title}
+						onChange={(e) => setTitle(e.target.value)}
+					/>
 				</div>
-				<div>
-					<label>Text</label>
-					<textarea name="body" cols="30" rows="10" onChange={2} />
+				<div className="form-input">
+					<textarea
+						name="body"
+						placeholder="Body"
+						value={body}
+						cols="30"
+						rows="10"
+						onChange={(e) => setBody(e.target.value)}
+					/>
 				</div>
-				<button>Submit</button>
+				<button type="submit">Submit</button>
 			</form>
 		</div>
 	);
