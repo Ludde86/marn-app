@@ -32,16 +32,16 @@ router.get('/name', (req, res) => {
 // post request
 router.post('/save', (req, res) => {
 	// req.body is the data from the form post request
-	console.log('Req body: ', req.body);
+	const data = req.body;
 
 	// we need to make a new instance of the blogpost to save it into the database
-	const newBlogPost = new BlogPostModel(req.body);
+	const newBlogPost = new BlogPostModel(data);
 	newBlogPost.save((error) => {
 		if (error) {
-			console.log('Cannot save data into database');
+			res.status(500).json({ msg: 'Something went wrong, internal server errors' });
 		} else {
 			res.json({
-				msg: 'Server received data'
+				msg: 'Server received data, and saved into the database'
 			});
 		}
 	});

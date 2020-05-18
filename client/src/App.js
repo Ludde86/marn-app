@@ -21,6 +21,8 @@ const App = () => {
 			.catch(() => {
 				console.log('Something went wrong');
 			});
+		setTitle('');
+		setBody('');
 	};
 	return (
 		<div>
