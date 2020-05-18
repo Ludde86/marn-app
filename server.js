@@ -30,6 +30,17 @@ mongoose.connection.on('connected', () => {
 	console.log('Mongoose is connected!');
 });
 
+// define schema for mongoDB
+const Schema = mongoose.Schema;
+const BlogPostSchema = new Schema({
+	title: String,
+	body: String,
+	date: {
+		type: String,
+		default: Date.now()
+	}
+});
+
 // what to use in the application
 // http request logger
 app.use(morgan('tiny'));
