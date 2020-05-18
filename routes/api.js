@@ -35,8 +35,15 @@ router.post('/save', (req, res) => {
 	console.log('Req body: ', req.body);
 
 	// we need to make a new instance of the blogpost to save it into the database
-	res.json({
-		msg: 'Server received data'
+	const newBlogPost = new BlogPostModel(req.body);
+	newBlogPost.save((error) => {
+		if (error) {
+			console.log('Cannot save data into database');
+		} else {
+			res.json({
+				msg: 'Server received data'
+			});
+		}
 	});
 });
 
