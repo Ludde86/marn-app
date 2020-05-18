@@ -31,7 +31,10 @@ router.get('/name', (req, res) => {
 
 // post request
 router.post('/save', (req, res) => {
+	// req.body is the data from the form post request
 	console.log('Req body: ', req.body);
+
+	// we need to make a new instance of the blogpost to save it into the database
 	res.json({
 		msg: 'Server received data'
 	});
