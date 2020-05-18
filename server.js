@@ -1,4 +1,5 @@
 // starting point of the application
+// to start client and server -> npm run dev
 
 // import npm packages
 const express = require('express');

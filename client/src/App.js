@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	return (
+		<div>
+			<h2>Form</h2>
+			<form>
+				<div>
+					<label>Title</label>
+					<input type="text" name="title" value="" onChange={2} />
+				</div>
+				<div>
+					<label>Text</label>
+					<textarea name="body" cols="30" rows="10" onChange={2} />
+				</div>
+				<button>Submit</button>
+			</form>
+		</div>
+	);
+};
 
 export default App;
