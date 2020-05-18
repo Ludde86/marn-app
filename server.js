@@ -41,6 +41,15 @@ const BlogPostSchema = new Schema({
 	}
 });
 
+// register a model for blogpost
+const BlogPostModel = mongoose.model('BlogPost', BlogPostSchema);
+
+// -> with our model we can save data to mongoDB
+const data = {
+	title: 'Test Title',
+	body: 'test Body'
+};
+
 // what to use in the application
 // http request logger
 app.use(morgan('tiny'));
