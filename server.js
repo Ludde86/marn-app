@@ -54,28 +54,4 @@ mongoose.connection.on('connected', () => {
 // http request logger
 app.use(morgan('tiny'));
 
-// define routes for GET requests
-// -> set this route to start with /api
-app.get('/api', (req, res) => {
-	// find everything within the DB
-	// -> return the data we find
-	BlogPostModel.find({})
-		.then((data) => {
-			console.log('Data: ', data);
-			res.json(data); // -> send this data as json back to client
-		})
-		.catch((error) => {
-			console.log('Error: ', error);
-		});
-});
-
-// another route
-app.get('/api/name', (req, res) => {
-	const data = {
-		username: 'gurra',
-		age: 32
-	};
-	res.json(data); // -> send this data as json back to client
-});
-
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
