@@ -18,6 +18,7 @@ const PORT = process.env.PORT || 8080;
 
 const MONGO_URI = 'mongodb+srv://ludde123:ludde123@marndb-w95cn.mongodb.net/test?retryWrites=true&w=majority';
 
+// import the route of http requests
 const routes = require('./routes/api');
 
 // connect to mongoose
