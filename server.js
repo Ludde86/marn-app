@@ -44,37 +44,43 @@ const BlogPostSchema = new Schema({
 // register a model for blogpost
 const BlogPostModel = mongoose.model('BlogPost', BlogPostSchema);
 
-// -> with our model we can save data to mongoDB
-const data = {
-	title: 'Test Title',
-	body: 'test Body'
-};
+// // dummy data created and saved into mongo DB
+// // -> with our model we can save data to mongoDB
+// const data = {
+// 	title: 'Test Title',
+// 	body: 'test Body'
+// };
 
-// create a new blogpost instance of the model, with our test data
-const testBlogPost = new BlogPostModel(data);
+// // create a new blogpost instance of the model, with our test data
+// const testBlogPost = new BlogPostModel(data);
 
-// -> save the blogpost to the database
-// -> create callback if error
-testBlogPost.save((error) => {
-	if (error) {
-		console.log('Something went wrong');
-	} else {
-		console.log('Data saved to database');
-	}
-});
+// // -> save the blogpost to the database
+// // -> create callback if error
+// testBlogPost.save((error) => {
+// 	if (error) {
+// 		console.log('Something went wrong');
+// 	} else {
+// 		console.log('Data saved to database');
+// 	}
+// });
 
 // what to use in the application
 // http request logger
 app.use(morgan('tiny'));
 
 // define routes for GET requests
-// -< set this route to start with /api
+// -> set this route to start with /api
 app.get('/api', (req, res) => {
-	const data = {
-		username: 'ludde',
-		age: 33
-	};
-	res.json(data); // -> send this data as json back to client
+	// find everything within the DB
+	// -> return the data we find
+	BlogPostModel.find({})
+		.then((data) => {
+			console.log('Data: ', data);
+			res.json(data); // -> send this data as json back to client
+		})
+		.catch((error) => {
+			console.log('Error: ', error);
+		});
 });
 
 // another route
