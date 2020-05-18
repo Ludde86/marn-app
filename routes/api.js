@@ -29,4 +29,12 @@ router.get('/name', (req, res) => {
 	res.json(data); // -> send this data as json back to client
 });
 
+// post request
+router.post('/save', (req, res) => {
+	console.log('Req body: ', req.body);
+	res.json({
+		msg: 'Server received data'
+	});
+});
+
 module.exports = router;
