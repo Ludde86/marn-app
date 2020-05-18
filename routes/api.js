@@ -21,9 +21,10 @@ router.get('/', (req, res) => {
 
 // another route
 router.get('/name', (req, res) => {
+	// find a specific
 	const data = {
-		username: 'gurra',
-		age: 32
+		username: 'ludde',
+		age: 33
 	};
 	res.json(data); // -> send this data as json back to client
 });
