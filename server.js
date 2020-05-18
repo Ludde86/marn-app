@@ -30,20 +30,6 @@ mongoose.connection.on('connected', () => {
 	console.log('Mongoose is connected!');
 });
 
-// define schema for mongoDB
-const Schema = mongoose.Schema;
-const BlogPostSchema = new Schema({
-	title: String,
-	body: String,
-	date: {
-		type: String,
-		default: Date.now()
-	}
-});
-
-// register a model for blogpost
-const BlogPostModel = mongoose.model('BlogPost', BlogPostSchema);
-
 // // dummy data created and saved into mongo DB
 // // -> with our model we can save data to mongoDB
 // const data = {
