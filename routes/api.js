@@ -2,11 +2,11 @@ const express = require('express');
 
 const router = express.Router();
 
-const BlofPost = require('../models/blogPost');
+const BlogPostModel = require('../models/blogPost');
 
 // define routes for GET requests
 // -> set this route to start with /api
-router.get('/api', (req, res) => {
+router.get('/', (req, res) => {
 	// find everything within the DB
 	// -> return the data we find
 	BlogPostModel.find({})
@@ -20,7 +20,7 @@ router.get('/api', (req, res) => {
 });
 
 // another route
-router.get('/api/name', (req, res) => {
+router.get('/name', (req, res) => {
 	const data = {
 		username: 'gurra',
 		age: 32

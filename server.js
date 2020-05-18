@@ -32,32 +32,12 @@ mongoose.connection.on('connected', () => {
 	console.log('Mongoose is connected!');
 });
 
-// // dummy data created and saved into mongo DB
-// // -> with our model we can save data to mongoDB
-// const data = {
-// 	title: 'Test Title',
-// 	body: 'test Body'
-// };
-
-// // create a new blogpost instance of the model, with our test data
-// const testBlogPost = new BlogPostModel(data);
-
-// // -> save the blogpost to the database
-// // -> create callback if error
-// testBlogPost.save((error) => {
-// 	if (error) {
-// 		console.log('Something went wrong');
-// 	} else {
-// 		console.log('Data saved to database');
-// 	}
-// });
-
 // what to use in the application
 // http request logger
 app.use(morgan('tiny'));
 
 // configure the api route
 // -> starting point, and the required (imported) route
-app.use('/', routes);
+app.use('/api', routes);
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
