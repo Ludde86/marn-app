@@ -24,7 +24,7 @@ const routes = require('./routes/api');
 // connect to mongoose
 // -> link of the connection
 // -> options
-mongoose.connect(MONGO_URI, {
+mongoose.connect(process.env.MONGODB_URI || MONGO_URI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 });
@@ -51,5 +51,12 @@ app.use(morgan('tiny'));
 // configure the api route
 // -> starting point, and the required (imported) route
 app.use('/api', routes);
+
+// a custom variable inside heroku
+// -> is our application on heroku
+if (process.env.NODE_ENV === 'production') {
+	// put the client into our sever (the build folder in client into server)
+	app.use(express.static('client/build'));
+}
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
