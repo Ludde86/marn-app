@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import './App.css';
+
 const App = () => {
 	const [ title, setTitle ] = useState('');
 	const [ body, setBody ] = useState('');
@@ -44,7 +46,7 @@ const App = () => {
 			return null;
 		} else {
 			return posts.map((item) => (
-				<div key={item._id}>
+				<div key={item._id} className="blog-post__display">
 					<h3>{item.title}</h3>
 					<p>{item.body}</p>
 				</div>
@@ -53,11 +55,12 @@ const App = () => {
 	};
 
 	return (
-		<div>
-			<h2>Form</h2>
+		<div className="app">
+			<h2>Create a post</h2>
 			<form onSubmit={handleSubmit}>
 				<div className="form-input">
 					<input
+						autoComplete="off"
 						type="text"
 						name="title"
 						placeholder="Title"
