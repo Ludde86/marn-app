@@ -37,11 +37,14 @@ const App = () => {
 	const getPosts = () => {
 		axios
 			.get('/api')
-			.then((res) => setPosts(res.data))
+			.then((response) => {
+				const data = response.data;
+				setPosts(data);
+			})
 			.catch((err) => console.log('Somethin went wrong, when fetching data'));
 	};
 
-	const displayPosts = () => {
+	const displayPosts = (posts) => {
 		if (!posts.length) {
 			return null;
 		} else {
@@ -80,7 +83,7 @@ const App = () => {
 				</div>
 				<button type="submit">Submit</button>
 			</form>
-			<div className="blog-post">{displayPosts()}</div>
+			<div className="blog-post">{displayPosts(posts)}</div>
 		</div>
 	);
 };

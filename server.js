@@ -16,7 +16,7 @@ const app = express();
 // -> when hosting the application on another service (like Heroku), the host may independently configure the process.env.PORT variable
 const PORT = process.env.PORT || 8080;
 
-const MONGO_URI = 'mongodb+srv://ludde123:ludde123@marndb-w95cn.mongodb.net/test?retryWrites=true&w=majority';
+// const MONGODB_URI = 'mongodb+srv://ludde123:ludde123@marndb-w95cn.mongodb.net/test?retryWrites=true&w=majority';
 
 // import the route of http requests
 const routes = require('./routes/api');
@@ -24,10 +24,20 @@ const routes = require('./routes/api');
 // connect to mongoose
 // -> link of the connection
 // -> options
-mongoose.connect(process.env.MONGODB_URI || MONGO_URI, {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mern_demo', {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 });
+
+// mongoose.connect(MONGODB_URI || 'mongodb://localhost/mern_demo', {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
+
+// mongoose.connect(process.env.MONGODB_URI || MONGO_URI, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
 // check if connected to mongoose
 mongoose.connection.on('connected', () => {
