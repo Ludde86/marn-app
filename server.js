@@ -57,6 +57,8 @@ app.use('/api', routes);
 if (process.env.NODE_ENV === 'production') {
 	// put the client into our sever (the build folder in client into server)
 	app.use(express.static('client/build'));
+
+	// in package.json we setup a script for post-build
 }
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
