@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const App = () => {
 	const [ title, setTitle ] = useState('');
 	const [ body, setBody ] = useState('');
+	const [ posts, setPosts ] = useState([]);
+
+	useEffect(() => {
+		getPosts();
+	}, []);
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const payload = {
@@ -19,11 +25,33 @@ const App = () => {
 				console.log('Data has been sent to the server');
 				setTitle('');
 				setBody('');
+				getPosts();
 			})
 			.catch(() => {
 				console.log('Something went wrong');
 			});
 	};
+
+	const getPosts = () => {
+		axios
+			.get('/api')
+			.then((res) => setPosts(res.data))
+			.catch((err) => console.log('Somethin went wrong, when fetching data'));
+	};
+
+	const displayPosts = () => {
+		if (!posts.length) {
+			return null;
+		} else {
+			return posts.map((item) => (
+				<div key={item._id}>
+					<h3>{item.title}</h3>
+					<p>{item.body}</p>
+				</div>
+			));
+		}
+	};
+
 	return (
 		<div>
 			<h2>Form</h2>
@@ -49,6 +77,7 @@ const App = () => {
 				</div>
 				<button type="submit">Submit</button>
 			</form>
+			<div className="blog-post">{displayPosts()}</div>
 		</div>
 	);
 };
