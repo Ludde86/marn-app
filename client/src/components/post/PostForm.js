@@ -6,15 +6,15 @@ const PostForm = () => {
 	const { title, body, handleSubmit, setTitle, setBody } = postContext;
 
 	return (
-		<div>
-			<h2>Meddelande: </h2>
+		<div className="post-form">
+			<h2>Förslag på förbättringar: </h2>
 			<form onSubmit={handleSubmit}>
 				<div className="form-input">
 					<input
 						autoComplete="off"
 						type="text"
 						name="title"
-						placeholder="Title"
+						placeholder="Förbättring"
 						value={title}
 						onChange={(e) => setTitle(e.target.value)}
 					/>
@@ -22,14 +22,14 @@ const PostForm = () => {
 				<div className="form-input">
 					<textarea
 						name="body"
-						placeholder="Body"
+						placeholder="Meddelande"
 						value={body}
 						cols="30"
 						rows="10"
 						onChange={(e) => setBody(e.target.value)}
 					/>
 				</div>
-				<button type="submit">Submit</button>
+				<button type="submit">Skicka</button>
 			</form>
 		</div>
 	);
