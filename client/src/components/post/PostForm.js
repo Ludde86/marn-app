@@ -7,7 +7,7 @@ const PostForm = () => {
 
 	return (
 		<div>
-			<h2>Create a post</h2>
+			<h2>Meddelande: </h2>
 			<form onSubmit={handleSubmit}>
 				<div className="form-input">
 					<input

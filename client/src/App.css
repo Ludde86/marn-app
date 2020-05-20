@@ -1,39 +1,38 @@
-.app {
-	padding: 10px;
+.todo-item-content {
+	display: flex;
 }
 
-form {
-	width: 50%;
+.todo-message {
+	width: 75%;
 }
 
-.form-input {
-	padding: 10px 0;
+.del-upd-buttons {
+	width: 25%;
 }
 
-.form-input input,
-.form-input textarea {
-	width: 100%;
-	font-size: 1rem;
-	line-height: 1.5;
-	border-radius: .25rem;
-	border: 1px solid lightgray;
-	padding: .375rem .75rem;
+.navbar-container {
+	background-color: white;
+	border-bottom: 3px solid black;
+	margin-bottom: 50px;
+	height: 75px;
 }
 
-button {
-	background-color: #007bff;
-	color: #fff;
-	padding: .375rem .75rem;
-	font-size: 1rem;
-	line-height: 1.5;
-	border-radius: .25rem;
-	cursor: pointer;
-	outline: none;
+.navbar-container li {
+	list-style: none;
 }
 
-.blog-post__display {
-	border: 1px solid lightgray;
-	margin: 5px 0;
-	border-radius: 4px;
-	padding: 10px;
+.navbar-container a {
+	color: black;
+	text-decoration: none;
+}
+
+.navbar-container a:hover {
+	color: grey;
+}
+
+.navbar-list {
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
