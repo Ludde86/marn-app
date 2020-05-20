@@ -49,6 +49,16 @@ router.post('/save', (req, res) => {
 	});
 });
 
+router.delete('/deletePost/:id', async (req, res) => {
+	await BlogPostModel.findByIdAndRemove(req.params.id, (err) => {
+		if (err) {
+			return res.send(err);
+		} else {
+			return res.json({ success: true });
+		}
+	});
+});
+
 // this is our get method
 // this method fetches all available data in our database
 router.get('/getData', (req, res) => {

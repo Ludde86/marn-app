@@ -1,9 +1,9 @@
-import React, { useReducer, useEffect, useContext } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import axios from 'axios';
 import PostContext from './postContext';
 import postReducer from './postReducer';
 import { SET_TITLE, SET_BODY, SET_POSTS, EDIT_MESSAGE } from '../types';
-import TodoContext from '../todo/todoContext';
+// import TodoContext from '../todo/todoContext';
 
 const PostState = (props) => {
 	const initialState = {
@@ -13,7 +13,7 @@ const PostState = (props) => {
 	};
 
 	const [ state, dispatch ] = useReducer(postReducer, initialState);
-	const todoContext = useContext(TodoContext);
+	// const todoContext = useContext(TodoContext);
 	// const { clearMessage } = todoContext;
 
 	useEffect(() => {
@@ -58,6 +58,7 @@ const PostState = (props) => {
 	const deleteItem = async (id) => {
 		try {
 			await axios.delete(`/api/deletePost/${id}`);
+			getPosts();
 		} catch (error) {
 			console.error(error);
 		}
