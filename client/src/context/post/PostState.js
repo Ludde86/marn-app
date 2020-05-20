@@ -1,8 +1,9 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useContext } from 'react';
 import axios from 'axios';
 import PostContext from './postContext';
 import postReducer from './postReducer';
-import { SET_TITLE, SET_BODY, SET_POSTS } from '../types';
+import { SET_TITLE, SET_BODY, SET_POSTS, EDIT_MESSAGE } from '../types';
+import TodoContext from '../todo/todoContext';
 
 const PostState = (props) => {
 	const initialState = {
@@ -12,6 +13,8 @@ const PostState = (props) => {
 	};
 
 	const [ state, dispatch ] = useReducer(postReducer, initialState);
+	const todoContext = useContext(TodoContext);
+	// const { clearMessage } = todoContext;
 
 	useEffect(() => {
 		getPosts();
@@ -52,6 +55,33 @@ const PostState = (props) => {
 			.catch((err) => console.log('Somethin went wrong, when fetching data'));
 	};
 
+	const deleteItem = async (id) => {
+		try {
+			await axios.delete(`/api/deletePost/${id}`);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const updateItem = async (e, id, message) => {
+		try {
+			e.preventDefault();
+			await axios.put(`/api/putPst/${id}`, { update: message });
+			// setFalse();
+			// clearMessage();
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const setEditItem = (id, message) => {
+		// setTrue();
+		dispatch({
+			type: EDIT_MESSAGE,
+			payload: { id, message }
+		});
+	};
+
 	const setTitle = (title) => {
 		dispatch({
 			type: SET_TITLE,
@@ -79,8 +109,15 @@ const PostState = (props) => {
 		} else {
 			return posts.map((item) => (
 				<div key={item._id} className="blog-post__display">
-					<h3>{item.title}</h3>
-					<p>{item.body}</p>
+					<div className="blog-post-message">
+						<h3>{item.title}</h3>
+						<p>{item.body}</p>
+					</div>
+
+					<div className="item-buttons">
+						<button onClick={() => deleteItem(item._id)}>Ta bort</button>
+						<button onClick={() => setEditItem(item._id, item.message)}>Ändra</button>
+					</div>
 				</div>
 			));
 		}
@@ -95,7 +132,8 @@ const PostState = (props) => {
 				handleSubmit,
 				displayPosts,
 				setTitle,
-				setBody
+				setBody,
+				updateItem
 			}}
 		>
 			{props.children}
