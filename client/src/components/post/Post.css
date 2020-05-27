@@ -2,6 +2,10 @@
 	padding: 10px;
 }
 
+.post-form h2 {
+	margin: 5px 12px;
+}
+
 .post-form button {
 	background-color: #007bff;
 	color: #fff;
