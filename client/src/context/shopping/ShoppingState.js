@@ -13,6 +13,7 @@ const ShoppingState = (props) => {
 
 	const [ state, dispatch ] = useReducer(shoppingReducer, initialState);
 	const todoContext = useContext(TodoContext);
+
 	const { setTrue, setFalse, clearMessage } = todoContext;
 
 	const getShoppingList = async (data) => {

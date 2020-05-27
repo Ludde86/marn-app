@@ -18,3 +18,5 @@ export const EDIT_MESSAGE = 'EDIT_MESSAGE';
 export const SET_TITLE = 'SET_TITLE';
 export const SET_BODY = 'SET_BODY';
 export const SET_POSTS = 'SET_POSTS';
+export const CLEAR_TITLE = 'CLEAR_TITLE';
+export const CLEAR_BODY = 'CLEAR_BODY';

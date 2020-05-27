@@ -1,17 +1,21 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useContext } from 'react';
 import axios from 'axios';
 import PostContext from './postContext';
 import postReducer from './postReducer';
-import { SET_TITLE, SET_BODY, SET_POSTS } from '../types';
+import { SET_TITLE, SET_BODY, SET_POSTS, EDIT_MESSAGE, CLEAR_TITLE, CLEAR_BODY } from '../types';
+import TodoContext from '../todo/todoContext';
 
 const PostState = (props) => {
 	const initialState = {
 		title: '',
 		body: '',
-		posts: []
+		posts: [],
+		editMessage: ''
 	};
 
 	const [ state, dispatch ] = useReducer(postReducer, initialState);
+	const todoContext = useContext(TodoContext);
+	const { setTrue, setFalse } = todoContext;
 
 	useEffect(() => {
 		getPosts();
@@ -52,6 +56,36 @@ const PostState = (props) => {
 			.catch((err) => console.log('Somethin went wrong, when fetching data'));
 	};
 
+	const deleteItem = async (id) => {
+		try {
+			await axios.delete(`/api/deletePost/${id}`);
+			getPosts();
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const updateItem = async (e, id, title, body) => {
+		try {
+			e.preventDefault();
+			await axios.put(`/api/putPost/${id}`, { update: { title, body } });
+			setFalse();
+			clearTitle();
+			clearBody();
+			getPosts();
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const setEditItem = (id, title, body) => {
+		setTrue();
+		dispatch({
+			type: EDIT_MESSAGE,
+			payload: { id, title, body }
+		});
+	};
+
 	const setTitle = (title) => {
 		dispatch({
 			type: SET_TITLE,
@@ -66,24 +100,23 @@ const PostState = (props) => {
 		});
 	};
 
+	const clearTitle = () => {
+		dispatch({
+			type: CLEAR_TITLE
+		});
+	};
+
+	const clearBody = () => {
+		dispatch({
+			type: CLEAR_BODY
+		});
+	};
+
 	const setPosts = (data) => {
 		dispatch({
 			type: SET_POSTS,
 			payload: data
 		});
-	};
-
-	const displayPosts = (posts) => {
-		if (!posts.length) {
-			return null;
-		} else {
-			return posts.map((item) => (
-				<div key={item._id} className="blog-post__display">
-					<h3>{item.title}</h3>
-					<p>{item.body}</p>
-				</div>
-			));
-		}
 	};
 
 	return (
@@ -92,10 +125,15 @@ const PostState = (props) => {
 				title: state.title,
 				body: state.body,
 				posts: state.posts,
+				editMessage: state.editMessage,
 				handleSubmit,
-				displayPosts,
 				setTitle,
-				setBody
+				setBody,
+				deleteItem,
+				updateItem,
+				setEditItem,
+				clearTitle,
+				clearBody
 			}}
 		>
 			{props.children}
