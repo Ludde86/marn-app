@@ -36,13 +36,36 @@ form {
 	border: 1px solid lightgray;
 	margin: 5px 20px;
 	border-radius: 4px;
-	padding: 10px;
+	padding: 5px;
 	display: flex;
 	justify-content: space-between;
 }
 .blog-post-message {
-	border: 1px solid white;
+	min-width: 85%;
 }
+
+.blog-post-message h3,
+.blog-post-message p {
+	margin: .2rem;
+}
+
 .item-buttons {
-	border: 1px solid white;
+	/* border: 1px solid red; */
+	margin-right: 25px;
+	max-width: 6.41%;
+}
+
+.item-buttons i {
+	/* background-color: #007bff; */
+
+	background-color: #333;
+	color: #fff;
+	padding: .375rem .75rem;
+	margin: .25rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: .25rem;
+	cursor: pointer;
+	outline: none;
+	max-width: 70%;
 }
