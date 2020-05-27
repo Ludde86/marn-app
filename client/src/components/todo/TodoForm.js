@@ -18,17 +18,19 @@ const TodoForm = () => {
 		<div className="todo-form-container">
 			{isEdit ? (
 				<form onSubmit={(e) => updateDB(e, idToUpdate, objectToUpdate)}>
-					<input
-						type="text"
-						onChange={(e) => setObjectToUpdate(idToUpdate, e.target.value)}
-						name="objectToUpdate"
-						value={objectToUpdate}
-						placeholder={objectToUpdate}
-					/>
-					<input type="submit" value="Uppdatera" />
+					<div className="todo-form-submit">
+						<input
+							type="text"
+							onChange={(e) => setObjectToUpdate(idToUpdate, e.target.value)}
+							name="objectToUpdate"
+							value={objectToUpdate}
+							placeholder={objectToUpdate}
+						/>
+						<input className="update-todo-btn" type="submit" value="Uppdatera" />
+					</div>
 				</form>
 			) : (
-				<form onSubmit={(e) => putDataToDB(e, message)}>
+				<form>
 					<div className="todo-form-submit">
 						<input
 							type="text"
@@ -37,7 +39,7 @@ const TodoForm = () => {
 							value={message}
 							placeholder="Lägg till att göra"
 						/>
-						<i class="fas fa-plus" />
+						<i class="fas fa-plus" onClick={(e) => putDataToDB(e, message)} />
 					</div>
 				</form>
 			)}
