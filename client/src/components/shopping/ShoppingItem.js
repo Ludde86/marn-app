@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import ShoppingContext from '../../context/shopping/shoppingContext';
-// import TodoContext from '../../context/todo/todoContext';
 
 const ShoppingItem = ({ item }) => {
 	const shoppingContext = useContext(ShoppingContext);
@@ -10,9 +9,13 @@ const ShoppingItem = ({ item }) => {
 		<li className="item-container">
 			<span className="item-message">{item.message}</span>
 
-			<span className="item-buttons">
-				<button onClick={() => deleteItem(item._id)}>Ta bort</button>
-				<button onClick={() => setEditItem(item._id, item.message)}>Ändra</button>
+			<span>
+				<button onClick={() => deleteItem(item._id)}>
+					<i className="far fa-trash-alt" />
+				</button>
+				<button onClick={() => setEditItem(item._id, item.message)}>
+					<i className="fas fa-pencil-alt" />
+				</button>
 			</span>
 		</li>
 	);
