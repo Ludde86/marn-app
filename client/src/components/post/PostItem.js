@@ -16,8 +16,12 @@ const PostItem = () => {
 						</div>
 
 						<div className="item-buttons">
-							<button onClick={() => deleteItem(item._id)}>Ta bort</button>
-							<button onClick={() => setEditItem(item._id, item.title, item.body)}>Ändra</button>
+							<button onClick={() => deleteItem(item._id)}>
+								<i className="far fa-trash-alt" />
+							</button>
+							<button onClick={() => setEditItem(item._id, item.title, item.body)}>
+								<i className="fas fa-pencil-alt" />
+							</button>
 						</div>
 					</div>
 				))

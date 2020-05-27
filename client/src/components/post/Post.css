@@ -21,7 +21,7 @@ form {
 	padding: .375rem .75rem;
 }
 
-button {
+/* button {
 	background-color: #007bff;
 	color: #fff;
 	padding: .375rem .75rem;
@@ -30,7 +30,7 @@ button {
 	border-radius: .25rem;
 	cursor: pointer;
 	outline: none;
-}
+} */
 
 .blog-post__display {
 	border: 1px solid lightgray;
