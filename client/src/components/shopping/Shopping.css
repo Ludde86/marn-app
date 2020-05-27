@@ -6,7 +6,7 @@
 }
 
 .shopping-title {
-	margin: 5px;
+	margin: 12px;
 }
 
 .form-container {
@@ -14,11 +14,18 @@
 	margin: 5px;
 }
 
+.form-input-submit {
+	/* border: 1px solid red; */
+	display: flex;
+	width: 91%;
+	margin: auto;
+}
+
 .input-field {
-	width: 84.6%;
+	width: 70%;
 }
 .input-submit {
-	width: 44.8%;
+	width: 30%;
 }
 
 .list-container {
@@ -26,17 +33,24 @@
 	min-height: 450px;
 	list-style-type: none;
 	margin: 5px;
-	padding: 0;
+	padding: 10px;
 }
 
 .item-container {
+	max-width: 100%;
 	margin: 3px;
 	display: flex;
 	justify-content: space-between;
 }
 
+.item-container i {
+	margin: 5px;
+	cursor: pointer;
+}
+
 .item-message {
 	width: 75%;
+	word-wrap: break-word;
 }
 
 .item-buttons {

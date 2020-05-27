@@ -7,6 +7,7 @@ import ShoppingState from './context/shopping/ShoppingState';
 import './App.css';
 import './components/shopping/Shopping.css';
 import './components/post/Post.css';
+import './components/todo/Todo.css';
 
 import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';

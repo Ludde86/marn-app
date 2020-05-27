@@ -1,15 +1,3 @@
-.todo-item-content {
-	display: flex;
-}
-
-.todo-message {
-	width: 75%;
-}
-
-.del-upd-buttons {
-	width: 25%;
-}
-
 .navbar-container {
 	background-color: white;
 	border-bottom: 3px solid black;

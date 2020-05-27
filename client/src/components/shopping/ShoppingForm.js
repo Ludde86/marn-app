@@ -11,7 +11,7 @@ const ShoppingForm = () => {
 	return (
 		<div className="form-container">
 			{isEdit ? (
-				<form onSubmit={(e) => updateItem(e, editItem.id, editItem.message)}>
+				<form className="form-input-submit" onSubmit={(e) => updateItem(e, editItem.id, editItem.message)}>
 					<input
 						className="input-field"
 						type="text"
@@ -23,7 +23,7 @@ const ShoppingForm = () => {
 					<input className="input-submit" type="submit" value="Uppdatera" />
 				</form>
 			) : (
-				<form onSubmit={(e) => addShoppingItem(e, message)}>
+				<form className="form-input-submit" onSubmit={(e) => addShoppingItem(e, message)}>
 					<input
 						className="input-field"
 						type="text"

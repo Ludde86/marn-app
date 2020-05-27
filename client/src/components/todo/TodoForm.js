@@ -29,14 +29,16 @@ const TodoForm = () => {
 				</form>
 			) : (
 				<form onSubmit={(e) => putDataToDB(e, message)}>
-					<input
-						type="text"
-						onChange={(e) => setMessage(e.target.value)}
-						name="message"
-						value={message}
-						placeholder="Lägg till att göra"
-					/>
-					<input type="submit" value="Lägg till" />
+					<div className="todo-form-submit">
+						<input
+							type="text"
+							onChange={(e) => setMessage(e.target.value)}
+							name="message"
+							value={message}
+							placeholder="Lägg till att göra"
+						/>
+						<i class="fas fa-plus" />
+					</div>
 				</form>
 			)}
 		</div>

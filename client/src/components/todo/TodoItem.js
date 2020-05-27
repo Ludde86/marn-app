@@ -7,15 +7,12 @@ const TodoItem = ({ todo }) => {
 	return (
 		<li>
 			<div className="todo-item-content">
-				<div className="todo-message"> {todo.message} </div>
+				<span className="todo-message"> {todo.message} </span>
 
 				<div className="del-upd-buttons">
-					<button onClick={() => deleteFromDB(todo.id)}>
-						<i className="far fa-trash-alt" />
-					</button>
-					<button onClick={() => setObjectToUpdate(todo.id, todo.message)}>
-						<i className="fas fa-pencil-alt" />
-					</button>
+					<i className="far fa-trash-alt" onClick={() => deleteFromDB(todo.id)} />
+
+					<i className="fas fa-pencil-alt" onClick={() => setObjectToUpdate(todo.id, todo.message)} />
 				</div>
 			</div>
 		</li>

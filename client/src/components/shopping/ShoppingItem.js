@@ -10,12 +10,9 @@ const ShoppingItem = ({ item }) => {
 			<span className="item-message">{item.message}</span>
 
 			<span>
-				<button onClick={() => deleteItem(item._id)}>
-					<i className="far fa-trash-alt" />
-				</button>
-				<button onClick={() => setEditItem(item._id, item.message)}>
-					<i className="fas fa-pencil-alt" />
-				</button>
+				<i className="far fa-trash-alt" onClick={() => deleteItem(item._id)} />
+
+				<i className="fas fa-pencil-alt" onClick={() => setEditItem(item._id, item.message)} />
 			</span>
 		</li>
 	);
