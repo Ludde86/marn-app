@@ -49,6 +49,20 @@ router.post('/save', (req, res) => {
 	});
 });
 
+// this function takes in the axios put request items id
+router.put('/putPost/:id', (req, res) => {
+	// the request body = update: {title, body}
+	const { update } = req.body;
+
+	// here we use the id we take in
+	// -> with the blog post model (schema), we find the id with mongoose find method
+	// -> and updat with these updated values
+	BlogPostModel.findByIdAndUpdate(req.params.id, { title: update.title, body: update.body }, (err) => {
+		if (err) return res.json({ success: false, error: err });
+		return res.json({ success: true });
+	});
+});
+
 router.delete('/deletePost/:id', async (req, res) => {
 	await BlogPostModel.findByIdAndRemove(req.params.id, (err) => {
 		if (err) {

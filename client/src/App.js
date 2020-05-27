@@ -20,8 +20,8 @@ const App = () => {
 				<Navbar />
 			</div>
 			<div className="app-container">
-				<PostState>
-					<TodoState>
+				<TodoState>
+					<PostState>
 						<ShoppingState>
 							<Switch>
 								<Route exact path="/" component={Start} />
@@ -29,8 +29,8 @@ const App = () => {
 								<Route exact path="/shopping" component={Shopping} />
 							</Switch>
 						</ShoppingState>
-					</TodoState>
-				</PostState>
+					</PostState>
+				</TodoState>
 			</div>
 		</Router>
 	);

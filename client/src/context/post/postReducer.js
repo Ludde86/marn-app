@@ -1,4 +1,4 @@
-import { SET_TITLE, SET_BODY, SET_POSTS } from '../types';
+import { SET_TITLE, SET_BODY, SET_POSTS, EDIT_MESSAGE, CLEAR_TITLE, CLEAR_BODY } from '../types';
 
 export default (state, action) => {
 	switch (action.type) {
@@ -16,6 +16,21 @@ export default (state, action) => {
 			return {
 				...state,
 				posts: action.payload
+			};
+		case EDIT_MESSAGE:
+			return {
+				...state,
+				editMessage: action.payload
+			};
+		case CLEAR_TITLE:
+			return {
+				...state,
+				title: ''
+			};
+		case CLEAR_BODY:
+			return {
+				...state,
+				body: ''
 			};
 		default:
 			return state;
