@@ -59,6 +59,11 @@ form {
 }
 .blog-post-message {
 	min-width: 85%;
+	cursor: pointer;
+}
+
+.blog-post__display:hover {
+	border: 1px solid gray;
 }
 
 .blog-post-message h3,

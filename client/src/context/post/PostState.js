@@ -2,7 +2,7 @@ import React, { useReducer, useEffect, useContext } from 'react';
 import axios from 'axios';
 import PostContext from './postContext';
 import postReducer from './postReducer';
-import { SET_TITLE, SET_BODY, SET_POSTS, EDIT_MESSAGE, CLEAR_TITLE, CLEAR_BODY } from '../types';
+import { SET_TITLE, SET_BODY, SET_POSTS, EDIT_MESSAGE, CLEAR_TITLE, CLEAR_BODY, SET_POST_CHECKED } from '../types';
 import TodoContext from '../todo/todoContext';
 
 const PostState = (props) => {
@@ -10,7 +10,8 @@ const PostState = (props) => {
 		title: '',
 		body: '',
 		posts: [],
-		editMessage: ''
+		editMessage: '',
+		postChecked: undefined
 	};
 
 	const [ state, dispatch ] = useReducer(postReducer, initialState);
@@ -22,7 +23,7 @@ const PostState = (props) => {
 		// eslint-disable-next-line
 	}, []);
 
-	const { title, body } = state;
+	const { title, body, postChecked } = state;
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -78,6 +79,15 @@ const PostState = (props) => {
 		}
 	};
 
+	const handeIsChecked = (id) => {
+		console.log(postChecked);
+		if (postChecked === undefined) {
+			setPostChecked(id);
+		} else {
+			setPostChecked(undefined);
+		}
+	};
+
 	const setEditItem = (id, title, body) => {
 		setTrue();
 		dispatch({
@@ -119,6 +129,13 @@ const PostState = (props) => {
 		});
 	};
 
+	const setPostChecked = (id) => {
+		dispatch({
+			type: SET_POST_CHECKED,
+			payload: id
+		});
+	};
+
 	return (
 		<PostContext.Provider
 			value={{
@@ -126,6 +143,7 @@ const PostState = (props) => {
 				body: state.body,
 				posts: state.posts,
 				editMessage: state.editMessage,
+				postChecked: state.postChecked,
 				handleSubmit,
 				setTitle,
 				setBody,
@@ -133,7 +151,8 @@ const PostState = (props) => {
 				updateItem,
 				setEditItem,
 				clearTitle,
-				clearBody
+				clearBody,
+				handeIsChecked
 			}}
 		>
 			{props.children}

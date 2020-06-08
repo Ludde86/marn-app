@@ -3,17 +3,7 @@ import PostContext from '../../context/post/postContext';
 
 const PostItem = () => {
 	const postContext = useContext(PostContext);
-	const { posts, deleteItem, setEditItem } = postContext;
-
-	const [ selectedPost, setSelectedPost ] = useState(undefined);
-
-	const handeIsChecked = (id) => {
-		if (selectedPost === undefined) {
-			setSelectedPost(id);
-		} else {
-			setSelectedPost(undefined);
-		}
-	};
+	const { posts, deleteItem, setEditItem, postChecked, handeIsChecked } = postContext;
 
 	return (
 		<div className="blog-post">
@@ -22,7 +12,7 @@ const PostItem = () => {
 					<div key={item._id} className="blog-post__display">
 						<div
 							className="blog-post-message"
-							style={item._id === selectedPost ? { textDecoration: 'line-through', color: 'gray' } : null}
+							style={item._id === postChecked ? { textDecoration: 'line-through', color: 'gray' } : null}
 							onClick={() => handeIsChecked(item._id)}
 						>
 							<h3>{item.title}</h3>
