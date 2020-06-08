@@ -39,7 +39,7 @@ const TodoForm = () => {
 							value={message}
 							placeholder="Lägg till att göra"
 						/>
-						<i class="fas fa-plus" onClick={(e) => putDataToDB(e, message)} />
+						<i className="fas fa-plus" onClick={(e) => putDataToDB(e, message)} />
 					</div>
 				</form>
 			)}
