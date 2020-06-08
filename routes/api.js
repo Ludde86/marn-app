@@ -63,6 +63,39 @@ router.put('/putPost/:id', (req, res) => {
 	});
 });
 
+router.put('/putTodoChecked/:id', (req, res) => {
+	// the request body = update: {title, body, isChecked}
+	const { update } = req.body;
+
+	Data.findByIdAndUpdate(req.params.id, { isChecked: update }, (err) => {
+		if (err) return res.json({ success: false, error: err });
+		return res.json({ success: true });
+	});
+});
+
+router.put('/putShoppingChecked/:id', (req, res) => {
+	// the request body = update: {title, body, isChecked}
+	const { update } = req.body;
+
+	Shopping.findByIdAndUpdate(req.params.id, { isChecked: update }, (err) => {
+		if (err) return res.json({ success: false, error: err });
+		return res.json({ success: true });
+	});
+});
+
+router.put('/putPostChecked/:id', (req, res) => {
+	// the request body = update: {title, body, isChecked}
+	const { update } = req.body;
+
+	// here we use the id we take in
+	// -> with the blog post model (schema), we find the id with mongoose find method
+	// -> and updat with these updated values
+	BlogPostModel.findByIdAndUpdate(req.params.id, { isChecked: update }, (err) => {
+		if (err) return res.json({ success: false, error: err });
+		return res.json({ success: true });
+	});
+});
+
 router.delete('/deletePost/:id', async (req, res) => {
 	await BlogPostModel.findByIdAndRemove(req.params.id, (err) => {
 		if (err) {

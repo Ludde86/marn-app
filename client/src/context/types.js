@@ -20,5 +20,3 @@ export const SET_BODY = 'SET_BODY';
 export const SET_POSTS = 'SET_POSTS';
 export const CLEAR_TITLE = 'CLEAR_TITLE';
 export const CLEAR_BODY = 'CLEAR_BODY';
-
-export const SET_POST_CHECKED = 'SET_POST_CHECKED';

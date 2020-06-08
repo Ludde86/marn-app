@@ -1,4 +1,4 @@
-import { SET_TITLE, SET_BODY, SET_POSTS, EDIT_MESSAGE, CLEAR_TITLE, CLEAR_BODY, SET_POST_CHECKED } from '../types';
+import { SET_TITLE, SET_BODY, SET_POSTS, EDIT_MESSAGE, CLEAR_TITLE, CLEAR_BODY } from '../types';
 
 export default (state, action) => {
 	switch (action.type) {
@@ -31,11 +31,6 @@ export default (state, action) => {
 			return {
 				...state,
 				body: ''
-			};
-		case SET_POST_CHECKED:
-			return {
-				...state,
-				postChecked: action.payload
 			};
 		default:
 			return state;

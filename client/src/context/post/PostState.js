@@ -2,7 +2,7 @@ import React, { useReducer, useEffect, useContext } from 'react';
 import axios from 'axios';
 import PostContext from './postContext';
 import postReducer from './postReducer';
-import { SET_TITLE, SET_BODY, SET_POSTS, EDIT_MESSAGE, CLEAR_TITLE, CLEAR_BODY, SET_POST_CHECKED } from '../types';
+import { SET_TITLE, SET_BODY, SET_POSTS, EDIT_MESSAGE, CLEAR_TITLE, CLEAR_BODY } from '../types';
 import TodoContext from '../todo/todoContext';
 
 const PostState = (props) => {
@@ -10,8 +10,7 @@ const PostState = (props) => {
 		title: '',
 		body: '',
 		posts: [],
-		editMessage: '',
-		postChecked: undefined
+		editMessage: ''
 	};
 
 	const [ state, dispatch ] = useReducer(postReducer, initialState);
@@ -23,7 +22,7 @@ const PostState = (props) => {
 		// eslint-disable-next-line
 	}, []);
 
-	const { title, body, postChecked } = state;
+	const { title, body } = state;
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -79,12 +78,19 @@ const PostState = (props) => {
 		}
 	};
 
-	const handeIsChecked = (id) => {
-		console.log(postChecked);
-		if (postChecked === undefined) {
-			setPostChecked(id);
+	const setIsChecked = async (item) => {
+		let isChecked = undefined;
+		if (item.isChecked) {
+			isChecked = false;
 		} else {
-			setPostChecked(undefined);
+			isChecked = true;
+		}
+
+		try {
+			await axios.put(`/api/putPostChecked/${item._id}`, { update: isChecked });
+			getPosts();
+		} catch (error) {
+			console.error(error);
 		}
 	};
 
@@ -129,13 +135,6 @@ const PostState = (props) => {
 		});
 	};
 
-	const setPostChecked = (id) => {
-		dispatch({
-			type: SET_POST_CHECKED,
-			payload: id
-		});
-	};
-
 	return (
 		<PostContext.Provider
 			value={{
@@ -152,7 +151,7 @@ const PostState = (props) => {
 				setEditItem,
 				clearTitle,
 				clearBody,
-				handeIsChecked
+				setIsChecked
 			}}
 		>
 			{props.children}

@@ -86,6 +86,22 @@ const TodoState = (props) => {
 		setFalse();
 	};
 
+	const setIsChecked = async (item) => {
+		let isChecked = undefined;
+		if (item.isChecked) {
+			isChecked = false;
+		} else {
+			isChecked = true;
+		}
+
+		try {
+			await axios.put(`/api/putTodoChecked/${item._id}`, { update: isChecked });
+			getDataFromDb();
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
 	const setIntervalIsSet = (interval) => {
 		dispatch({
 			type: SET_INTERVAL,
@@ -155,7 +171,8 @@ const TodoState = (props) => {
 				setIntervalIsSet,
 				setTrue,
 				setFalse,
-				clearMessage
+				clearMessage,
+				setIsChecked
 			}}
 		>
 			{props.children}

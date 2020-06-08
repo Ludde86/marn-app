@@ -41,6 +41,12 @@
 	margin: 3px;
 	display: flex;
 	justify-content: space-between;
+	cursor: pointer;
+}
+
+.item-message:hover {
+	background: lightgray;
+	border-radius: 3px;
 }
 
 .item-container i {

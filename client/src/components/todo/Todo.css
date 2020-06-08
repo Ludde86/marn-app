@@ -40,6 +40,12 @@
 	float: left;
 }
 
+.todo-message:hover {
+	cursor: pointer;
+	background: lightgray;
+	border-radius: 3px;
+}
+
 .del-upd-buttons {
 	width: 27%;
 	margin: 0;
