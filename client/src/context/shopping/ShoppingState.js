@@ -69,6 +69,22 @@ const ShoppingState = (props) => {
 		});
 	};
 
+	const setIsChecked = async (item) => {
+		let isChecked = undefined;
+		if (item.isChecked) {
+			isChecked = false;
+		} else {
+			isChecked = true;
+		}
+
+		try {
+			await axios.put(`/api/putShoppingChecked/${item._id}`, { update: isChecked });
+			getShoppingList();
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
 	return (
 		<ShoppingContext.Provider
 			value={{
@@ -79,7 +95,8 @@ const ShoppingState = (props) => {
 				addShoppingItem,
 				deleteItem,
 				updateItem,
-				setEditItem
+				setEditItem,
+				setIsChecked
 			}}
 		>
 			{props.children}

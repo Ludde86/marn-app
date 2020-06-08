@@ -3,11 +3,18 @@ import TodoContext from '../../context/todo/todoContext';
 
 const TodoItem = ({ todo }) => {
 	const todoContext = useContext(TodoContext);
-	const { deleteFromDB, setObjectToUpdate } = todoContext;
+	const { deleteFromDB, setObjectToUpdate, setIsChecked } = todoContext;
+
 	return (
 		<li>
-			<div className="todo-item-content">
-				<span className="todo-message"> {todo.message} </span>
+			<div className="todo-item-content" onClick={() => setIsChecked(todo)}>
+				<span
+					className="todo-message"
+					style={todo.isChecked ? { textDecoration: 'line-through', color: 'lightgrey' } : null}
+				>
+					{' '}
+					{todo.message}{' '}
+				</span>
 
 				<div className="del-upd-buttons">
 					<i className="far fa-trash-alt" onClick={() => deleteFromDB(todo.id)} />

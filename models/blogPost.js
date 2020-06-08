@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 const BlogPostSchema = new Schema({
 	title: String,
 	body: String,
+	isChecked: {
+		type: Boolean,
+		default: false
+	},
 	date: {
 		type: String,
 		default: Date.now()

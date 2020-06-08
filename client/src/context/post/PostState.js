@@ -78,6 +78,22 @@ const PostState = (props) => {
 		}
 	};
 
+	const setIsChecked = async (item) => {
+		let isChecked = undefined;
+		if (item.isChecked) {
+			isChecked = false;
+		} else {
+			isChecked = true;
+		}
+
+		try {
+			await axios.put(`/api/putPostChecked/${item._id}`, { update: isChecked });
+			getPosts();
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
 	const setEditItem = (id, title, body) => {
 		setTrue();
 		dispatch({
@@ -126,6 +142,7 @@ const PostState = (props) => {
 				body: state.body,
 				posts: state.posts,
 				editMessage: state.editMessage,
+				postChecked: state.postChecked,
 				handleSubmit,
 				setTitle,
 				setBody,
@@ -133,7 +150,8 @@ const PostState = (props) => {
 				updateItem,
 				setEditItem,
 				clearTitle,
-				clearBody
+				clearBody,
+				setIsChecked
 			}}
 		>
 			{props.children}

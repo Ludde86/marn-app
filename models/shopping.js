@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 const ShoppingSchema = new Schema(
 	{
-		message: String
+		message: String,
+		isChecked: {
+			type: Boolean,
+			default: false
+		}
 	},
 	{
 		timestamps: true

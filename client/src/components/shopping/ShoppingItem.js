@@ -3,11 +3,16 @@ import ShoppingContext from '../../context/shopping/shoppingContext';
 
 const ShoppingItem = ({ item }) => {
 	const shoppingContext = useContext(ShoppingContext);
-	const { deleteItem, setEditItem } = shoppingContext;
+	const { deleteItem, setEditItem, setIsChecked } = shoppingContext;
 
 	return (
-		<li className="item-container">
-			<span className="item-message">{item.message}</span>
+		<li className="item-container" onClick={() => setIsChecked(item)}>
+			<span
+				className="item-message"
+				style={item.isChecked ? { textDecoration: 'line-through', color: 'grey' } : null}
+			>
+				{item.message}
+			</span>
 
 			<span>
 				<i className="far fa-trash-alt" onClick={() => deleteItem(item._id)} />
