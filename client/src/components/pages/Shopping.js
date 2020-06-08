@@ -5,7 +5,7 @@ import ShoppingList from '../shopping/ShoppingList';
 const Shopping = () => {
 	return (
 		<div className="shopping-container">
-			<h3 className="shopping-title">Shopping List</h3>
+			<h3 className="shopping-title">Inköpslista</h3>
 			<ShoppingForm />
 			<ShoppingList />
 		</div>

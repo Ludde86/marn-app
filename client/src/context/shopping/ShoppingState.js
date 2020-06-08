@@ -50,6 +50,10 @@ const ShoppingState = (props) => {
 		}
 	};
 
+	const clearShoppingList = async () => {
+		await axios.delete('/api/clearShopping', { data: {} });
+	};
+
 	const updateItem = async (e, id, message) => {
 		try {
 			e.preventDefault();
@@ -96,7 +100,8 @@ const ShoppingState = (props) => {
 				deleteItem,
 				updateItem,
 				setEditItem,
-				setIsChecked
+				setIsChecked,
+				clearShoppingList
 			}}
 		>
 			{props.children}
