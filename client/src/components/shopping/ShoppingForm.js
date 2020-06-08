@@ -5,7 +5,7 @@ import TodoContext from '../../context/todo/todoContext';
 const ShoppingForm = () => {
 	const shoppingContext = useContext(ShoppingContext);
 	const todoContext = useContext(TodoContext);
-	const { addShoppingItem, updateItem, editItem, setEditItem } = shoppingContext;
+	const { addShoppingItem, updateItem, editItem, setEditItem, clearShoppingList } = shoppingContext;
 	const { message, setMessage, isEdit } = todoContext;
 
 	return (
@@ -32,7 +32,10 @@ const ShoppingForm = () => {
 						placeholder="Lägg till att handla..."
 						onChange={(e) => setMessage(e.target.value)}
 					/>
-					<input className="input-submit" type="submit" value="Lägg till" />
+					<input className="input-submit" type="submit" value="Lägg Till" />
+					<button className="clear-button" onClick={clearShoppingList}>
+						Rensa
+					</button>
 				</form>
 			)}
 		</div>

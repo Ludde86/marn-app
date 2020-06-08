@@ -26,6 +26,29 @@
 }
 .input-submit {
 	width: 30%;
+	background: #4caf50;
+	border: none;
+}
+
+.input-submit:hover {
+	background: #228b22;
+}
+
+.input-submit:active {
+	background: #006400;
+}
+
+.clear-button {
+	background: #cd5c5c;
+	border: none;
+}
+
+.clear-button:hover {
+	background: #b22222;
+}
+
+.clear-button:active {
+	background: #8b0000;
 }
 
 .list-container {
@@ -44,10 +67,10 @@
 	cursor: pointer;
 }
 
-.item-message:hover {
+/* .item-message:hover {
 	background: lightgray;
 	border-radius: 3px;
-}
+} */
 
 .item-container i {
 	margin: 5px;

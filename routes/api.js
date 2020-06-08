@@ -194,6 +194,16 @@ router.delete('/deleteShopping/:id', async (req, res) => {
 	});
 });
 
+router.delete('/clearShopping', async (req, res) => {
+	await Shopping.deleteMany({}, (err) => {
+		if (err) {
+			return res.send(err);
+		} else {
+			return res.json({ success: true });
+		}
+	});
+});
+
 router.put('/putShopping/:id', async (req, res) => {
 	try {
 		// in put request, we pass this updated message
