@@ -43,7 +43,7 @@ const PostForm = () => {
 						autoComplete="off"
 						type="text"
 						name="title"
-						placeholder="Förbättring"
+						placeholder="Förbättring..."
 						value={title}
 						onChange={(e) => setTitle(e.target.value)}
 					/>
@@ -51,7 +51,7 @@ const PostForm = () => {
 				<div className="form-input">
 					<textarea
 						name="body"
-						placeholder="Beskrivning"
+						placeholder="Beskrivning..."
 						value={body}
 						cols="30"
 						rows="10"
