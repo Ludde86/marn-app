@@ -4,7 +4,7 @@ import TodoContext from '../../context/todo/todoContext';
 
 const PostForm = () => {
 	const postContext = useContext(PostContext);
-	const { title, body, handleSubmit, setTitle, setBody, editMessage, updateItem } = postContext;
+	const { title, body, handleSubmit, setTitle, setBody, editMessage, updateItem, setEditItem } = postContext;
 
 	const todoContext = useContext(TodoContext);
 	const { isEdit } = todoContext;
@@ -12,25 +12,23 @@ const PostForm = () => {
 	return isEdit ? (
 		<div className="post-form">
 			<h2>Uppdatera förslag: </h2>
-			<form onSubmit={(e) => updateItem(e, editMessage.id, title, body)}>
+			<form onSubmit={(e) => updateItem(e, editMessage.id, editMessage.title, editMessage.body)}>
 				<div className="form-input">
 					<input
 						autoComplete="off"
 						type="text"
 						name="title"
-						placeholder={editMessage.title}
-						value={title}
-						onChange={(e) => setTitle(e.target.value)}
+						value={editMessage.title}
+						onChange={(e) => setEditItem(editMessage.id, e.target.value, editMessage.body)}
 					/>
 				</div>
 				<div className="form-input">
 					<textarea
 						name="body"
-						placeholder={editMessage.body}
-						value={body}
+						value={editMessage.body}
 						cols="30"
 						rows="10"
-						onChange={(e) => setBody(e.target.value)}
+						onChange={(e) => setEditItem(editMessage.id, editMessage.title, e.target.value)}
 					/>
 				</div>
 				<button type="submit">Uppdatera</button>
