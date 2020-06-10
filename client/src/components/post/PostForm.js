@@ -51,7 +51,7 @@ const PostForm = () => {
 				<div className="form-input">
 					<textarea
 						name="body"
-						placeholder="Meddelande"
+						placeholder="Beskrivning"
 						value={body}
 						cols="30"
 						rows="10"
