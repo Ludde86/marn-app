@@ -235,14 +235,14 @@ router.post('/postUser', (req, res) => {
 // @route	GET api/getAuth
 // @desc	Get logged in user
 // @access 	Private
-router.get('/getAuth', (res, res) => {
+router.get('/getAuth', (req, res) => {
 	res.send('Get logged in user');
-})
+});
 
 // @route	POST api/postAuth
 // @desc	Auth user & get token
 // @access	Private
-router.post('/postAuth', (res, res) => {
+router.post('/postAuth', (req, res) => {
 	res.send('Log in user');
 });
 
