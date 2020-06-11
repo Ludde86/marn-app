@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
+const { check, validationResult } = require('express-validator/check');
+
 const BlogPostModel = require('../models/blogPost');
 const Data = require('../models/data');
 const Shopping = require('../models/shopping');
@@ -226,6 +228,7 @@ router.put('/putShopping/:id', async (req, res) => {
 // @access 	Public
 router.post('/postUser', (req, res) => {
 	res.send('Register a user');
+	// res.send(req.body);
 });
 
 //
