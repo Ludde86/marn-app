@@ -5,6 +5,7 @@ const router = express.Router();
 const BlogPostModel = require('../models/blogPost');
 const Data = require('../models/data');
 const Shopping = require('../models/shopping');
+const User = require('../models/user');
 
 // define routes for GET requests
 // -> set this route to start with /api
@@ -215,5 +216,20 @@ router.put('/putShopping/:id', async (req, res) => {
 		console.error(error);
 	}
 });
+
+//
+// User API
+//
+
+// @route POST api/postUser
+// @desc Register a user
+// @access Public
+router.post('/postUser', (req, res) => {
+	res.send('Register a user');
+});
+
+//
+// Auth API
+//
 
 module.exports = router;
