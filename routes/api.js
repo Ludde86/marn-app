@@ -221,9 +221,9 @@ router.put('/putShopping/:id', async (req, res) => {
 // User API
 //
 
-// @route POST api/postUser
-// @desc Register a user
-// @access Public
+// @route	POST api/postUser
+// @desc 	Register a user
+// @access 	Public
 router.post('/postUser', (req, res) => {
 	res.send('Register a user');
 });
@@ -231,5 +231,19 @@ router.post('/postUser', (req, res) => {
 //
 // Auth API
 //
+
+// @route	GET api/getAuth
+// @desc	Get logged in user
+// @access 	Private
+router.get('/getAuth', (res, res) => {
+	res.send('Get logged in user');
+})
+
+// @route	POST api/postAuth
+// @desc	Auth user & get token
+// @access	Private
+router.post('/postAuth', (res, res) => {
+	res.send('Log in user');
+});
 
 module.exports = router;
