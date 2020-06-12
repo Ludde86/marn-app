@@ -4,6 +4,7 @@ const router = express.Router();
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const auth = require('../middleware/auth');
 // const { check, validationResult } = require('express-validator/check');
 
 const BlogPostModel = require('../models/blogPost');
@@ -288,8 +289,20 @@ router.post('/postUser', async (req, res) => {
 // @route	GET api/getAuth
 // @desc	Get logged in user
 // @access 	Private
-router.get('/getAuth', (req, res) => {
-	res.send('Get logged in user');
+router.get('/getAuth', auth, async (req, res) => {
+	// res.send('Get logged in user');
+	try {
+		// get the user from the database
+		// if we send the correct token, and we are logged in
+		// -> this request object (req) is gonna have a user object attached to it,
+		// -> whit the current logged in users id
+		// the data we return, its going to get the user data, and we dont want to return the password
+		const user = await User.findById(req.user.id).select('-password');
+		res.json(user);
+	} catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server Error - Login');
+	}
 });
 
 // @route	POST api/postAuth
