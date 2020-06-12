@@ -21,7 +21,7 @@ const ShoppingState = (props) => {
 			const res = await axios.get('/api/getShopping');
 			dispatch({
 				type: GET_SHOPPINGLIST,
-				payload: res.data.data
+				payload: res.data
 			});
 		} catch (error) {
 			console.error(error);

@@ -27,11 +27,11 @@ if (localStorage.token) {
 const App = () => {
 	return (
 		<Router>
-			<div className="navbar-container">
-				<Navbar />
-			</div>
-			<div className="app-container">
-				<AuthState>
+			<AuthState>
+				<div className="navbar-container">
+					<Navbar />
+				</div>
+				<div className="app-container">
 					<TodoState>
 						<PostState>
 							<ShoppingState>
@@ -45,8 +45,8 @@ const App = () => {
 							</ShoppingState>
 						</PostState>
 					</TodoState>
-				</AuthState>
-			</div>
+				</div>
+			</AuthState>
 		</Router>
 	);
 };
