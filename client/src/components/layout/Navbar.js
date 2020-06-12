@@ -4,7 +4,7 @@ import AuthContext from '../../context/auth/authContext';
 
 const Navbar = () => {
 	const authContext = useContext(AuthContext);
-	const { isAuthenticated, logout, user } = authContext;
+	const { isAuthenticated, logout } = authContext;
 
 	// const authLinks = (
 	// 	<Fragment>
@@ -71,6 +71,10 @@ const Navbar = () => {
 	// 	}
 	// ]);
 
+	const onLogout = () => {
+		logout();
+	};
+
 	return (
 		<div className="navbar-list">
 			{isAuthenticated ? (
@@ -82,6 +86,9 @@ const Navbar = () => {
 							</li>
 						</div>
 					))}
+					<div>
+						<button onClick={onLogout}>Logga ut</button>
+					</div>
 				</div>
 			) : (
 				<div>

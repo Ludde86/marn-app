@@ -3,7 +3,7 @@ import axios from 'axios';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
 import setAuthToken from '../../utils/setAuthToken';
-import { REGISTER_SUCCESS, REGISTER_FAIL, GET_USER, AUTH_FAIL, LOGIN_SUCCESS, LOGIN_FAIL } from '../types';
+import { REGISTER_SUCCESS, REGISTER_FAIL, GET_USER, AUTH_FAIL, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from '../types';
 
 const AuthState = (props) => {
 	const initialState = {
@@ -98,6 +98,11 @@ const AuthState = (props) => {
 	};
 
 	// Logout User -> Destroy the Token, and clear things up
+	const logout = () => {
+		dispatch({
+			type: LOGOUT
+		});
+	};
 
 	// Clear Errors
 
@@ -110,7 +115,8 @@ const AuthState = (props) => {
 				error: state.error,
 				register,
 				loadUser,
-				login
+				login,
+				logout
 			}}
 		>
 			{props.children}
