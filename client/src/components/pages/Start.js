@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import PostForm from '../post/PostForm';
 import PostList from '../post/PostList';
 import AuthContext from '../../context/auth/authContext';
+import LoginPage from './LoginPage';
 
 const Start = () => {
 	const authContext = useContext(AuthContext);
@@ -15,8 +16,9 @@ const Start = () => {
 
 	return (
 		<div>
-			<PostForm />
-			<PostList />
+			{/*<PostForm />
+			<PostList />*/}
+			<LoginPage />
 		</div>
 	);
 };

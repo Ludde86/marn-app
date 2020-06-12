@@ -1,6 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import AuthContext from '../../context/auth/authContext';
 
-const Login = () => {
+const Login = (props) => {
+	const authContext = useContext(AuthContext);
+	const { login, isAuthenticated } = authContext;
+
+	// useEffect for errors (validation in form)
+	// redirect if register success
+	useEffect(
+		() => {
+			if (isAuthenticated) {
+				props.history.push('/');
+			}
+		},
+		// eslint-disable-next-line
+		[ isAuthenticated, props.history ]
+	);
+
 	const [ user, setUser ] = useState({
 		name: '',
 		password: ''
@@ -14,7 +30,10 @@ const Login = () => {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		console.log('Användare Inloggad');
+		login({
+			name,
+			password
+		});
 	};
 
 	return (
