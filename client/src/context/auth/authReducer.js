@@ -1,7 +1,13 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL } from '../types';
+import { REGISTER_SUCCESS, REGISTER_FAIL, GET_USER, AUTH_FAIL } from '../types';
 
 export default (state, action) => {
 	switch (action.type) {
+		case GET_USER:
+			return {
+				...state,
+				isAuthenticated: true,
+				user: action.payload
+			};
 		case REGISTER_SUCCESS:
 			// put the token we get back inside of localStorage
 			// -> (we get the token from this action payload)
@@ -12,7 +18,8 @@ export default (state, action) => {
 				isAuthenticated: true
 			};
 		case REGISTER_FAIL:
-			// if registration fails, we want to remove the token from localStorage
+		case AUTH_FAIL:
+			// if registration or get authentication fails, we want to remove the token from localStorage
 			// -> and clean stuff up
 			localStorage.removeItem('token');
 			return {

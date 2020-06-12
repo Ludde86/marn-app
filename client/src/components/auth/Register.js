@@ -4,6 +4,9 @@ import AuthContext from '../../context/auth/authContext';
 const Register = () => {
 	const authContext = useContext(AuthContext);
 	const { register } = authContext;
+
+	// useEffect for errors (validation in form)
+
 	const [ user, setUser ] = useState({
 		name: '',
 		password: '',

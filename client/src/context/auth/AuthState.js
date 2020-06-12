@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
-import { REGISTER_SUCCESS, REGISTER_FAIL } from '../types';
+import { REGISTER_SUCCESS, REGISTER_FAIL, GET_USER, AUTH_FAIL } from '../types';
 
 const AuthState = (props) => {
 	const initialState = {
@@ -14,7 +14,25 @@ const AuthState = (props) => {
 
 	const [ state, dispatch ] = useReducer(authReducer, initialState);
 
-	// Load User
+	// Load User -> to keep isAuthenticated to true
+	// -> here we set the user state, with GET_USER
+	const loadUser = async () => {
+		// @todo - load token into global headers
+		try {
+			// getAuth checks if its a valid user
+			// in order to make this request, we need a token (its a private route)
+			// -> so we want to store a global header with that token
+			const res = await axios.get('/api/getAuth');
+			dispatch({
+				type: GET_USER,
+				payload: res.data // when we get the user, we will get the users data back
+			});
+		} catch (error) {
+			dispatch({
+				type: AUTH_FAIL
+			});
+		}
+	};
 
 	// Register User -> Generate a Token
 	// -> the data we type in the register form will be passed in here as an object (formData)
