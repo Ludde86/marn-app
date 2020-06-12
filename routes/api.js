@@ -2,7 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
-const { check, validationResult } = require('express-validator/check');
+const bcrypt = require('bcrypt');
+// const { check, validationResult } = require('express-validator/check');
 
 const BlogPostModel = require('../models/blogPost');
 const Data = require('../models/data');
@@ -226,8 +227,33 @@ router.put('/putShopping/:id', async (req, res) => {
 // @route	POST api/postUser
 // @desc 	Register a user
 // @access 	Public
-router.post('/postUser', (req, res) => {
-	res.send('Register a user');
+router.post('/postUser', async (req, res) => {
+	const { name, password } = req.body;
+
+	try {
+		// let user = await User.findOne(name);
+		// if (user) {
+		// 	return res.json({ success: false, error: 'Name already exists' });
+		// }
+
+		user = new User({
+			name,
+			password
+		});
+
+		// encrypt the password
+		const salt = await bcrypt.genSalt(10);
+		user.password = await bcrypt.hash(password, salt);
+
+		await user.save();
+		res.send(req.body);
+		// res.send('User saved');
+	} catch (error) {
+		// return res.json({ success: false, error: error });
+		console.error(error);
+		res.status(500).send('Server Error');
+	}
+	// res.send('Register a user');
 	// res.send(req.body);
 });
 
