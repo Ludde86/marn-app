@@ -289,6 +289,8 @@ router.post('/postUser', async (req, res) => {
 // @route	GET api/getAuth
 // @desc	Get logged in user
 // @access 	Private
+
+// auth (middleware)
 router.get('/getAuth', auth, async (req, res) => {
 	// res.send('Get logged in user');
 	try {
@@ -296,6 +298,7 @@ router.get('/getAuth', auth, async (req, res) => {
 		// if we send the correct token, and we are logged in
 		// -> this request object (req) is gonna have a user object attached to it,
 		// -> whit the current logged in users id
+		// (in the middleware we assign it to req.user)
 		// the data we return, its going to get the user data, and we dont want to return the password
 		const user = await User.findById(req.user.id).select('-password');
 		res.json(user);
