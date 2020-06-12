@@ -3,7 +3,7 @@ import axios from 'axios';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
 import setAuthToken from '../../utils/setAuthToken';
-import { REGISTER_SUCCESS, REGISTER_FAIL, GET_USER, AUTH_FAIL } from '../types';
+import { REGISTER_SUCCESS, REGISTER_FAIL, GET_USER, AUTH_FAIL, LOGIN_SUCCESS, LOGIN_FAIL } from '../types';
 
 const AuthState = (props) => {
 	const initialState = {
@@ -75,6 +75,27 @@ const AuthState = (props) => {
 	};
 
 	// Login User -> Get a Token
+	const login = async (formData) => {
+		const config = {
+			headers: {
+				'Content-Type': 'application(json'
+			}
+		};
+
+		try {
+			const res = await axios.post('/api/postAuth', formData, config);
+			dispatch({
+				type: LOGIN_SUCCESS,
+				payload: res.data
+			});
+			loadUser();
+		} catch (error) {
+			dispatch({
+				type: LOGIN_FAIL,
+				payload: error.respone.data.msg
+			});
+		}
+	};
 
 	// Logout User -> Destroy the Token, and clear things up
 
@@ -88,7 +109,8 @@ const AuthState = (props) => {
 				isAuthenticated: state.isAuthenticated,
 				error: state.error,
 				register,
-				loadUser
+				loadUser,
+				login
 			}}
 		>
 			{props.children}
