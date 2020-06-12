@@ -340,7 +340,8 @@ router.post('/postUser', async (req, res) => {
 	try {
 		let user = await User.findOne({ name });
 		if (user) {
-			return res.json({ success: false, error: 'Name already exists' });
+			// return res.json({ success: false, error: 'Name already exists' });
+			return res.status(400).json({ msg: 'Name already exists' });
 		}
 
 		user = new User({

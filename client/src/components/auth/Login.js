@@ -8,14 +8,24 @@ const Login = () => {
 
 	const { name, password } = user;
 
+	const onChange = (e) => {
+		setUser({ ...user, [e.target.name]: e.target.value });
+	};
+
+	const onSubmit = (e) => {
+		e.preventDefault();
+		console.log('Användare Inloggad');
+	};
+
 	return (
 		<div className="form-container">
 			<h1>Logga In</h1>
-			<form>
+			<form onSubmit={onSubmit}>
 				<label htmlFor="name">Namn</label>
-				<input type="text" name="name" />
+				<input type="text" name="name" value={name} onChange={onChange} />
 				<label htmlFor="password">Lösen</label>
-				<input type="password" name="password" />
+				<input type="password" name="password" value={password} onChange={onChange} />
+				<button type="submit">Logga In</button>
 			</form>
 		</div>
 	);
