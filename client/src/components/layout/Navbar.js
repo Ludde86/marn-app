@@ -16,8 +16,12 @@ const Navbar = () => {
 			page: '/shopping'
 		},
 		{
-			name: 'Register',
+			name: 'Registrera',
 			page: '/register'
+		},
+		{
+			name: 'Logga In',
+			page: '/login'
 		}
 	]);
 

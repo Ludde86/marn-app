@@ -15,6 +15,7 @@ import Start from './components/pages/Start';
 import Shopping from './components/pages/Shopping';
 import AuthState from './context/auth/AuthState';
 import Register from './components/auth/Register';
+import Login from './components/auth/Login';
 
 const App = () => {
 	return (
@@ -32,6 +33,7 @@ const App = () => {
 									<Route exact path="/home" component={Home} />
 									<Route exact path="/shopping" component={Shopping} />
 									<Route exact path="/register" component={Register} />
+									<Route exact path="/login" component={Login} />
 								</Switch>
 							</ShoppingState>
 						</PostState>
