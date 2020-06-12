@@ -17,6 +17,13 @@ import AuthState from './context/auth/AuthState';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 
+import setAuthToken from './utils/setAuthToken';
+
+// we want to load the token each time we run our application
+if (localStorage.token) {
+	setAuthToken(localStorage.token);
+}
+
 const App = () => {
 	return (
 		<Router>

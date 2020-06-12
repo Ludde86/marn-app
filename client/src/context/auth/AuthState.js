@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
+import setAuthToken from '../../utils/setAuthToken';
 import { REGISTER_SUCCESS, REGISTER_FAIL, GET_USER, AUTH_FAIL } from '../types';
 
 const AuthState = (props) => {
@@ -17,7 +18,10 @@ const AuthState = (props) => {
 	// Load User -> to keep isAuthenticated to true
 	// -> here we set the user state, with GET_USER
 	const loadUser = async () => {
-		// @todo - load token into global headers
+		// load token into global headers
+		if (localStorage.token) {
+			setAuthToken(localStorage.token);
+		}
 		try {
 			// getAuth checks if its a valid user
 			// in order to make this request, we need a token (its a private route)
@@ -59,6 +63,8 @@ const AuthState = (props) => {
 				type: REGISTER_SUCCESS,
 				payload: res.data
 			});
+
+			loadUser();
 		} catch (error) {
 			// if an error, the response will be a message we created ('Name already exists')
 			dispatch({
@@ -81,7 +87,8 @@ const AuthState = (props) => {
 				token: state.token,
 				isAuthenticated: state.isAuthenticated,
 				error: state.error,
-				register
+				register,
+				loadUser
 			}}
 		>
 			{props.children}
