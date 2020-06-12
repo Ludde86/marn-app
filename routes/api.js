@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 // const { check, validationResult } = require('express-validator/check');
 
 const BlogPostModel = require('../models/blogPost');
@@ -246,8 +247,31 @@ router.post('/postUser', async (req, res) => {
 		user.password = await bcrypt.hash(password, salt);
 
 		await user.save();
-		res.send(req.body);
+		// res.send(req.body);
 		// res.send('User saved');
+
+		// payload - the object we want to send, in the token
+		// -> we can get specific data based on the users id
+		let payload = {
+			user: {
+				id: user.id
+			}
+		};
+
+		// to generate a token, we have to sign it
+		// -> secret (put in seperate config file)
+		// expiresIn - the time the created token lives (we dont need it)
+		jwt.sign(
+			payload,
+			'secret',
+			{
+				expiresIn: 3600
+			},
+			(err, token) => {
+				if (err) throw err;
+				res.json({ token });
+			}
+		);
 	} catch (error) {
 		// return res.json({ success: false, error: error });
 		console.error(error);
