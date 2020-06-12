@@ -195,22 +195,43 @@ router.get('/getShopping', auth, async (req, res) => {
 	// });
 });
 
-router.post('/postShopping', (req, res) => {
-	let shopping = new Shopping();
+// @route	POST api/postShopping
+// @desc	Add new shopping
+// @access	Private
+router.post('/postShopping', auth, async (req, res) => {
 	const { message } = req.body;
 
-	shopping.message = message;
-	if (!message) {
-		return res.json({ success: false, error: 'INVALID INPUTS' });
-	} else {
-		shopping.save((err, data) => {
-			if (err) {
-				return res.json({ success: false, error: err });
-			} else {
-				return res.json({ success: true, data: data });
-			}
+	try {
+		// req.user.id = the logged in user
+		const newShopping = new Shopping({
+			message,
+			user: req.user.id
 		});
+
+		const shopping = await newShopping.save();
+
+		// return the shopping item to the client
+		res.json(shopping);
+	} catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server Error - When send Shopping to DB');
 	}
+
+	// let shopping = new Shopping();
+	// const { message } = req.body;
+
+	// shopping.message = message;
+	// if (!message) {
+	// 	return res.json({ success: false, error: 'INVALID INPUTS' });
+	// } else {
+	// 	shopping.save((err, data) => {
+	// 		if (err) {
+	// 			return res.json({ success: false, error: err });
+	// 		} else {
+	// 			return res.json({ success: true, data: data });
+	// 		}
+	// 	});
+	// }
 });
 
 router.delete('/deleteShopping/:id', async (req, res) => {
@@ -289,7 +310,7 @@ router.post('/postUser', async (req, res) => {
 			payload,
 			'secret',
 			{
-				expiresIn: 3600
+				expiresIn: 360000
 			},
 			(err, token) => {
 				if (err) throw err;
@@ -359,7 +380,7 @@ router.post('/postAuth', async (req, res) => {
 			}
 		};
 
-		jwt.sign(payload, 'secret', { expiresIn: 3600 }, (err, token) => {
+		jwt.sign(payload, 'secret', { expiresIn: 360000 }, (err, token) => {
 			if (err) throw err;
 			res.json({ token });
 		});
