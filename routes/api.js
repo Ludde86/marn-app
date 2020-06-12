@@ -290,14 +290,31 @@ router.put('/putShopping/:id', auth, async (req, res) => {
 	// }
 });
 
-router.delete('/deleteShopping/:id', async (req, res) => {
-	await Shopping.findByIdAndRemove(req.params.id, (err) => {
-		if (err) {
-			return res.send(err);
-		} else {
-			return res.json({ success: true });
+// @route	DELETE api/deleteShopping/:id
+// @desc	Delete shopping item
+// @access	Private
+router.delete('/deleteShopping/:id', auth, async (req, res) => {
+	try {
+		let shopping = await Shopping.findById(req.params.id);
+
+		if (shopping.user.toString() !== req.user.id) {
+			return res.status(401).json({ msg: 'Not authorized - When deleting Shopping Item' });
 		}
-	});
+
+		await Shopping.findByIdAndRemove(req.params.id);
+		res.json({ msg: 'Contact Removed' });
+	} catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server Error - When deleting Shopping Item');
+	}
+
+	// await Shopping.findByIdAndRemove(req.params.id, (err) => {
+	// 	if (err) {
+	// 		return res.send(err);
+	// 	} else {
+	// 		return res.json({ success: true });
+	// 	}
+	// });
 });
 
 router.delete('/clearShopping', async (req, res) => {
