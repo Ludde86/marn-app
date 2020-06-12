@@ -12,6 +12,10 @@ const Data = require('../models/data');
 const Shopping = require('../models/shopping');
 const User = require('../models/user');
 
+//
+// Posts
+//
+
 // define routes for GET requests
 // -> set this route to start with /api
 router.get('/', (req, res) => {
@@ -68,6 +72,10 @@ router.put('/putPost/:id', (req, res) => {
 		return res.json({ success: true });
 	});
 });
+
+//
+// todos
+//
 
 router.put('/putTodoChecked/:id', (req, res) => {
 	// the request body = update: {title, body, isChecked}
@@ -162,14 +170,29 @@ router.post('/putData', (req, res) => {
 	});
 });
 
-router.get('/getShopping', (req, res) => {
-	Shopping.find((err, data) => {
-		if (err) {
-			return res.json({ success: false, error: err });
-		} else {
-			return res.json({ success: true, data: data });
-		}
-	});
+//
+// shopping
+//
+
+// @route	GET api/getShopping
+// @desc	Get shopping list
+// @access	Private
+router.get('/getShopping', auth, async (req, res) => {
+	try {
+		const shoppings = await Shopping.find({ user: req.user.id });
+		res.json(shoppings);
+	} catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server Error - When get Shoppinglist');
+	}
+
+	// Shopping.find((err, data) => {
+	// 	if (err) {
+	// 		return res.json({ success: false, error: err });
+	// 	} else {
+	// 		return res.json({ success: true, data: data });
+	// 	}
+	// });
 });
 
 router.post('/postShopping', (req, res) => {
