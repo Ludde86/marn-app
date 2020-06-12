@@ -234,6 +234,62 @@ router.post('/postShopping', auth, async (req, res) => {
 	// }
 });
 
+// @route	PUT api/putShopping
+// @desc	Update shopping
+// @access	Private
+router.put('/putShopping/:id', auth, async (req, res) => {
+	// const { message } = req.body;
+	const { update } = req.body;
+
+	// // build shopping item object
+	// const shoppingFields = {};
+	// if (message) shoppingFields.message = message;
+	try {
+		let shopping = await Shopping.findById(req.params.id);
+		if (!shopping) {
+			return res.status(404).json({ msg: 'Shopping Item not found' });
+		}
+
+		// make sure the user "owns" the shopping, we dont want someone else to update
+		// -> the logged in user is a String (req.user.id),
+		// -> so we need to turn shopping.user into a String to compare
+		if (shopping.user.toString() !== req.user.id) {
+			return res.status(401).json({ msg: 'Not authorized - When updating Shopping Item' });
+		}
+
+		// pass in the shopping item we want to update
+		// (try if the second object passed in works with just the message)
+		shopping = await Shopping.findByIdAndUpdate(
+			req.params.id,
+			// {
+			// 	$set: shoppingFields
+			// }
+			// can we destruct this?
+			{
+				message: update
+			},
+			{
+				new: true
+			}
+		);
+
+		res.json(shopping);
+	} catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server Error - When updating Shopping Item');
+	}
+
+	// try {
+	// 	// in put request, we pass this updated message
+	// 	const { update } = req.body;
+
+	// 	await Shopping.findByIdAndUpdate(req.params.id, { message: update });
+	// 	res.json({ success: true });
+	// } catch (error) {
+	// 	console.error(error);
+	// }
+});
+
 router.delete('/deleteShopping/:id', async (req, res) => {
 	await Shopping.findByIdAndRemove(req.params.id, (err) => {
 		if (err) {
@@ -252,18 +308,6 @@ router.delete('/clearShopping', async (req, res) => {
 			return res.json({ success: true });
 		}
 	});
-});
-
-router.put('/putShopping/:id', async (req, res) => {
-	try {
-		// in put request, we pass this updated message
-		const { update } = req.body;
-
-		await Shopping.findByIdAndUpdate(req.params.id, { message: update });
-		res.json({ success: true });
-	} catch (error) {
-		console.error(error);
-	}
 });
 
 //
