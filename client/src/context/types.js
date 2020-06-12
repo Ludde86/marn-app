@@ -22,4 +22,5 @@ export const CLEAR_TITLE = 'CLEAR_TITLE';
 export const CLEAR_BODY = 'CLEAR_BODY';
 
 // USER
-export const REGISTER = 'REGISTER';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_FAIL = 'REGISTER_FAIL';

@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
+import { REGISTER_SUCCESS, REGISTER_FAIL } from '../types';
 
 const AuthState = (props) => {
 	const initialState = {
@@ -37,7 +38,7 @@ const AuthState = (props) => {
 			// -> and this user will assign (and generate) a token connected with the users id
 			// -> and all this will will respond with the generated token (res.data)
 			dispatch({
-				type: REGISTER,
+				type: REGISTER_SUCCESS,
 				payload: res.data
 			});
 		} catch (error) {
