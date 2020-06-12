@@ -14,6 +14,10 @@ const Navbar = () => {
 		{
 			name: 'Handla',
 			page: '/shopping'
+		},
+		{
+			name: 'Register',
+			page: '/register'
 		}
 	]);
 
