@@ -20,3 +20,12 @@ export const SET_BODY = 'SET_BODY';
 export const SET_POSTS = 'SET_POSTS';
 export const CLEAR_TITLE = 'CLEAR_TITLE';
 export const CLEAR_BODY = 'CLEAR_BODY';
+
+// USER
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_FAIL = 'REGISTER_FAIL';
+export const GET_USER = 'GET_USER';
+export const AUTH_FAIL = 'AUTH_FAIL';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGOUT = 'LOGOUT';

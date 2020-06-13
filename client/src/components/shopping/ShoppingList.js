@@ -17,7 +17,7 @@ const ShoppingList = () => {
 
 	return (
 		<ul className="list-container">
-			{shoppingList.map((item, index) => <ShoppingItem key={index} item={item} />)}
+			{shoppingList.map((item, index) => <ShoppingItem key={item._id} item={item} />)}
 		</ul>
 	);
 };

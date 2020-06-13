@@ -2,11 +2,17 @@
 	background-color: white;
 	border-bottom: 3px solid black;
 	margin-bottom: 50px;
-	height: 75px;
+	/* height: 50px; */
 }
 
 .navbar-container li {
 	list-style: none;
+}
+
+.navbar-container ul {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .navbar-container a {
@@ -19,8 +25,28 @@
 }
 
 .navbar-list {
-	height: 100%;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+	/* background: red; */
+	/* height: 100%; */
+}
+
+.logout-btn {
+}
+
+.logout-btn {
+	background: #00bfff;
+	border: none;
+	cursor: pointer;
+	border: 1px solid black;
+	border-radius: 2px;
+}
+
+.logout-btn:hover {
+	background: #4169e1;
+}
+
+.logout-btn:active {
+	background: #7b68ee;
+}
+.active {
+	font-size: bold;
 }
