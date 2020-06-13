@@ -34,5 +34,6 @@ export default (state, action) => {
 			};
 		default:
 			return state;
+		// throw Error(`Unhandled type: ${action.type}, ${action.payload}`);
 	}
 };

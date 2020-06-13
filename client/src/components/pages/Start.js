@@ -6,7 +6,7 @@ import LoginPage from './LoginPage';
 
 const Start = () => {
 	const authContext = useContext(AuthContext);
-	const { loadUser, isAuthenticated } = authContext;
+	const { loadUser } = authContext;
 
 	// validate and put user into state
 	useEffect(() => {
@@ -16,14 +16,18 @@ const Start = () => {
 
 	return (
 		<div>
-			{isAuthenticated ? (
+			<div>
+				<PostForm />
+				<PostList />
+			</div>
+			{/*{isAuthenticated ? (
 				<div>
 					<PostForm />
 					<PostList />
 				</div>
 			) : (
 				<LoginPage />
-			)}
+			)}*/}
 		</div>
 	);
 };

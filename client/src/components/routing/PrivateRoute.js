@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 
 // destructure - take in a component
-const PriviteRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
 	const authContext = useContext(AuthContext);
 	const { isAuthenticated } = authContext;
 	return (
@@ -12,4 +12,4 @@ const PriviteRoute = ({ component: Component, ...rest }) => {
 	);
 };
 
-export default PriviteRoute;
+export default PrivateRoute;

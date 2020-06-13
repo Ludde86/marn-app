@@ -28,6 +28,9 @@
 	width: 30%;
 	background: #4caf50;
 	border: none;
+	cursor: pointer;
+	border: 1px solid black;
+	border-radius: 2px;
 }
 
 .input-submit:hover {
@@ -41,6 +44,9 @@
 .clear-button {
 	background: #cd5c5c;
 	border: none;
+	cursor: pointer;
+	border: 1px solid black;
+	border-radius: 2px;
 }
 
 .clear-button:hover {

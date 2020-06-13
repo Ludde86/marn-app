@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PostState from './context/post/PostState';
 import TodoState from './context/todo/TodoState';
 import ShoppingState from './context/shopping/ShoppingState';
+import PrivateRoute from './components/routing/PrivateRoute';
 
 import './App.css';
 import './components/shopping/Shopping.css';
@@ -26,17 +27,17 @@ if (localStorage.token) {
 
 const App = () => {
 	return (
-		<Router>
-			<AuthState>
-				<div className="navbar-container">
-					<Navbar />
-				</div>
+		<AuthState>
+			<Router>
 				<div className="app-container">
+					<div className="navbar-container">
+						<Navbar />
+					</div>
 					<TodoState>
 						<PostState>
 							<ShoppingState>
 								<Switch>
-									<Route exact path="/" component={Start} />
+									<PrivateRoute exact path="/" component={Start} />
 									<Route exact path="/home" component={Home} />
 									<Route exact path="/shopping" component={Shopping} />
 									<Route exact path="/register" component={Register} />
@@ -46,8 +47,8 @@ const App = () => {
 						</PostState>
 					</TodoState>
 				</div>
-			</AuthState>
-		</Router>
+			</Router>
+		</AuthState>
 	);
 };
 
