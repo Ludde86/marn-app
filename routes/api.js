@@ -8,7 +8,7 @@ const auth = require('../middleware/auth');
 // const { check, validationResult } = require('express-validator/check');
 
 const BlogPostModel = require('../models/blogPost');
-const Data = require('../models/data');
+const Todo = require('../models/todo');
 const Shopping = require('../models/shopping');
 const User = require('../models/user');
 
@@ -23,11 +23,11 @@ router.get('/', (req, res) => {
 	// -> return the data we find
 	BlogPostModel.find({})
 		.then((data) => {
-			console.log('Data: ', data);
+			// console.log('Data: ', data);
 			res.json(data); // -> send this data as json back to client
 		})
 		.catch((error) => {
-			console.log('Error: ', error);
+			console.error('Error: ', error);
 		});
 });
 
@@ -63,10 +63,6 @@ router.put('/putPost/:id', (req, res) => {
 	});
 });
 
-//
-// Todos API
-//
-
 router.put('/putPostChecked/:id', (req, res) => {
 	// the request body = update: {title, body, isChecked}
 	const { update } = req.body;
@@ -96,14 +92,9 @@ router.delete('/deletePost/:id', async (req, res) => {
 
 // this is our get method
 // this method fetches all available data in our database
-router.get('/getData', auth, async (req, res) => {
-	// Data.find((err, data) => {
-	// 	if (err) return res.json({ success: false, error: err });
-	// 	return res.json({ success: true, data: data });
-	// });
-
+router.get('/getTodoList', auth, async (req, res) => {
 	try {
-		const todos = await Data.find({ user: req.user.id });
+		const todos = await Todo.find({ user: req.user.id });
 		res.json(todos);
 	} catch (error) {
 		console.error(error.message);
@@ -113,11 +104,11 @@ router.get('/getData', auth, async (req, res) => {
 
 // this is our create method
 // this method adds new data in our database
-router.post('/postData', auth, async (req, res) => {
+router.post('/postTodo', auth, async (req, res) => {
 	const { message } = req.body;
 
 	try {
-		const newTodo = new Data({
+		const newTodo = new Todo({
 			message,
 			user: req.user.id
 		});
@@ -132,29 +123,58 @@ router.post('/postData', auth, async (req, res) => {
 
 // this is our update method
 // this method overwrites existing data in our database
-router.post('/updateData', auth, (req, res) => {
-	const { id, update } = req.body;
-	Data.findByIdAndUpdate(id, update, (err) => {
-		if (err) return res.json({ success: false, error: err });
-		return res.json({ success: true });
-	});
+router.put('/putTodo/:id', auth, async (req, res) => {
+	const { update } = req.body;
+
+	try {
+		let todo = await Todo.findById(req.params.id);
+		if (!todo) {
+			return res.status(404).json({ msg: 'Todo Item not found' });
+		}
+		if (todo.user.toString() !== req.user.id) {
+			return res.status(401).json({ msg: 'Not authorized - When updating Todo Item' });
+		}
+		todo = await Todo.findByIdAndUpdate(req.params.id, { message: update }, { new: true });
+		res.json(todo);
+	} catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server Error - When updating Todo Item');
+	}
+
+	// Todo.findByIdAndUpdate(req.params.id, update, (err) => {
+	// 	if (err) return res.json({ success: false, error: err });
+	// 	return res.json({ success: true });
+	// });
 });
 
 // this is our delete method
 // this method removes existing data in our database
-router.delete('/deleteData', auth, (req, res) => {
-	const { id } = req.body;
-	Data.findByIdAndRemove(id, (err) => {
-		if (err) return res.send(err);
-		return res.json({ success: true });
-	});
+router.delete('/deleteTodo/:id', auth, async (req, res) => {
+	// Todo.findByIdAndRemove(req.params.id, (err) => {
+	// 	if (err) return res.send(err);
+	// 	return res.json({ success: true });
+	// });
+
+	try {
+		let todo = await Todo.findById(req.params.id);
+
+		if (todo.user.toString() !== req.user.id) {
+			return res.status(401).json({ msg: 'Not authorized - When deleting Todo Item' });
+		}
+
+		await Todo.findByIdAndRemove(req.params.id);
+		res.json({ msg: 'Todo Removed' });
+	} catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server Error - When deleting Todo Item');
+	}
 });
 
 router.put('/putTodoChecked/:id', (req, res) => {
 	// the request body = update: {title, body, isChecked}
 	const { update } = req.body;
 
-	Data.findByIdAndUpdate(req.params.id, { isChecked: update }, (err) => {
+	Todo.findByIdAndUpdate(req.params.id, { isChecked: update }, (err) => {
 		if (err) return res.json({ success: false, error: err });
 		return res.json({ success: true });
 	});
@@ -269,7 +289,7 @@ router.delete('/deleteShopping/:id', auth, async (req, res) => {
 		}
 
 		await Shopping.findByIdAndRemove(req.params.id);
-		res.json({ msg: 'Contact Removed' });
+		res.json({ msg: 'Shopping Removed' });
 	} catch (error) {
 		console.error(error.message);
 		res.status(500).send('Server Error - When deleting Shopping Item');

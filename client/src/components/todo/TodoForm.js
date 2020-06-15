@@ -6,18 +6,18 @@ const TodoForm = () => {
 	const {
 		message,
 		setMessage,
-		putDataToDB,
+		addTodoItem,
 		isEdit,
 		objectToUpdate,
 		setObjectToUpdate,
 		idToUpdate,
-		updateDB
+		updateTodo
 	} = todoContext;
 
 	return (
 		<div className="todo-form-container">
 			{isEdit ? (
-				<form onSubmit={(e) => updateDB(e, idToUpdate, objectToUpdate)}>
+				<form onSubmit={(e) => updateTodo(e, idToUpdate, objectToUpdate)}>
 					<div className="todo-form-submit">
 						<input
 							type="text"
@@ -39,7 +39,7 @@ const TodoForm = () => {
 							value={message}
 							placeholder="Lägg till att göra"
 						/>
-						<i className="fas fa-plus" onClick={(e) => putDataToDB(e, message)} />
+						<i className="fas fa-plus" onClick={(e) => addTodoItem(e, message)} />
 					</div>
 				</form>
 			)}

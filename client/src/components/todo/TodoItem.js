@@ -3,7 +3,7 @@ import TodoContext from '../../context/todo/todoContext';
 
 const TodoItem = ({ todo }) => {
 	const todoContext = useContext(TodoContext);
-	const { deleteFromDB, setObjectToUpdate, setIsChecked } = todoContext;
+	const { deleteTodo, setObjectToUpdate, setIsChecked } = todoContext;
 
 	return (
 		<li>
@@ -17,9 +17,9 @@ const TodoItem = ({ todo }) => {
 				</span>
 
 				<div className="del-upd-buttons">
-					<i className="far fa-trash-alt" onClick={() => deleteFromDB(todo.id)} />
+					<i className="far fa-trash-alt" onClick={() => deleteTodo(todo._id)} />
 
-					<i className="fas fa-pencil-alt" onClick={() => setObjectToUpdate(todo.id, todo.message)} />
+					<i className="fas fa-pencil-alt" onClick={() => setObjectToUpdate(todo._id, todo.message)} />
 				</div>
 			</div>
 		</li>
