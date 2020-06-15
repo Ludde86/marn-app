@@ -19,6 +19,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 
 import setAuthToken from './utils/setAuthToken';
+import LoggedInUser from './components/layout/LoggedInUser';
 
 // we want to load the token each time we run our application
 if (localStorage.token) {
@@ -31,6 +32,7 @@ const App = () => {
 			<Router>
 				<div className="app-container">
 					<div className="navbar-container">
+						<LoggedInUser />
 						<Navbar />
 					</div>
 					<TodoState>
@@ -39,7 +41,7 @@ const App = () => {
 								<Switch>
 									<PrivateRoute exact path="/" component={Start} />
 									<Route exact path="/home" component={Home} />
-									<Route exact path="/shopping" component={Shopping} />
+									<PrivateRoute exact path="/shopping" component={Shopping} />
 									<Route exact path="/register" component={Register} />
 									<Route exact path="/login" component={Login} />
 								</Switch>

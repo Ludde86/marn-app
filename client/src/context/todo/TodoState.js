@@ -27,17 +27,40 @@ const TodoState = (props) => {
 	const [ state, dispatch ] = useReducer(todoReducer, initialState);
 	const { todos } = state;
 
-	const getDataFromDb = () => {
+	const getDataFromDb = async () => {
 		// const production = 'https://peaceful-journey-03079.herokuapp.com/api/getData';
 		// const development = 'http://localhost:3001/api/getData';
 		// const url = process.env.NODE_ENV ? production : development;
-		fetch('/api/getData', { method: 'GET' }).then((todos) => todos.json()).then((res) =>
+		// fetch('/api/getData', { method: 'GET' }).then((todos) => todos.json()).then((res) =>
+		// 	dispatch({
+		// 		type: GET_DATA,
+		// 		payload: res.data
+		// 	})
+		// );
+
+		try {
+			const res = await axios.get('/api/getData');
+			console.log('res todos', res.data);
 			dispatch({
 				type: GET_DATA,
 				payload: res.data
-			})
-		);
+			});
+		} catch (error) {
+			console.error(error);
+		}
 	};
+
+	// const getShoppingList = async (data) => {
+	// 	try {
+	// 		const res = await axios.get('/api/getShopping');
+	// 		dispatch({
+	// 			type: GET_SHOPPINGLIST,
+	// 			payload: res.data
+	// 		});
+	// 	} catch (error) {
+	// 		console.error(error);
+	// 	}
+	// };
 
 	const putDataToDB = (e, message) => {
 		e.preventDefault();
@@ -47,12 +70,26 @@ const TodoState = (props) => {
 			++idToBeAdded;
 		}
 
-		axios.post('/api/putData', {
+		axios.post('/api/postData', {
 			id: idToBeAdded,
 			message: message
 		});
 		clearMessage();
 	};
+
+	// const addShoppingItem = async (e, message) => {
+	// 	try {
+	// 		e.preventDefault();
+	// 		const res = await axios.post('/api/postShopping', { message: message });
+	// 		dispatch({
+	// 			type: ADD_SHOPPINGITEM,
+	// 			payload: res
+	// 		});
+	// 		clearMessage();
+	// 	} catch (error) {
+	// 		console.error(error);
+	// 	}
+	// };
 
 	const deleteFromDB = (idTodelete) => {
 		let objIdToDelete = null;

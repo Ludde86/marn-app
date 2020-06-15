@@ -3,15 +3,22 @@ import ShoppingForm from '../shopping/ShoppingForm';
 import ShoppingList from '../shopping/ShoppingList';
 import AuthContext from '../../context/auth/authContext';
 
-const Shopping = () => {
+const Shopping = (props) => {
 	const authContext = useContext(AuthContext);
-	const { loadUser } = authContext;
+	const { loadUser, isAuthenticated } = authContext;
 
 	// validate and put user into state
-	useEffect(() => {
-		loadUser();
-		// eslint-disable-next-line
-	}, []);
+	useEffect(
+		() => {
+			if (!isAuthenticated) {
+				props.history.push('/login');
+			} else {
+				loadUser();
+			}
+			// eslint-disable-next-line
+		},
+		[ isAuthenticated, props.history ]
+	);
 
 	return (
 		<div className="shopping-container">

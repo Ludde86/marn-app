@@ -66,17 +66,17 @@ const Navbar = () => {
 	const authLinks = (
 		<Fragment>
 			<li>
-				<NavLink to="/" activeClassName="active">
+				<NavLink exact to="/" activeClassName="selected">
 					Att Göra:
 				</NavLink>
 			</li>
 			<li>
-				<NavLink to="/home" activeClassName="active">
+				<NavLink to="/home" activeClassName="selected">
 					Hemma
 				</NavLink>
 			</li>
 			<li>
-				<NavLink to="/shopping" activeClassName="active">
+				<NavLink to="/shopping" activeClassName="selected">
 					Handla
 				</NavLink>
 			</li>
