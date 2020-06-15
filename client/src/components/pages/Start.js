@@ -4,15 +4,22 @@ import PostList from '../post/PostList';
 import AuthContext from '../../context/auth/authContext';
 import LoginPage from './LoginPage';
 
-const Start = () => {
+const Start = (props) => {
 	const authContext = useContext(AuthContext);
-	const { loadUser } = authContext;
+	const { loadUser, isAuthenticated } = authContext;
 
 	// validate and put user into state
-	useEffect(() => {
-		loadUser();
-		// eslint-disable-next-line
-	}, []);
+	useEffect(
+		() => {
+			if (!isAuthenticated) {
+				props.history.push('/login');
+			} else {
+				loadUser();
+			}
+			// eslint-disable-next-line
+		},
+		[ isAuthenticated, props.history ]
+	);
 
 	return (
 		<div>

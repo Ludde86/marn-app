@@ -13,6 +13,7 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	padding: 0;
 }
 
 .navbar-container a {
@@ -47,6 +48,17 @@
 .logout-btn:active {
 	background: #7b68ee;
 }
-.active {
-	font-size: bold;
+.selected {
+	font-weight: bold;
+	text-decoration: line-through;
+}
+
+.logged-in-container {
+	display: flex;
+	justify-content: flex-start;
+	margin: 15px;
+}
+
+.logged-in-user {
+	font-weight: bold;
 }

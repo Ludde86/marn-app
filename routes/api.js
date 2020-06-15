@@ -13,7 +13,7 @@ const Shopping = require('../models/shopping');
 const User = require('../models/user');
 
 //
-// Posts
+// Posts API
 //
 
 // define routes for GET requests
@@ -29,16 +29,6 @@ router.get('/', (req, res) => {
 		.catch((error) => {
 			console.log('Error: ', error);
 		});
-});
-
-// another route
-router.get('/name', (req, res) => {
-	// find a specific
-	const data = {
-		username: 'ludde',
-		age: 33
-	};
-	res.json(data); // -> send this data as json back to client
 });
 
 // post request
@@ -74,28 +64,8 @@ router.put('/putPost/:id', (req, res) => {
 });
 
 //
-// todos
+// Todos API
 //
-
-router.put('/putTodoChecked/:id', (req, res) => {
-	// the request body = update: {title, body, isChecked}
-	const { update } = req.body;
-
-	Data.findByIdAndUpdate(req.params.id, { isChecked: update }, (err) => {
-		if (err) return res.json({ success: false, error: err });
-		return res.json({ success: true });
-	});
-});
-
-router.put('/putShoppingChecked/:id', (req, res) => {
-	// the request body = update: {title, body, isChecked}
-	const { update } = req.body;
-
-	Shopping.findByIdAndUpdate(req.params.id, { isChecked: update }, (err) => {
-		if (err) return res.json({ success: false, error: err });
-		return res.json({ success: true });
-	});
-});
 
 router.put('/putPostChecked/:id', (req, res) => {
 	// the request body = update: {title, body, isChecked}
@@ -120,18 +90,49 @@ router.delete('/deletePost/:id', async (req, res) => {
 	});
 });
 
+//
+// Todos API
+//
+
 // this is our get method
 // this method fetches all available data in our database
-router.get('/getData', (req, res) => {
-	Data.find((err, data) => {
-		if (err) return res.json({ success: false, error: err });
-		return res.json({ success: true, data: data });
-	});
+router.get('/getData', auth, async (req, res) => {
+	// Data.find((err, data) => {
+	// 	if (err) return res.json({ success: false, error: err });
+	// 	return res.json({ success: true, data: data });
+	// });
+
+	try {
+		const todos = await Data.find({ user: req.user.id });
+		res.json(todos);
+	} catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server Error - When get Todolist');
+	}
+});
+
+// this is our create method
+// this method adds new data in our database
+router.post('/postData', auth, async (req, res) => {
+	const { message } = req.body;
+
+	try {
+		const newTodo = new Data({
+			message,
+			user: req.user.id
+		});
+
+		const todo = await newTodo.save();
+		res.json(todo);
+	} catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server Error - When send Todo to DB');
+	}
 });
 
 // this is our update method
 // this method overwrites existing data in our database
-router.post('/updateData', (req, res) => {
+router.post('/updateData', auth, (req, res) => {
 	const { id, update } = req.body;
 	Data.findByIdAndUpdate(id, update, (err) => {
 		if (err) return res.json({ success: false, error: err });
@@ -141,7 +142,7 @@ router.post('/updateData', (req, res) => {
 
 // this is our delete method
 // this method removes existing data in our database
-router.delete('/deleteData', (req, res) => {
+router.delete('/deleteData', auth, (req, res) => {
 	const { id } = req.body;
 	Data.findByIdAndRemove(id, (err) => {
 		if (err) return res.send(err);
@@ -149,29 +150,18 @@ router.delete('/deleteData', (req, res) => {
 	});
 });
 
-// this is our create method
-// this method adds new data in our database
-router.post('/putData', (req, res) => {
-	let data = new Data();
+router.put('/putTodoChecked/:id', (req, res) => {
+	// the request body = update: {title, body, isChecked}
+	const { update } = req.body;
 
-	const { id, message } = req.body;
-
-	if ((!id && id !== 0) || !message) {
-		return res.json({
-			success: false,
-			error: 'INVALID INPUTS'
-		});
-	}
-	data.message = message;
-	data.id = id;
-	data.save((err) => {
+	Data.findByIdAndUpdate(req.params.id, { isChecked: update }, (err) => {
 		if (err) return res.json({ success: false, error: err });
 		return res.json({ success: true });
 	});
 });
 
 //
-// shopping
+// Shopping API
 //
 
 // @route	GET api/getShopping
@@ -180,19 +170,12 @@ router.post('/putData', (req, res) => {
 router.get('/getShopping', auth, async (req, res) => {
 	try {
 		const shoppings = await Shopping.find({ user: req.user.id });
+		// console.log('get shoppings', shoppings);
 		res.json(shoppings);
 	} catch (error) {
 		console.error(error.message);
 		res.status(500).send('Server Error - When get Shoppinglist');
 	}
-
-	// Shopping.find((err, data) => {
-	// 	if (err) {
-	// 		return res.json({ success: false, error: err });
-	// 	} else {
-	// 		return res.json({ success: true, data: data });
-	// 	}
-	// });
 });
 
 // @route	POST api/postShopping
@@ -216,22 +199,6 @@ router.post('/postShopping', auth, async (req, res) => {
 		console.error(error.message);
 		res.status(500).send('Server Error - When send Shopping to DB');
 	}
-
-	// let shopping = new Shopping();
-	// const { message } = req.body;
-
-	// shopping.message = message;
-	// if (!message) {
-	// 	return res.json({ success: false, error: 'INVALID INPUTS' });
-	// } else {
-	// 	shopping.save((err, data) => {
-	// 		if (err) {
-	// 			return res.json({ success: false, error: err });
-	// 		} else {
-	// 			return res.json({ success: true, data: data });
-	// 		}
-	// 	});
-	// }
 });
 
 // @route	PUT api/putShopping
@@ -307,14 +274,6 @@ router.delete('/deleteShopping/:id', auth, async (req, res) => {
 		console.error(error.message);
 		res.status(500).send('Server Error - When deleting Shopping Item');
 	}
-
-	// await Shopping.findByIdAndRemove(req.params.id, (err) => {
-	// 	if (err) {
-	// 		return res.send(err);
-	// 	} else {
-	// 		return res.json({ success: true });
-	// 	}
-	// });
 });
 
 router.delete('/clearShopping', async (req, res) => {
@@ -324,6 +283,16 @@ router.delete('/clearShopping', async (req, res) => {
 		} else {
 			return res.json({ success: true });
 		}
+	});
+});
+
+router.put('/putShoppingChecked/:id', (req, res) => {
+	// the request body = update: {title, body, isChecked}
+	const { update } = req.body;
+
+	Shopping.findByIdAndUpdate(req.params.id, { isChecked: update }, (err) => {
+		if (err) return res.json({ success: false, error: err });
+		return res.json({ success: true });
 	});
 });
 
