@@ -28,16 +28,6 @@ const TodoState = (props) => {
 	const { todos } = state;
 
 	const getTodos = async () => {
-		// const production = 'https://peaceful-journey-03079.herokuapp.com/api/getData';
-		// const development = 'http://localhost:3001/api/getData';
-		// const url = process.env.NODE_ENV ? production : development;
-		// fetch('/api/getData', { method: 'GET' }).then((todos) => todos.json()).then((res) =>
-		// 	dispatch({
-		// 		type: GET_DATA,
-		// 		payload: res.data
-		// 	})
-		// );
-
 		try {
 			const res = await axios.get('/api/getTodoList');
 			console.log('res todos', res.data);
@@ -74,34 +64,14 @@ const TodoState = (props) => {
 		} catch (error) {
 			console.error(error);
 		}
-
-		// let objIdToUpdate = null;
-		// todos.forEach((todo) => {
-		// 	if (todo.id === idToUpdate) {
-		// 		objIdToUpdate = todo._id;
-		// 	}
-		// });
-
-		// axios.put('/api/putTodo', {
-		// 	id: objIdToUpdate,
-		// 	update: { message: objectToUpdate }
-		// });
-		// setFalse();
 	};
 
-	const deleteFromDB = (idTodelete) => {
-		let objIdToDelete = null;
-		todos.forEach((todo) => {
-			if (todo.id === idTodelete) {
-				objIdToDelete = todo._id;
-			}
-		});
-
-		axios.delete('/api/deleteData', {
-			data: {
-				id: objIdToDelete
-			}
-		});
+	const deleteTodo = async (id) => {
+		try {
+			await axios.delete(`/api/deleteTodo/${id}`);
+		} catch (error) {
+			console.error(error);
+		}
 	};
 
 	const setIsChecked = async (item) => {
@@ -182,8 +152,8 @@ const TodoState = (props) => {
 				getTodos,
 				addTodoItem,
 				updateTodo,
+				deleteTodo,
 				setMessage,
-				deleteFromDB,
 				setObjectToUpdate,
 				setIdToUpdate,
 				setIntervalIsSet,

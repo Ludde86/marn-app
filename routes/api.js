@@ -149,12 +149,25 @@ router.put('/putTodo/:id', auth, async (req, res) => {
 
 // this is our delete method
 // this method removes existing data in our database
-router.delete('/deleteData', auth, (req, res) => {
-	const { id } = req.body;
-	Todo.findByIdAndRemove(id, (err) => {
-		if (err) return res.send(err);
-		return res.json({ success: true });
-	});
+router.delete('/deleteTodo/:id', auth, async (req, res) => {
+	// Todo.findByIdAndRemove(req.params.id, (err) => {
+	// 	if (err) return res.send(err);
+	// 	return res.json({ success: true });
+	// });
+
+	try {
+		let todo = await Todo.findById(req.params.id);
+
+		if (todo.user.toString() !== req.user.id) {
+			return res.status(401).json({ msg: 'Not authorized - When deleting Todo Item' });
+		}
+
+		await Todo.findByIdAndRemove(req.params.id);
+		res.json({ msg: 'Todo Removed' });
+	} catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server Error - When deleting Todo Item');
+	}
 });
 
 router.put('/putTodoChecked/:id', (req, res) => {
@@ -276,7 +289,7 @@ router.delete('/deleteShopping/:id', auth, async (req, res) => {
 		}
 
 		await Shopping.findByIdAndRemove(req.params.id);
-		res.json({ msg: 'Contact Removed' });
+		res.json({ msg: 'Shopping Removed' });
 	} catch (error) {
 		console.error(error.message);
 		res.status(500).send('Server Error - When deleting Shopping Item');
