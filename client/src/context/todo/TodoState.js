@@ -27,7 +27,7 @@ const TodoState = (props) => {
 	const [ state, dispatch ] = useReducer(todoReducer, initialState);
 	const { todos } = state;
 
-	const getDataFromDb = async () => {
+	const getTodos = async () => {
 		// const production = 'https://peaceful-journey-03079.herokuapp.com/api/getData';
 		// const development = 'http://localhost:3001/api/getData';
 		// const url = process.env.NODE_ENV ? production : development;
@@ -39,7 +39,7 @@ const TodoState = (props) => {
 		// );
 
 		try {
-			const res = await axios.get('/api/getData');
+			const res = await axios.get('/api/getTodoList');
 			console.log('res todos', res.data);
 			dispatch({
 				type: GET_DATA,
@@ -50,19 +50,7 @@ const TodoState = (props) => {
 		}
 	};
 
-	// const getShoppingList = async (data) => {
-	// 	try {
-	// 		const res = await axios.get('/api/getShopping');
-	// 		dispatch({
-	// 			type: GET_SHOPPINGLIST,
-	// 			payload: res.data
-	// 		});
-	// 	} catch (error) {
-	// 		console.error(error);
-	// 	}
-	// };
-
-	const putDataToDB = (e, message) => {
+	const addTodoItem = (e, message) => {
 		e.preventDefault();
 		let currentIds = todos.map((todo) => todo.id);
 		let idToBeAdded = 0;
@@ -70,26 +58,36 @@ const TodoState = (props) => {
 			++idToBeAdded;
 		}
 
-		axios.post('/api/postData', {
+		axios.post('/api/postTodo', {
 			id: idToBeAdded,
 			message: message
 		});
 		clearMessage();
 	};
 
-	// const addShoppingItem = async (e, message) => {
-	// 	try {
-	// 		e.preventDefault();
-	// 		const res = await axios.post('/api/postShopping', { message: message });
-	// 		dispatch({
-	// 			type: ADD_SHOPPINGITEM,
-	// 			payload: res
-	// 		});
-	// 		clearMessage();
-	// 	} catch (error) {
-	// 		console.error(error);
-	// 	}
-	// };
+	const updateTodo = async (e, id, message) => {
+		try {
+			e.preventDefault();
+			await axios.put(`/api/putTodo/${id}`, { update: message });
+			setFalse(); // do I need this? or can I do different
+			clearMessage(); // do I need this? or can I do different
+		} catch (error) {
+			console.error(error);
+		}
+
+		// let objIdToUpdate = null;
+		// todos.forEach((todo) => {
+		// 	if (todo.id === idToUpdate) {
+		// 		objIdToUpdate = todo._id;
+		// 	}
+		// });
+
+		// axios.put('/api/putTodo', {
+		// 	id: objIdToUpdate,
+		// 	update: { message: objectToUpdate }
+		// });
+		// setFalse();
+	};
 
 	const deleteFromDB = (idTodelete) => {
 		let objIdToDelete = null;
@@ -106,23 +104,6 @@ const TodoState = (props) => {
 		});
 	};
 
-	const updateDB = (e, idToUpdate, objectToUpdate) => {
-		e.preventDefault();
-
-		let objIdToUpdate = null;
-		todos.forEach((todo) => {
-			if (todo.id === idToUpdate) {
-				objIdToUpdate = todo._id;
-			}
-		});
-
-		axios.post('/api/updateData', {
-			id: objIdToUpdate,
-			update: { message: objectToUpdate }
-		});
-		setFalse();
-	};
-
 	const setIsChecked = async (item) => {
 		let isChecked = undefined;
 		if (item.isChecked) {
@@ -133,7 +114,7 @@ const TodoState = (props) => {
 
 		try {
 			await axios.put(`/api/putTodoChecked/${item._id}`, { update: isChecked });
-			getDataFromDb();
+			getTodos();
 		} catch (error) {
 			console.error(error);
 		}
@@ -198,11 +179,11 @@ const TodoState = (props) => {
 				objectToUpdate: state.objectToUpdate,
 				idToUpdate: state.idToUpdate,
 				isEdit: state.isEdit,
-				getDataFromDb,
-				putDataToDB,
+				getTodos,
+				addTodoItem,
+				updateTodo,
 				setMessage,
 				deleteFromDB,
-				updateDB,
 				setObjectToUpdate,
 				setIdToUpdate,
 				setIntervalIsSet,

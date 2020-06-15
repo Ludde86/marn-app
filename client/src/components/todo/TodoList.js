@@ -5,13 +5,13 @@ import TodoContext from '../../context/todo/todoContext';
 const TodoList = () => {
 	const todoContext = useContext(TodoContext);
 
-	const { todos, getDataFromDb, intervalIsSet, setIntervalIsSet } = todoContext;
+	const { todos, getTodos, intervalIsSet, setIntervalIsSet } = todoContext;
 
 	useEffect(
 		() => {
-			getDataFromDb();
+			getTodos();
 			if (!intervalIsSet) {
-				let interval = setInterval(getDataFromDb, 1000);
+				let interval = setInterval(getTodos, 1000);
 				setIntervalIsSet(interval);
 			}
 		},
@@ -23,7 +23,7 @@ const TodoList = () => {
 		<div className="todo-list-container">
 			{todos.map((todo) => {
 				return (
-					<div className="todo-item-container" key={todo.id}>
+					<div className="todo-item-container" key={todo._id}>
 						{todos.length <= 0 ? (
 							'NO DB ENTRIES YET'
 						) : (

@@ -3,13 +3,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // this will be our data base's data structure
-const DataSchema = new Schema(
+const TodoSchema = new Schema(
 	{
 		user: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'users'
 		},
-		id: Number,
 		message: String,
 		isChecked: {
 			type: Boolean,
@@ -20,4 +19,4 @@ const DataSchema = new Schema(
 );
 
 // export the new Schema so we could modify it using Node.js
-module.exports = mongoose.model('Data', DataSchema);
+module.exports = mongoose.model('Todo', TodoSchema);
