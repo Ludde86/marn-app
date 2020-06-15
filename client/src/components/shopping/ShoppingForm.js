@@ -20,7 +20,7 @@ const ShoppingForm = () => {
 						value={editItem.message}
 						placeholder={editItem.message}
 					/>
-					<input className="input-submit" type="submit" value="Uppdatera" />
+					<input className="input-update" type="submit" value="Uppdatera" />
 				</form>
 			) : (
 				<form className="form-input-submit" onSubmit={(e) => addShoppingItem(e, message)}>
