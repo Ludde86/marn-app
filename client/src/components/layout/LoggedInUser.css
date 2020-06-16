@@ -8,6 +8,7 @@
 
 .logout-btn:hover {
 	background: #4169e1;
+	font-weight: bold;
 }
 
 .logout-btn:active {

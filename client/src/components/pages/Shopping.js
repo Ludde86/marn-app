@@ -22,7 +22,7 @@ const Shopping = (props) => {
 
 	return (
 		<div className="shopping-container">
-			<h3 className="shopping-title">Att Handla:</h3>
+			<h3 className="shopping-title">Att Handla</h3>
 			<ShoppingForm />
 			<ShoppingList />
 		</div>

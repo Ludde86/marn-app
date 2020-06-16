@@ -24,16 +24,16 @@
 
 .navbar-container a:hover {
 	color: grey;
-}
-
-.navbar-list {
-	/* background: red; */
-	/* height: 100%; */
+	font-weight: bold;
 }
 
 .selected {
 	font-weight: bold;
 	text-decoration: line-through;
+	border: 1px solid black;
+	border-radius: 5px;
+	background: white;
+	padding: 0 5px;
 }
 
 @media (max-width: 600px) {
