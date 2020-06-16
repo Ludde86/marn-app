@@ -19,22 +19,4 @@ const BlogPostSchema = new Schema({
 	}
 });
 
-// register a model for blogpost
-const BlogPostModel = mongoose.model('BlogPost', BlogPostSchema);
-
-// const data = {
-// 	title: 'testing',
-// 	body: 'working'
-// };
-
-// const newBlogPost = new BlogPostModel(data);
-
-// newBlogPost.save((error) => {
-// 	if (error) {
-// 		console.log('oooops');
-// 	} else {
-// 		console.log('success!!!!!!');
-// 	}
-// });
-
-module.exports = BlogPostModel;
+module.exports = mongoose.model('BlogPost', BlogPostSchema);

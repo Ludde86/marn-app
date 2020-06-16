@@ -2,9 +2,11 @@ import React, { useState, useContext, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 
+import './Navbar.css';
+
 const Navbar = () => {
 	const authContext = useContext(AuthContext);
-	const { isAuthenticated, logout, user } = authContext;
+	const { isAuthenticated } = authContext;
 
 	// const [ authRoutes ] = useState([
 	// 	{
@@ -59,10 +61,6 @@ const Navbar = () => {
 	// 	}
 	// ]);
 
-	const onLogout = () => {
-		logout();
-	};
-
 	const authLinks = (
 		<Fragment>
 			<li>
@@ -82,13 +80,6 @@ const Navbar = () => {
 			</li>
 
 			{/* <li>Hello {user && user.name}</li> */}
-			<li>
-				<a href="#!">
-					<button className="logout-btn" onClick={onLogout}>
-						Logga Ut
-					</button>
-				</a>
-			</li>
 		</Fragment>
 	);
 
@@ -112,7 +103,7 @@ const Navbar = () => {
 					{authRoutes.map((route, index) => (
 						<div key={index} className="navbar-item">
 							<li>
-								<Link to={route.page}>{route.name}</Link>
+								<NavLink to={route.page}>{route.name}</Link>
 							</li>
 						</div>
 					))}
@@ -125,7 +116,7 @@ const Navbar = () => {
 					{guestRoutes.map((route, index) => (
 						<div key={index} className="navbar-item">
 							<li>
-								<Link to={route.page}>{route.name}</Link>
+								<NavLink to={route.page}>{route.name}</Link>
 							</li>
 						</div>
 					))}

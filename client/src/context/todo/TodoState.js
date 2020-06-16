@@ -30,7 +30,6 @@ const TodoState = (props) => {
 	const getTodos = async () => {
 		try {
 			const res = await axios.get('/api/getTodoList');
-			console.log('res todos', res.data);
 			dispatch({
 				type: GET_DATA,
 				payload: res.data
