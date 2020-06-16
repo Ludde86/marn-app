@@ -23,7 +23,6 @@ router.get('/', (req, res) => {
 	// -> return the data we find
 	BlogPostModel.find({})
 		.then((data) => {
-			// console.log('Data: ', data);
 			res.json(data); // -> send this data as json back to client
 		})
 		.catch((error) => {
@@ -190,7 +189,6 @@ router.put('/putTodoChecked/:id', (req, res) => {
 router.get('/getShopping', auth, async (req, res) => {
 	try {
 		const shoppings = await Shopping.find({ user: req.user.id });
-		// console.log('get shoppings', shoppings);
 		res.json(shoppings);
 	} catch (error) {
 		console.error(error.message);

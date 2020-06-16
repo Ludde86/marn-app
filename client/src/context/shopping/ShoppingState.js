@@ -19,7 +19,6 @@ const ShoppingState = (props) => {
 	const getShoppingList = async () => {
 		try {
 			const res = await axios.get('/api/getShopping');
-			console.log('res shoppings', res);
 			dispatch({
 				type: GET_SHOPPINGLIST,
 				payload: res.data

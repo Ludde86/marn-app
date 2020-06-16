@@ -142,6 +142,7 @@
 .item-message {
 	cursor: pointer;
 	width: 85%;
+	overflow: hidden;
 }
 
 .item-message:hover {
@@ -164,6 +165,10 @@
 }
 
 @media (max-width: 600px) {
+	.shopping-container {
+		margin: 10px;
+	}
+
 	.form-input-submit {
 		flex-direction: column;
 	}

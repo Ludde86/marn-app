@@ -59,8 +59,12 @@
 
 .logged-in-container {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: flex-end;
 	margin: 15px;
+}
+
+.logged-in-item {
+	margin-right: 20px;
 }
 
 .logged-in-user {

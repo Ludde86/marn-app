@@ -59,10 +59,6 @@ const Navbar = () => {
 	// 	}
 	// ]);
 
-	const onLogout = () => {
-		logout();
-	};
-
 	const authLinks = (
 		<Fragment>
 			<li>
@@ -82,13 +78,6 @@ const Navbar = () => {
 			</li>
 
 			{/* <li>Hello {user && user.name}</li> */}
-			<li>
-				<a href="#!">
-					<button className="logout-btn" onClick={onLogout}>
-						Logga Ut
-					</button>
-				</a>
-			</li>
 		</Fragment>
 	);
 
@@ -112,7 +101,7 @@ const Navbar = () => {
 					{authRoutes.map((route, index) => (
 						<div key={index} className="navbar-item">
 							<li>
-								<Link to={route.page}>{route.name}</Link>
+								<NavLink to={route.page}>{route.name}</Link>
 							</li>
 						</div>
 					))}
@@ -125,7 +114,7 @@ const Navbar = () => {
 					{guestRoutes.map((route, index) => (
 						<div key={index} className="navbar-item">
 							<li>
-								<Link to={route.page}>{route.name}</Link>
+								<NavLink to={route.page}>{route.name}</Link>
 							</li>
 						</div>
 					))}

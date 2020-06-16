@@ -3,12 +3,22 @@ import AuthContext from '../../context/auth/authContext';
 
 const LoggedInUser = () => {
 	const authContext = useContext(AuthContext);
-	const { user } = authContext;
+	const { user, logout } = authContext;
+
+	const onLogout = () => {
+		logout();
+	};
+
 	return (
-		<div className="logged-in-container">
+		<div>
 			{user && (
-				<div>
-					<span>Inloggad som:</span> <span className="logged-in-user">{user.name}</span>
+				<div className="logged-in-container">
+					<div className="logged-in-item">
+						<span>Inloggad som:</span> <span className="logged-in-user">{user.name}</span>
+					</div>
+					<button className="logout-btn" onClick={onLogout}>
+						Logga Ut
+					</button>
 				</div>
 			)}
 		</div>
