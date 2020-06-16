@@ -1,5 +1,5 @@
 .shopping-container {
-	border: 3px solid grey;
+	border: 3px solid black;
 	border-radius: 5px;
 	margin: 60px;
 	background: #b0c4de;
@@ -14,7 +14,7 @@
 }
 
 .form-container {
-	border: 2px solid grey;
+	/* border: 2px solid black; */
 	border-radius: 5px;
 	margin: 5px;
 }
@@ -28,7 +28,7 @@
 }
 
 .input-field {
-	border-radius: 10px;
+	border-radius: 5px;
 	width: 70%;
 	max-height: 30px;
 	padding: 2.6px;
@@ -39,12 +39,12 @@
 
 .input-submit {
 	width: 35%;
-	height: 30px;
+	height: 32px;
 	background: #4caf50;
 	border: none;
 	cursor: pointer;
-	border: 2px solid black;
-	border-radius: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
 	margin: 5px auto;
 	font-size: 16px;
 }
@@ -64,8 +64,8 @@
 	background: #4caf50;
 	border: none;
 	cursor: pointer;
-	border: 2px solid black;
-	border-radius: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
 	margin: 0 5px;
 	font-size: 16px;
 }
@@ -73,12 +73,12 @@
 .clear-button {
 	margin: 5px auto;
 	width: 15%;
-	height: 30px;
+	height: 32px;
 	background: #cd5c5c;
 	border: none;
 	cursor: pointer;
-	border: 2px solid black;
-	border-radius: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
 	font-size: 16px;
 }
 
@@ -92,7 +92,7 @@
 }
 
 .list-container {
-	border: 2px solid grey;
+	/* border: 2px solid black; */
 	border-radius: 5px;
 	min-height: 450px;
 	list-style-type: none;
@@ -153,24 +153,30 @@
 
 	.form-input-submit {
 		flex-direction: column;
+		margin: 5px auto;
 	}
 	.input-field {
 		width: 99%;
 		min-height: 30px;
+		border-radius: 10px;
+		margin-bottom: 10px;
 	}
 
 	.input-submit {
 		width: 100%;
 		margin: 5px 0;
+		border-radius: 10px;
 	}
 
 	.input-update {
 		width: 100%;
 		margin: 5px 0;
+		border-radius: 10px;
 	}
 
 	.clear-button {
 		width: 100%;
+		border-radius: 10px;
 	}
 
 	.item-message {
