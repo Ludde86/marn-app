@@ -65,12 +65,12 @@ const Navbar = () => {
 		<Fragment>
 			<li>
 				<NavLink exact to="/" activeClassName="selected">
-					Att Göra:
+					Förbättringar
 				</NavLink>
 			</li>
 			<li>
 				<NavLink to="/home" activeClassName="selected">
-					Hemma
+					Att Göra
 				</NavLink>
 			</li>
 			<li>
