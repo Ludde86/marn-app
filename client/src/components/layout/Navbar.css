@@ -1,8 +1,22 @@
-.navbar-container__blue {
+.navbar-container__white {
 	background-color: white;
 	border-bottom: 3px solid black;
 	margin-bottom: 50px;
 	/* height: 50px; */
+	background: #ada996; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #eaeaea, #dbdbdb, #f2f2f2, #ada996); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#eaeaea,
+		#dbdbdb,
+		#f2f2f2,
+		#ada996
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.navbar-container__blue {
+	background-color: white;
+	border-bottom: 3px solid black;
+	margin-bottom: 50px; /* height: 50px; */
 	background: #00416a; /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #e4e5e6, #00416a); /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(
@@ -11,12 +25,10 @@
 		#00416a
 	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
 .navbar-container__pink {
 	background-color: white;
 	border-bottom: 3px solid black;
-	margin-bottom: 50px;
-	/* height: 50px; */
+	margin-bottom: 50px; /* height: 50px; */
 	background: #ee9ca7; /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7); /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(
@@ -25,11 +37,20 @@
 		#ee9ca7
 	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+.navbar-container__white li {
+	list-style: none;
+}
 .navbar-container__blue li {
 	list-style: none;
 }
 .navbar-container__pink li {
 	list-style: none;
+}
+.navbar-container__white ul {
+	padding: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 .navbar-container__blue ul {
 	padding: 0;
@@ -42,6 +63,14 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+}
+.navbar-container__white a {
+	color: black;
+	text-decoration: none;
+}
+.navbar-container__white a:hover {
+	color: grey;
+	font-weight: bold;
 }
 .navbar-container__blue a {
 	color: black;
@@ -67,6 +96,9 @@
 	padding: 0 5px;
 }
 @media (max-width: 600px) {
+	.navbar-container__white {
+		margin-bottom: 20px;
+	}
 	.navbar-container__blue {
 		margin-bottom: 20px;
 	}

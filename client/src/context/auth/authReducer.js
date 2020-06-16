@@ -6,6 +6,8 @@ import {
 	LOGIN_SUCCESS,
 	LOGIN_FAIL,
 	LOGOUT,
+	SET_WHITE,
+	SET_BLUE,
 	SET_PINK
 } from '../types';
 
@@ -41,10 +43,26 @@ export default (state, action) => {
 				user: null,
 				error: action.payload
 			};
+		case SET_WHITE:
+			return {
+				...state,
+				colorWhite: action.payload,
+				colorBlue: false,
+				colorPink: false
+			};
+		case SET_BLUE:
+			return {
+				...state,
+				colorBlue: action.payload,
+				colorWhite: false,
+				colorPink: false
+			};
 		case SET_PINK:
 			return {
 				...state,
-				colorPink: action.payload
+				colorPink: action.payload,
+				colorWhite: false,
+				colorBlue: false
 			};
 		default:
 			return state;

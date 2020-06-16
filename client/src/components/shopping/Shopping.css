@@ -1,25 +1,36 @@
+.shopping-container__white {
+	border: 3px solid black;
+	border-radius: 5px;
+	margin: 60px;
+	background: #ada996; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #eaeaea, #dbdbdb, #f2f2f2, #ada996); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#eaeaea,
+		#dbdbdb,
+		#f2f2f2,
+		#ada996
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 .shopping-container__blue {
 	border: 3px solid black;
 	border-radius: 5px;
 	margin: 60px;
 	background: #00416a; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #e4e5e6, #00416a); /* Chrome 10-25, Safari 5.1-6 */
+	background: -webkit-linear-gradient(to right, #e4e5e6, #00416a);
+	/* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(
 		to right,
 		#e4e5e6,
 		#00416a
 	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
 .shopping-container__pink {
 	border: 3px solid black;
 	border-radius: 5px;
-	margin: 60px;
-	/* background: #ffc9e3; */
+	margin: 60px; /* background: #ffc9e3; */ /* background: #ffafd6; */
 	/* background: #ffafd6; */
-	/* background: #ffafd6; */
-	/* background: #ffb7da; */
-	/* background: #ffb7db; */
+	/* background: #ffb7da; */ /* background: #ffb7db; */
 	/* background: #ffe2f0; */
 	/* background: #ffdbed; */
 	background: #ee9ca7; /* fallback for old browsers */
@@ -152,6 +163,9 @@
 	transform: scale(1.1);
 }
 @media (max-width: 600px) {
+	.shopping-container__white {
+		margin: 10px;
+	}
 	.shopping-container__blue {
 		margin: 10px;
 	}
