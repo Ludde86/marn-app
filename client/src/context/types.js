@@ -31,4 +31,6 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 
 // COLORS
+export const SET_WHITE = 'SET_WHITE';
+export const SET_BLUE = 'SET_BLUE';
 export const SET_PINK = 'SET_PINK';

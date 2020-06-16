@@ -11,6 +11,8 @@ import {
 	LOGIN_SUCCESS,
 	LOGIN_FAIL,
 	LOGOUT,
+	SET_WHITE,
+	SET_BLUE,
 	SET_PINK
 } from '../types';
 
@@ -20,6 +22,8 @@ const AuthState = (props) => {
 		token: localStorage.getItem('token'),
 		isAuthenticated: null,
 		error: null,
+		colorWhite: true,
+		colorBlue: false,
 		colorPink: false
 	};
 
@@ -114,23 +118,25 @@ const AuthState = (props) => {
 		});
 	};
 
-	const handleSetPink = (colorPink) => {
-		if (!colorPink) {
-			let payload = true;
-			console.log('if false', colorPink);
-			dispatch({
-				type: SET_PINK,
-				payload
-			});
-		}
-		if (colorPink) {
-			let payload = false;
-			console.log('if true', colorPink);
-			dispatch({
-				type: SET_PINK,
-				payload
-			});
-		}
+	const handleSetWhite = (active) => {
+		dispatch({
+			type: SET_WHITE,
+			payload: active
+		});
+	};
+
+	const handleSetBlue = (active) => {
+		dispatch({
+			type: SET_BLUE,
+			payload: active
+		});
+	};
+
+	const handleSetPink = (active) => {
+		dispatch({
+			type: SET_PINK,
+			payload: active
+		});
 	};
 
 	// Clear Errors
@@ -142,11 +148,15 @@ const AuthState = (props) => {
 				token: state.token,
 				isAuthenticated: state.isAuthenticated,
 				error: state.error,
+				colorWhite: state.colorWhite,
+				colorBlue: state.colorBlue,
 				colorPink: state.colorPink,
 				register,
 				loadUser,
 				login,
 				logout,
+				handleSetWhite,
+				handleSetBlue,
 				handleSetPink
 			}}
 		>

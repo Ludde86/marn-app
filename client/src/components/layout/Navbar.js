@@ -7,7 +7,7 @@ import LoggedInUser from './LoggedInUser';
 
 const Navbar = () => {
 	const authContext = useContext(AuthContext);
-	const { isAuthenticated, colorPink } = authContext;
+	const { isAuthenticated, colorWhite, colorBlue, colorPink } = authContext;
 
 	// const [ authRoutes ] = useState([
 	// 	{
@@ -96,44 +96,31 @@ const Navbar = () => {
 	);
 
 	return (
-		<div className={`navbar-container${colorPink ? '__pink' : '__blue'}`}>
-			<LoggedInUser />
-			<div className="navbar-list">
-				<ul>{isAuthenticated ? authLinks : guestLinks}</ul>
-
-				{/*{isAuthenticated ? (
-				<div>
-					{authRoutes.map((route, index) => (
-						<div key={index} className="navbar-item">
-							<li>
-								<NavLink to={route.page}>{route.name}</Link>
-							</li>
-						</div>
-					))}
-					<div>
-						<button onClick={onLogout}>Logga ut</button>
+		<div>
+			{colorWhite && (
+				<div className="navbar-container__white">
+					<LoggedInUser />
+					<div className="navbar-list">
+						<ul>{isAuthenticated ? authLinks : guestLinks}</ul>
 					</div>
 				</div>
-			) : (
-				<div>
-					{guestRoutes.map((route, index) => (
-						<div key={index} className="navbar-item">
-							<li>
-								<NavLink to={route.page}>{route.name}</Link>
-							</li>
-						</div>
-					))}
+			)}
+			{colorBlue && (
+				<div className="navbar-container__blue">
+					<LoggedInUser />
+					<div className="navbar-list">
+						<ul>{isAuthenticated ? authLinks : guestLinks}</ul>
+					</div>
 				</div>
-					)}*/}
-
-				{/*{routes.map((route, index) => (
-				<div key={index} className="navbar-item">
-					<li>
-						<Link to={route.page}>{route.name}</Link>
-					</li>
+			)}
+			{colorPink && (
+				<div className="navbar-container__pink">
+					<LoggedInUser />
+					<div className="navbar-list">
+						<ul>{isAuthenticated ? authLinks : guestLinks}</ul>
+					</div>
 				</div>
-			))}*/}
-			</div>
+			)}
 		</div>
 	);
 };
