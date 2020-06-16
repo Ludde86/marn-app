@@ -1,0 +1,47 @@
+.logout-btn {
+	background: #00bfff;
+	border: none;
+	cursor: pointer;
+	border: 1px solid black;
+	border-radius: 2px;
+}
+
+.logout-btn:hover {
+	background: #4169e1;
+}
+
+.logout-btn:active {
+	background: #7b68ee;
+}
+.selected {
+	font-weight: bold;
+	text-decoration: line-through;
+}
+
+.logged-in {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.logged-in-container {
+	display: flex;
+	justify-content: flex-end;
+	margin: 15px 60px auto;
+	border: 1px solid grey;
+	min-width: 31.2%;
+	padding: 10px;
+}
+
+.logged-in-item {
+	margin-right: 20px;
+}
+
+.logged-in-user {
+	font-weight: bold;
+}
+
+@media (max-width: 600px) {
+	.logged-in-container {
+		margin: 15px 15px auto;
+	}
+}
