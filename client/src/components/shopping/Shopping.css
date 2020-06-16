@@ -1,8 +1,15 @@
-.shopping-container {
+.shopping-container__blue {
 	border: 3px solid black;
 	border-radius: 5px;
 	margin: 60px;
 	background: #b0c4de;
+}
+
+.shopping-container__pink {
+	border: 3px solid black;
+	border-radius: 5px;
+	margin: 60px;
+	background: #ee82ee;
 }
 
 .shopping-title {
@@ -147,7 +154,11 @@
 }
 
 @media (max-width: 600px) {
-	.shopping-container {
+	.shopping-container__blue {
+		margin: 10px;
+	}
+
+	.shopping-container__pink {
 		margin: 10px;
 	}
 

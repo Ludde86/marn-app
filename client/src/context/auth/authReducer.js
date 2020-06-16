@@ -1,4 +1,13 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL, GET_USER, AUTH_FAIL, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from '../types';
+import {
+	REGISTER_SUCCESS,
+	REGISTER_FAIL,
+	GET_USER,
+	AUTH_FAIL,
+	LOGIN_SUCCESS,
+	LOGIN_FAIL,
+	LOGOUT,
+	SET_PINK
+} from '../types';
 
 export default (state, action) => {
 	switch (action.type) {
@@ -31,6 +40,11 @@ export default (state, action) => {
 				isAuthenticated: false,
 				user: null,
 				error: action.payload
+			};
+		case SET_PINK:
+			return {
+				...state,
+				colorPink: action.payload
 			};
 		default:
 			return state;

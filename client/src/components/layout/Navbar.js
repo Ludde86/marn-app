@@ -3,10 +3,11 @@ import { NavLink } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 
 import './Navbar.css';
+import LoggedInUser from './LoggedInUser';
 
 const Navbar = () => {
 	const authContext = useContext(AuthContext);
-	const { isAuthenticated } = authContext;
+	const { isAuthenticated, colorPink } = authContext;
 
 	// const [ authRoutes ] = useState([
 	// 	{
@@ -65,12 +66,12 @@ const Navbar = () => {
 		<Fragment>
 			<li>
 				<NavLink exact to="/" activeClassName="selected">
-					Att Göra:
+					Förbättringar
 				</NavLink>
 			</li>
 			<li>
 				<NavLink to="/home" activeClassName="selected">
-					Hemma
+					Att Göra
 				</NavLink>
 			</li>
 			<li>
@@ -95,10 +96,12 @@ const Navbar = () => {
 	);
 
 	return (
-		<div className="navbar-list">
-			<ul>{isAuthenticated ? authLinks : guestLinks}</ul>
+		<div className={`navbar-container${colorPink ? '__pink' : '__blue'}`}>
+			<LoggedInUser />
+			<div className="navbar-list">
+				<ul>{isAuthenticated ? authLinks : guestLinks}</ul>
 
-			{/*{isAuthenticated ? (
+				{/*{isAuthenticated ? (
 				<div>
 					{authRoutes.map((route, index) => (
 						<div key={index} className="navbar-item">
@@ -123,13 +126,14 @@ const Navbar = () => {
 				</div>
 					)}*/}
 
-			{/*{routes.map((route, index) => (
+				{/*{routes.map((route, index) => (
 				<div key={index} className="navbar-item">
 					<li>
 						<Link to={route.page}>{route.name}</Link>
 					</li>
 				</div>
 			))}*/}
+			</div>
 		</div>
 	);
 };
