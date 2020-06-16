@@ -23,7 +23,7 @@ const Shopping = (props) => {
 	return (
 		// <div className={"{pink ? 'shopping-container__pink' : 'shopping-container'}"}>
 		<div className={`shopping-container${colorPink ? '__pink' : '__blue'}`}>
-			<h3 className="shopping-title">Att Handla</h3>
+			{/*<h3 className="shopping-title">Att Handla</h3>*/}
 			<ShoppingForm />
 			<ShoppingList />
 		</div>
