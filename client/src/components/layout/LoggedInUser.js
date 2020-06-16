@@ -18,12 +18,14 @@ const LoggedInUser = () => {
 					<div className="logged-in-item">
 						<span>Inloggad som:</span> <span className="logged-in-user">{user.name}</span>
 					</div>
-					<button className="logout-btn" onClick={onLogout}>
-						Logga Ut
-					</button>
-					<button className="color-theme-btn" onClick={() => handleSetPink(colorPink)}>
-						Färgtema: {colorPink ? 'Rosa' : 'Blå'}
-					</button>
+					<div className="logged-in-btn">
+						<button className="logout-btn" onClick={onLogout}>
+							Logga Ut
+						</button>
+						<button className="color-theme-btn" onClick={() => handleSetPink(colorPink)}>
+							{colorPink ? 'Blå' : 'Rosa'}
+						</button>
+					</div>
 				</div>
 			)}
 		</div>
