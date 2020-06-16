@@ -58,7 +58,6 @@
 
 .selected {
 	font-weight: bold;
-	text-decoration: line-through;
 	border: 1px solid black;
 	border-radius: 5px;
 	background: white;
