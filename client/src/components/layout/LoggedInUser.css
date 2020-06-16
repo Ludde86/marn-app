@@ -3,7 +3,7 @@
 	border: none;
 	cursor: pointer;
 	border: 1px solid black;
-	border-radius: 2px;
+	border-radius: 10px;
 }
 
 .logout-btn:hover {
@@ -13,23 +13,21 @@
 .logout-btn:active {
 	background: #7b68ee;
 }
-.selected {
-	font-weight: bold;
-	text-decoration: line-through;
-}
 
 .logged-in {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 }
 
 .logged-in-container {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-around;
 	margin: 15px 60px auto;
 	border: 1px solid grey;
+	border-radius: 10px;
 	min-width: 31.2%;
 	padding: 10px;
+	background: white;
 }
 
 .logged-in-item {

@@ -1,44 +1,8 @@
-/* .shopping-container {
-	border: 5px solid grey;
-	width: 75%;
-	min-height: 550px;
-	margin: auto;
-}
-
-.item-container {
-	max-width: 100%;
-	margin: 3px;
-	display: flex;
-	justify-content: space-between;
-	cursor: pointer;
-}
-
-.item-container i {
-	margin: 5px;
-	cursor: pointer;
-}
-
-.item-message {
-	width: 75%;
-	word-wrap: break-word;
-}
-
-.item-buttons {
-	width: 24.5%;
-}
-
-.item-buttons button {
-	width: 50%;
-} */
-
-/* .item-message:hover {
-	background: lightgray;
-	border-radius: 3px;
-} */
-
 .shopping-container {
 	border: 3px solid grey;
+	border-radius: 5px;
 	margin: 60px;
+	background: #b0c4de;
 }
 
 .shopping-title {
@@ -48,6 +12,7 @@
 
 .form-container {
 	border: 2px solid grey;
+	border-radius: 5px;
 	margin: 5px;
 }
 
@@ -55,25 +20,29 @@
 	margin: 20px auto;
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 	width: 90%;
 }
 
 .input-field {
-	width: 50%;
+	border-radius: 10px;
+	width: 70%;
 	max-height: 30px;
-	padding: 0;
+	padding: 2.6px;
 	font-size: 20px;
+	margin: 5px 10px 5px 10px auto;
+	text-align: center;
 }
 
 .input-submit {
-	width: 25%;
+	width: 35%;
 	height: 30px;
 	background: #4caf50;
 	border: none;
 	cursor: pointer;
-	border: 1px solid black;
-	border-radius: 2px;
-	margin: 0 5px;
+	border: 2px solid black;
+	border-radius: 10px;
+	margin: 5px auto;
 	font-size: 16px;
 }
 
@@ -86,25 +55,26 @@
 }
 
 .input-update {
-	width: 25%;
+	width: 30%;
 	height: 30px;
 	background: #4caf50;
 	border: none;
 	cursor: pointer;
-	border: 1px solid black;
-	border-radius: 2px;
+	border: 2px solid black;
+	border-radius: 10px;
 	margin: 0 5px;
 	font-size: 16px;
 }
 
 .clear-button {
-	width: 25%;
+	margin: 5px auto;
+	width: 15%;
 	height: 30px;
 	background: #cd5c5c;
 	border: none;
 	cursor: pointer;
-	border: 1px solid black;
-	border-radius: 2px;
+	border: 2px solid black;
+	border-radius: 10px;
 	font-size: 16px;
 }
 
@@ -118,6 +88,7 @@
 
 .list-container {
 	border: 2px solid grey;
+	border-radius: 5px;
 	min-height: 450px;
 	list-style-type: none;
 	margin: 5px;
@@ -125,7 +96,8 @@
 }
 
 .item-container {
-	border-bottom: 2px solid black;
+	border: 1px solid black;
+	border-radius: 10px;
 	width: 93%;
 	height: 30px;
 	margin: 10px auto;
@@ -133,6 +105,7 @@
 	display: flex;
 	justify-content: space-between;
 	font-size: 20px;
+	background: white;
 }
 
 .item-container i {

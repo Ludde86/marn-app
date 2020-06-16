@@ -2,9 +2,11 @@ import React, { useState, useContext, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 
+import './Navbar.css';
+
 const Navbar = () => {
 	const authContext = useContext(AuthContext);
-	const { isAuthenticated, logout, user } = authContext;
+	const { isAuthenticated } = authContext;
 
 	// const [ authRoutes ] = useState([
 	// 	{
