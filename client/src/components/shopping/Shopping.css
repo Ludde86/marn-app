@@ -9,7 +9,7 @@
 	border: 3px solid black;
 	border-radius: 5px;
 	margin: 60px;
-	background: #ff69b4;
+	background: #ee82ee;
 }
 
 .shopping-title {
@@ -154,7 +154,11 @@
 }
 
 @media (max-width: 600px) {
-	.shopping-container {
+	.shopping-container__blue {
+		margin: 10px;
+	}
+
+	.shopping-container__pink {
 		margin: 10px;
 	}
 

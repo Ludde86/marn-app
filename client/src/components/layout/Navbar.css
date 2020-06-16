@@ -11,7 +11,7 @@
 	border-bottom: 3px solid black;
 	margin-bottom: 50px;
 	/* height: 50px; */
-	background: #ff69b4;
+	background: #ee82ee;
 }
 
 .navbar-container__blue li {
@@ -66,7 +66,11 @@
 }
 
 @media (max-width: 600px) {
-	.navbar-container {
+	.navbar-container__blue {
+		margin-bottom: 20px;
+	}
+
+	.navbar-container__pink {
 		margin-bottom: 20px;
 	}
 }
