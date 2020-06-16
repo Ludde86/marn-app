@@ -31,13 +31,10 @@ const App = () => {
 		<AuthState>
 			<Router>
 				<div className="app-container">
-					<div className="navbar-container">
-						<LoggedInUser />
-						<Navbar />
-					</div>
 					<TodoState>
 						<PostState>
 							<ShoppingState>
+								<Navbar />
 								<Switch>
 									<PrivateRoute exact path="/" component={Start} />
 									<Route exact path="/home" component={Home} />

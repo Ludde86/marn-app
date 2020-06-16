@@ -1,11 +1,11 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import ShoppingForm from '../shopping/ShoppingForm';
 import ShoppingList from '../shopping/ShoppingList';
 import AuthContext from '../../context/auth/authContext';
 
 const Shopping = (props) => {
 	const authContext = useContext(AuthContext);
-	const { loadUser, isAuthenticated } = authContext;
+	const { loadUser, isAuthenticated, colorPink } = authContext;
 
 	// validate and put user into state
 	useEffect(
@@ -21,7 +21,8 @@ const Shopping = (props) => {
 	);
 
 	return (
-		<div className="shopping-container">
+		// <div className={"{pink ? 'shopping-container__pink' : 'shopping-container'}"}>
+		<div className={`shopping-container${colorPink ? '__pink' : '__blue'}`}>
 			<h3 className="shopping-title">Att Handla</h3>
 			<ShoppingForm />
 			<ShoppingList />

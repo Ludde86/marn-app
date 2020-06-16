@@ -5,7 +5,7 @@ import './LoggedInUser.css';
 
 const LoggedInUser = () => {
 	const authContext = useContext(AuthContext);
-	const { user, logout } = authContext;
+	const { user, logout, handleSetPink, colorPink } = authContext;
 
 	const onLogout = () => {
 		logout();
@@ -20,6 +20,9 @@ const LoggedInUser = () => {
 					</div>
 					<button className="logout-btn" onClick={onLogout}>
 						Logga Ut
+					</button>
+					<button className="color-theme-btn" onClick={() => handleSetPink(colorPink)}>
+						Färgtema: {colorPink ? 'Rosa' : 'Blå'}
 					</button>
 				</div>
 			)}

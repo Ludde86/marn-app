@@ -3,14 +3,24 @@ import axios from 'axios';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
 import setAuthToken from '../../utils/setAuthToken';
-import { REGISTER_SUCCESS, REGISTER_FAIL, GET_USER, AUTH_FAIL, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from '../types';
+import {
+	REGISTER_SUCCESS,
+	REGISTER_FAIL,
+	GET_USER,
+	AUTH_FAIL,
+	LOGIN_SUCCESS,
+	LOGIN_FAIL,
+	LOGOUT,
+	SET_PINK
+} from '../types';
 
 const AuthState = (props) => {
 	const initialState = {
 		user: null,
 		token: localStorage.getItem('token'),
 		isAuthenticated: null,
-		error: null
+		error: null,
+		colorPink: false
 	};
 
 	const [ state, dispatch ] = useReducer(authReducer, initialState);
@@ -104,6 +114,25 @@ const AuthState = (props) => {
 		});
 	};
 
+	const handleSetPink = (colorPink) => {
+		if (!colorPink) {
+			let payload = true;
+			console.log('if false', colorPink);
+			dispatch({
+				type: SET_PINK,
+				payload
+			});
+		}
+		if (colorPink) {
+			let payload = false;
+			console.log('if true', colorPink);
+			dispatch({
+				type: SET_PINK,
+				payload
+			});
+		}
+	};
+
 	// Clear Errors
 
 	return (
@@ -113,10 +142,12 @@ const AuthState = (props) => {
 				token: state.token,
 				isAuthenticated: state.isAuthenticated,
 				error: state.error,
+				colorPink: state.colorPink,
 				register,
 				loadUser,
 				login,
-				logout
+				logout,
+				handleSetPink
 			}}
 		>
 			{props.children}
