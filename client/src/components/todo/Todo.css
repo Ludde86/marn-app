@@ -27,8 +27,8 @@
 	min-height: 500px;
 	border: 3px solid black;
 	border-radius: 5px;
-	margin: 60px; /* background: #ffc9e3; */ /* background: #ffafd6; */ /* background: #ffafd6; */ /* background: #ffb7da; */
-	/* background: #ffb7db; */ /* background: #ffe2f0; */ /* background: #ffdbed; */
+	margin: 60px; /* background: #ffc9e3; */ /* background: #ffafd6; */ /* background: #ffafd6; */ /* background: #ffb7da; */ /* background: #ffb7db; */
+	/* background: #ffe2f0; */ /* background: #ffdbed; */
 	background: #ee9ca7;
 	/* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7); /* Chrome 10-25, Safari 5.1-6 */
@@ -80,7 +80,7 @@
 .del-upd-buttons {
 	justify-content: space-between;
 	display: flex;
-	width: 10%;
+	width: 11%;
 	margin: 0;
 	padding: 2px; /* float: right; */
 }
