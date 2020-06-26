@@ -1,9 +1,9 @@
-import React, { useEffect, useContext } from 'react';
-import ShoppingForm from '../shopping/ShoppingForm';
-import ShoppingList from '../shopping/ShoppingList';
+import React, { useContext, useEffect } from 'react';
+import TodoForm from '../todo/TodoForm';
+import TodoList from '../todo/TodoList';
 import AuthContext from '../../context/auth/authContext';
 
-const Shopping = (props) => {
+const Todo = (props) => {
 	const authContext = useContext(AuthContext);
 	const { loadUser, isAuthenticated, colorWhite, colorBlue, colorPink } = authContext;
 
@@ -23,28 +23,28 @@ const Shopping = (props) => {
 	return (
 		<div>
 			{colorWhite && (
-				<div className="shopping-container__white">
+				<div className="todo-container__white">
 					{/*<h3 className="shopping-title">Att Handla</h3>*/}
-					<ShoppingForm />
-					<ShoppingList />
+					<TodoForm />
+					<TodoList />
 				</div>
 			)}
 			{colorBlue && (
-				<div className="shopping-container__blue">
+				<div className="todo-container__blue">
 					{/*<h3 className="shopping-title">Att Handla</h3>*/}
-					<ShoppingForm />
-					<ShoppingList />
+					<TodoForm />
+					<TodoList />
 				</div>
 			)}
 			{colorPink && (
-				<div className="shopping-container__pink">
+				<div className="todo-container__pink">
 					{/*<h3 className="shopping-title">Att Handla</h3>*/}
-					<ShoppingForm />
-					<ShoppingList />
+					<TodoForm />
+					<TodoList />
 				</div>
 			)}
 		</div>
 	);
 };
 
-export default Shopping;
+export default Todo;

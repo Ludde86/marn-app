@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react';
 import PostForm from '../post/PostForm';
 import PostList from '../post/PostList';
 import AuthContext from '../../context/auth/authContext';
-import LoginPage from './LoginPage';
 
 const Start = (props) => {
 	const authContext = useContext(AuthContext);
@@ -16,8 +15,8 @@ const Start = (props) => {
 			} else {
 				loadUser();
 			}
-			// eslint-disable-next-line
 		},
+		// eslint-disable-next-line
 		[ isAuthenticated, props.history ]
 	);
 
