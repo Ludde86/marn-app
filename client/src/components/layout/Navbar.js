@@ -1,4 +1,4 @@
-import React, { useState, useContext, Fragment } from 'react';
+import React, { useContext, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 
@@ -70,7 +70,7 @@ const Navbar = () => {
 				</NavLink>
 			</li>
 			<li>
-				<NavLink to="/home" activeClassName="selected">
+				<NavLink to="/todo" activeClassName="selected">
 					Att Göra
 				</NavLink>
 			</li>
