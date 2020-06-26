@@ -19,7 +19,7 @@ import {
 const AuthState = (props) => {
 	const initialState = {
 		user: null,
-		token: localStorage.getItem('token'),
+		token: sessionStorage.getItem('token'),
 		isAuthenticated: null,
 		error: null,
 		colorWhite: true,
@@ -33,8 +33,8 @@ const AuthState = (props) => {
 	// -> here we set the user state, with GET_USER
 	const loadUser = async () => {
 		// load token into global headers
-		if (localStorage.token) {
-			setAuthToken(localStorage.token);
+		if (sessionStorage.token) {
+			setAuthToken(sessionStorage.token);
 		}
 		try {
 			// getAuth checks if its a valid user

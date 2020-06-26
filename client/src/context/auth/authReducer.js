@@ -21,9 +21,9 @@ export default (state, action) => {
 			};
 		case REGISTER_SUCCESS:
 		case LOGIN_SUCCESS:
-			// put the token we get back inside of localStorage
+			// put the token we get back inside of sessionStorage
 			// -> (we get the token from this action payload)
-			localStorage.setItem('token', action.payload.token);
+			sessionStorage.setItem('token', action.payload.token);
 			return {
 				...state,
 				...action.payload,
@@ -33,9 +33,9 @@ export default (state, action) => {
 		case AUTH_FAIL:
 		case LOGIN_FAIL:
 		case LOGOUT:
-			// if registration or get authentication fails, we want to remove the token from localStorage
+			// if registration or get authentication fails, we want to remove the token from sessionStorage
 			// -> and clean stuff up
-			localStorage.removeItem('token');
+			sessionStorage.removeItem('token');
 			return {
 				...state,
 				token: null,
