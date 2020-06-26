@@ -17,9 +17,8 @@ const TodoItem = ({ todo }) => {
 				</span>
 
 				<div className="del-upd-buttons">
-					<i className="far fa-trash-alt" onClick={() => deleteTodo(todo._id)} />
-
 					<i className="fas fa-pencil-alt" onClick={() => setObjectToUpdate(todo._id, todo.message)} />
+					<i className="far fa-trash-alt" onClick={() => deleteTodo(todo._id)} />
 				</div>
 			</div>
 		</li>
