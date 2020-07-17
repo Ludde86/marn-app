@@ -26,7 +26,8 @@ const routes = require('./routes/api');
 // -> options
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mern_demo', {
 	useNewUrlParser: true,
-	useUnifiedTopology: true
+	useUnifiedTopology: true,
+	useCreateIndex: true
 });
 
 // mongoose.connect(MONGODB_URI || 'mongodb://localhost/mern_demo', {

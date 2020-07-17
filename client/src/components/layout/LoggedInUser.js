@@ -31,7 +31,7 @@ const LoggedInUser = () => {
 						<button className="logout-btn" onClick={onLogout}>
 							Logga Ut
 						</button>
-						{colorWhite && (
+						{/*{colorWhite && (
 							<button className="color-theme-btn" onClick={() => handleSetBlue(true)}>
 								Blå
 							</button>
@@ -47,7 +47,7 @@ const LoggedInUser = () => {
 							<button className="color-theme-btn" onClick={() => handleSetWhite(true)}>
 								Vit
 							</button>
-						)}
+						)}*/}
 					</div>
 				</div>
 			)}
