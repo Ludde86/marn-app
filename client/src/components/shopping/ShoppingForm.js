@@ -9,9 +9,9 @@ const ShoppingForm = () => {
 	const { message, setMessage, isEdit } = todoContext;
 
 	return (
-		<div className="form-container">
+		<div>
 			{isEdit ? (
-				<form className="form-input-submit" onSubmit={(e) => updateItem(e, editItem.id, editItem.message)}>
+				<form className="form-container" onSubmit={(e) => updateItem(e, editItem.id, editItem.message)}>
 					<input
 						className="input-field"
 						type="text"
@@ -23,7 +23,7 @@ const ShoppingForm = () => {
 					<input className="input-update" type="submit" value="Uppdatera" />
 				</form>
 			) : (
-				<form className="form-input-submit" onSubmit={(e) => addShoppingItem(e, message)}>
+				<form className="form-container" onSubmit={(e) => addShoppingItem(e, message)}>
 					<input
 						className="input-field"
 						type="text"
@@ -33,9 +33,6 @@ const ShoppingForm = () => {
 						onChange={(e) => setMessage(e.target.value)}
 					/>
 					<input className="input-submit" type="submit" value="Lägg Till" />
-					<button className="clear-button" onClick={clearShoppingList}>
-						Rensa
-					</button>
 				</form>
 			)}
 		</div>
