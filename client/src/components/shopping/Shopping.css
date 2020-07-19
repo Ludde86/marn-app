@@ -2,48 +2,6 @@
 	background: #c0c0c0;
 }
 
-.shopping-container__white {
-	/* border: 3px solid black; */
-	/* border-radius: 5px; */
-	/* margin: 120px; */
-	background: #ada996; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #eaeaea, #dbdbdb, #f2f2f2, #ada996); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(
-		to right,
-		#eaeaea,
-		#dbdbdb,
-		#f2f2f2,
-		#ada996
-	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-.shopping-container__blue {
-	border: 3px solid black;
-	border-radius: 5px;
-	margin: 60px;
-	background: #00416a; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #e4e5e6, #00416a); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(
-		to right,
-		#e4e5e6,
-		#00416a
-	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-.shopping-container__pink {
-	border: 3px solid black;
-	border-radius: 5px;
-	margin: 60px; /* background: #ffc9e3; */ /* background: #ffafd6; */
-	/* background: #ffafd6; */
-	/* background: #ffb7da; */ /* background: #ffb7db; */
-	/* background: #ffe2f0; */
-	/* background: #ffdbed; */
-	background: #ee9ca7; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(
-		to right,
-		#ffdde1,
-		#ee9ca7
-	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 .shopping-title {
 	padding: 0 10px;
 	font-size: 28px;
@@ -53,15 +11,17 @@
 }
 .form-container {
 	/* border: 2px solid black; */
-	border-radius: 5px;
+	/* border-radius: 5px; */
 	/* margin: 5px; */
+	display: flex;
 }
 .form-input-submit {
-	/* margin: 20px auto; */
+	margin: 0 20px auto;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	width: 90%;
+	width: 92%;
+	/* margin: 10px; */
 }
 .input-field {
 	border-radius: 5px;
@@ -177,7 +137,7 @@
 	}
 	.form-input-submit {
 		flex-direction: column;
-		margin: 5px auto;
+		padding: 10px;
 	}
 	.input-field {
 		width: 99%;

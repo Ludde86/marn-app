@@ -21,33 +21,10 @@ const Shopping = (props) => {
 	);
 
 	return (
-		<div>
-			<div className="shopping-container">
-				{/*<h3 className="shopping-title">Att Handla</h3>*/}
-				<ShoppingForm />
-				<ShoppingList />
-			</div>
-			{colorWhite && (
-				<div className="shopping-container__white">
-					{/*<h3 className="shopping-title">Att Handla</h3>*/}
-					<ShoppingForm />
-					<ShoppingList />
-				</div>
-			)}
-			{colorBlue && (
-				<div className="shopping-container__blue">
-					{/*<h3 className="shopping-title">Att Handla</h3>*/}
-					<ShoppingForm />
-					<ShoppingList />
-				</div>
-			)}
-			{colorPink && (
-				<div className="shopping-container__pink">
-					{/*<h3 className="shopping-title">Att Handla</h3>*/}
-					<ShoppingForm />
-					<ShoppingList />
-				</div>
-			)}
+		<div className="shopping-container">
+			{/*<h3 className="shopping-title">Att Handla</h3>*/}
+			<ShoppingForm />
+			<ShoppingList />
 		</div>
 	);
 };
