@@ -1,22 +1,28 @@
 .logged-in-container {
-	/* border: 2px solid red; */
 	background: #c0c0c0;
 	display: flex;
-	/* justify-content: flex-start; */
-	/* width: 50%; */
-	/* margin: 10px; */
 	height: 50px;
 }
 
+.logged-in-item {
+	width: 100%;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+}
+
+.logged-in-user {
+	font-weight: bold;
+	margin-left: 5px;
+}
+
 .logout-btn {
-	/* background: #00bfff; */
+	width: 50%;
+	margin: auto;
 	border: none;
 	cursor: pointer;
 	background: #c0c0c0;
-	color: purple;
-	/* border: 1px solid black; */
-	/* border-radius: 1px; */
-	margin: 0 7px;
+	color: #663399;
 	font-weight: 800;
 }
 
@@ -27,16 +33,6 @@
 
 .logout-btn:active {
 	color: #7b68ee;
-}
-
-.logged-in-item {
-	/* margin-right: 20px; */
-	margin: 13px auto;
-	margin-left: 20px;
-}
-
-.logged-in-user {
-	font-weight: bold;
 }
 
 .color-theme-btn {
