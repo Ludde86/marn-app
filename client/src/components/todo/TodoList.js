@@ -9,15 +9,27 @@ const TodoList = () => {
 
 	useEffect(
 		() => {
-			getTodos();
-			if (!intervalIsSet) {
-				let interval = setInterval(getTodos, 1000);
-				setIntervalIsSet(interval);
-			}
+			// getShoppingList();
+			const interval = setInterval(() => {
+				getTodos();
+			}, 500);
+			return () => clearInterval(interval);
 		},
 		// eslint-disable-next-line
-		[ intervalIsSet ]
+		[]
 	);
+
+	// useEffect(
+	// 	() => {
+	// 		getTodos();
+	// 		if (!intervalIsSet) {
+	// 			let interval = setInterval(getTodos, 1000);
+	// 			setIntervalIsSet(interval);
+	// 		}
+	// 	},
+	// 	// eslint-disable-next-line
+	// 	[ intervalIsSet ]
+	// );
 
 	return (
 		<div className="todo-list-container">
