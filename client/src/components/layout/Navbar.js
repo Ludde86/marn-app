@@ -97,7 +97,7 @@ const Navbar = () => {
 
 	return (
 		<div className="navbar-container">
-			<div className="navbar-list">
+			<div>
 				<ul>{isAuthenticated ? authLinks : guestLinks}</ul>
 			</div>
 		</div>

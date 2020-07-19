@@ -8,8 +8,11 @@ const ShoppingList = () => {
 
 	useEffect(
 		() => {
-			getShoppingList();
-			setInterval(getShoppingList, 1000);
+			// getShoppingList();
+			const interval = setInterval(() => {
+				getShoppingList();
+			}, 500);
+			return () => clearInterval(interval);
 		},
 		// eslint-disable-next-line
 		[]
