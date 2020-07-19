@@ -36,8 +36,7 @@
 	font-weight: bold;
 }
 .input-submit:hover {
-	background: #e0e0e0;
-	font-weight: bold;
+	background: #d0d0d0;
 }
 .input-submit:active {
 	background: #404040;
@@ -114,9 +113,10 @@
 	cursor: pointer;
 	width: 85%;
 	overflow: hidden;
+	font-weight: 500;
 }
 .item-message:hover {
-	font-weight: 500;
+	font-weight: 700;
 }
 .item-message:active {
 	font-weight: 900;
