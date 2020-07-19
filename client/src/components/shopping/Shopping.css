@@ -13,18 +13,24 @@
 	/* border: 2px solid black; */
 	/* border-radius: 5px; */
 	/* margin: 5px; */
+	padding: 10px;
 	display: flex;
 }
 .form-input-submit {
-	margin: 0 20px auto;
+	/* border: 2px solid black; */
+	/* margin: 0 20px auto; */
+	margin-top: 20px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	width: 92%;
+	width: 100%;
 	/* margin: 10px; */
 }
 .input-field {
-	border-radius: 5px;
+	background: #c0c0c0;
+	border: none;
+	border-bottom: 2px solid black;
+	/* border-radius: 5px; */
 	width: 70%;
 	max-height: 30px;
 	padding: 2.6px;
@@ -32,23 +38,34 @@
 	margin: 5px 10px 5px 10px auto;
 	text-align: center;
 }
+
+.input-field:focus {
+	outline: none;
+}
+
 .input-submit {
 	width: 35%;
 	height: 32px;
-	background: #4caf50;
+	/* background: #4caf50; */
+	background: #e0e0e0;
 	border: none;
 	cursor: pointer;
 	border: 1px solid black;
-	border-radius: 5px;
+	/* border-radius: 5px; */
 	margin: 5px auto;
 	font-size: 16px;
 }
 .input-submit:hover {
-	background: #228b22;
+	background: #e0e0e0;
+	/* background: #228b22; */
 	font-weight: bold;
 }
 .input-submit:active {
-	background: #006400;
+	/* background: #006400; */
+	background: #404040;
+}
+.input-submit:focus {
+	outline: none;
 }
 .input-update {
 	width: 30%;
@@ -69,7 +86,7 @@
 	border: none;
 	cursor: pointer;
 	border: 1px solid black;
-	border-radius: 5px;
+	/* border-radius: 5px; */
 	font-size: 16px;
 }
 .clear-button:hover {
@@ -79,17 +96,22 @@
 .clear-button:active {
 	background: #8b0000;
 }
+.clear-button:focus {
+	outline: none;
+}
 .list-container {
 	/* border: 2px solid black; */
 	border-radius: 5px;
 	min-height: 450px;
 	list-style-type: none;
-	margin: 5px;
+	margin: 0;
 	padding: 10px;
 }
 .item-container {
-	border: 1px solid black;
-	border-radius: 10px;
+	/* border: 1px solid black;
+	border-radius: 10px; */
+	/* border-left: 2px solid black; */
+	border-bottom: 2px solid black;
 	width: 93%;
 	height: 30px;
 	margin: 10px auto;
@@ -97,10 +119,12 @@
 	display: flex;
 	justify-content: space-between;
 	font-size: 20px;
-	background: white;
+	background: #c0c0c0;
+	color: #404040;
 }
 .item-container i {
 	margin: 5px;
+	color: black;
 }
 .item-message {
 	cursor: pointer;
@@ -142,13 +166,13 @@
 	.input-field {
 		width: 99%;
 		min-height: 30px;
-		border-radius: 10px;
+		/* border-radius: 10px; */
 		margin-bottom: 10px;
 	}
 	.input-submit {
 		width: 100%;
 		margin: 5px 0;
-		border-radius: 10px;
+		border-radius: 3px;
 	}
 	.input-update {
 		width: 100%;
@@ -157,7 +181,7 @@
 	}
 	.clear-button {
 		width: 100%;
-		border-radius: 10px;
+		border-radius: 3px;
 	}
 	.item-message {
 		width: 80%;
