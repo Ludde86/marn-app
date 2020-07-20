@@ -115,7 +115,6 @@
 	display: flex;
 	justify-content: space-between;
 	font-size: 25px;
-
 	/* background: #c0c0c0; */
 	background: #f0f0f0;
 	color: #404040;
@@ -139,7 +138,6 @@
 }
 .item-btn {
 	width: 15%;
-
 	display: flex;
 	justify-content: flex-end;
 }
