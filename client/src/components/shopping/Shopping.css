@@ -9,7 +9,8 @@
 }
 
 .input-field {
-	background: #d0d0d0;
+	/* background: #d0d0d0; */
+	background: #f0f0f0;
 	border: none;
 	border-bottom: 2px solid black;
 	width: 65%;
@@ -27,8 +28,10 @@
 .input-submit {
 	width: 25%;
 	height: 32px;
-	background: #e0e0e0;
+	background: #009933;
+	/* background: #0066cc; */
 	border: none;
+	border-radius: 0;
 	cursor: pointer;
 	border: 1px solid black;
 	margin: 5px auto;
@@ -36,7 +39,7 @@
 	font-weight: bold;
 }
 .input-submit:hover {
-	background: #d0d0d0;
+	background: #009933;
 }
 .input-submit:active {
 	background: #404040;
@@ -49,6 +52,7 @@
 	height: 30px;
 	background: #cc9966;
 	border: none;
+	border-radius: 0;
 	cursor: pointer;
 	border: 1px solid black;
 	margin: 5px auto;
@@ -137,11 +141,13 @@
 	.form-container {
 		flex-direction: column;
 		width: 100%;
-		padding: 10px 0;
+		padding: 50px 0;
 	}
 	.input-field {
-		min-height: 30px;
+		width: 100%;
+		min-height: 40px;
 		margin: 10px auto;
+		padding: 0;
 	}
 	.input-submit {
 		width: 100%;
