@@ -5,6 +5,9 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-size: 16px;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+	border-radius: 0;
 }
 
 /* try disable auto zoom for iOS */
@@ -13,6 +16,7 @@ input {
 }
 
 input {
+	-webkit-appearance: none;
 	-webkit-border-radius: 0;
 	border-radius: 0;
 	-webkit-box-shadow: none;
@@ -20,6 +24,7 @@ input {
 }
 
 button {
+	-webkit-appearance: none;
 	-webkit-border-radius: 0;
 	border-radius: 0;
 	-webkit-box-shadow: none;
