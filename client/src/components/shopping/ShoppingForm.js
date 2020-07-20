@@ -20,7 +20,7 @@ const ShoppingForm = () => {
 						value={editItem.message}
 						placeholder={editItem.message}
 					/>
-					<input className="input-update" type="submit" value="Uppdatera" />
+					<input className="input-update" type="submit" value="+" />
 				</form>
 			) : (
 				<form className="form-container" onSubmit={(e) => addShoppingItem(e, message)}>
@@ -32,7 +32,7 @@ const ShoppingForm = () => {
 						placeholder="Lägg till att handla..."
 						onChange={(e) => setMessage(e.target.value)}
 					/>
-					<input className="input-submit" type="submit" value="Lägg Till" />
+					<input className="input-submit" type="submit" value="+" />
 				</form>
 			)}
 		</div>

@@ -1,11 +1,14 @@
 .navbar-container {
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
-	background: #808080;
+	/* background: #808080; */
+	background: #a0a0a0;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	height: 75px;
+	height: 80px;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 .navbar-container ul {
@@ -27,10 +30,11 @@
 }
 
 .selected {
+	/* font-size: 24px; */
 	/* font-weight: bold; */
 	/* border-bottom: 2px solid black; */
 	border-radius: 2px;
-	background: #d0d0d0;
+	background: #f0f0f0;
 	padding: 0 3px;
 }
 @media (max-width: 600px) {

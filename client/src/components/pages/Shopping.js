@@ -30,7 +30,7 @@ const Shopping = (props) => {
 			<ShoppingForm />
 			<ShoppingList />
 			<button className="clear-button" onClick={clearShoppingList}>
-				Rensa
+				<span className="clear-text">-</span>
 			</button>
 		</div>
 	);

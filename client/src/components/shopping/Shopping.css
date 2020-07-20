@@ -1,5 +1,6 @@
 .shopping-container {
-	background: #c0c0c0;
+	/* background: #c0c0c0; */
+	background: #d0d0d0;
 }
 
 .form-container {
@@ -15,7 +16,7 @@
 	border-bottom: 2px solid black;
 	width: 65%;
 	max-height: 30px;
-	padding: 2.6px;
+	padding: 0;
 	font-size: 20px;
 	margin-left: 50px;
 	text-align: center;
@@ -31,12 +32,12 @@
 .input-submit {
 	width: 25%;
 	height: 32px;
-	/* background: #3366ff; */
-	background: #0066cc;
+	/* background: #00cc00; */
+	background: #3399ff;
 	border: none;
 	cursor: pointer;
 	border: 1px solid black;
-	margin: 5px auto;
+	margin-left: 40px;
 	font-size: 16px;
 	font-weight: bold;
 	-webkit-appearance: none;
@@ -44,7 +45,7 @@
 	border-radius: 0;
 }
 .input-submit:hover {
-	background: #009933;
+	background: #3399ff;
 }
 .input-submit:active {
 	background: #404040;
@@ -108,14 +109,16 @@
 .item-container {
 	border-bottom: 2px solid black;
 	width: 93%;
-	height: 30px;
-	margin: 10px auto;
-	padding: 0 2px;
+	height: 40px;
+	margin: 5px auto;
+	padding: 0 5px;
 	display: flex;
 	justify-content: space-between;
-	font-size: 20px;
-	background: #c0c0c0;
+	font-size: 25px;
+	/* background: #c0c0c0; */
+	background: #f0f0f0;
 	color: #404040;
+	border-radius: 5px;
 }
 .item-container i {
 	margin: 5px;
@@ -135,12 +138,17 @@
 }
 .item-btn {
 	width: 15%;
-	cursor: pointer;
 	display: flex;
 	justify-content: flex-end;
 }
+.fa-pencil-alt {
+	cursor: pointer;
+}
 .fa-pencil-alt:hover {
 	transform: scale(1.1);
+}
+.fa-trash-alt {
+	cursor: pointer;
 }
 .fa-trash-alt:hover {
 	transform: scale(1.1);
@@ -149,38 +157,61 @@
 	.form-container {
 		flex-direction: column;
 		width: 100%;
-		padding-bottom: 50px;
+		padding: 0;
 	}
 	.input-field {
 		width: 100%;
-		min-height: 80px;
+		min-height: 100px;
 		margin: 0 auto;
 		padding: 0;
+		font-size: 30px;
 	}
 	.input-submit {
-		width: 100%;
-		min-height: 50px;
-		margin: 0 auto;
+		width: 25%;
+		min-height: 90px;
+		margin: 40px auto;
+		box-shadow: 1px 1px 20px 1px #505050;
 		border: none;
-		/* border-top: 2px solid black; */
-		border-bottom: 2px solid black;
+		border: 2px solid #505050;
+		color: #c8c8c8;
+		font-size: 64px;
+		font-weight: 500;
+		border-radius: 50%;
 	}
 	.input-update {
-		width: 100%;
-		min-height: 50px;
-		margin: 5px 0;
+		width: 25%;
+		min-height: 90px;
+		margin: 40px auto;
+		box-shadow: 1px 1px 20px 1px #505050;
 		border: none;
-		border-top: 2px solid black;
-		border-bottom: 2px solid black;
+		border: 2px solid #505050;
+		color: #c8c8c8;
+		font-size: 64px;
+		font-weight: 500;
+		border-radius: 50%;
 	}
 	.clear-button {
-		width: 100%;
-		min-height: 50px;
-		bottom: 0;
-		left: 0;
+		bottom: 10px;
+		left: 39%;
+		width: 25%;
+		min-height: 90px;
+		/* margin: 20px auto; */
+		box-shadow: 1px 1px 20px 1px #505050;
 		border: none;
-		border-top: 2px solid black;
-		border-bottom: 2px solid black;
+		border: 2px solid #505050;
+		color: #c8c8c8;
+		font-size: 64px;
+		font-weight: 500;
+		border-radius: 50%;
+	}
+	.clear-text {
+		display: flex;
+		flex-direction: column;
+		margin-top: -13px;
+		/* margin-bottom: 10px; */
+		/* align-content: center; */
+		/* max-height: 5px; */
+		font-size: 72px;
 	}
 	.item-message {
 		width: 80%;
