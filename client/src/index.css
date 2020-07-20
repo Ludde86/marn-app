@@ -4,6 +4,11 @@ body {
 		'Droid Sans', 'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	font-size: 16px;
+}
+
+input[type="text"] {
+	font-size: inherit;
 }
 
 code {
