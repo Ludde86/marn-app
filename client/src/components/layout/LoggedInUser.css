@@ -5,7 +5,7 @@
 }
 
 .logged-in-item {
-	width: 100%;
+	width: 65%;
 	margin: auto;
 	display: flex;
 	justify-content: center;
@@ -17,11 +17,12 @@
 }
 
 .logout-btn {
-	width: 50%;
+	width: 25%;
 	margin: auto;
-	border: none;
+	border: 1px solid black;
+	border-radius: 2px;
 	cursor: pointer;
-	background: #c0c0c0;
+	background: #e0e0e0;
 	color: #663399;
 	font-weight: 800;
 }
