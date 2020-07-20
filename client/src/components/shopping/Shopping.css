@@ -31,8 +31,8 @@
 .input-submit {
 	width: 25%;
 	height: 32px;
-	/* background: #3366ff; */
-	background: #0066cc;
+	/* background: #00cc00; */
+	background: #3399ff;
 	border: none;
 	cursor: pointer;
 	border: 1px solid black;
@@ -44,7 +44,7 @@
 	border-radius: 0;
 }
 .input-submit:hover {
-	background: #009933;
+	background: #3399ff;
 }
 .input-submit:active {
 	background: #404040;
