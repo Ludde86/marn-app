@@ -1,5 +1,6 @@
 .logged-in-container {
-	background: #c0c0c0;
+	/* background: #c0c0c0; */
+	background: #d0d0d0;
 	display: flex;
 	justify-content: space-evenly;
 	height: 40px;
