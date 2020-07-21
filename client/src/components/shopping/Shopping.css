@@ -176,6 +176,7 @@
 		color: #c8c8c8;
 		font-size: 64px;
 		font-weight: 500;
+		-webkit-border-radius: 50%;
 		border-radius: 50%;
 	}
 	.input-update {
@@ -188,6 +189,7 @@
 		color: #c8c8c8;
 		font-size: 64px;
 		font-weight: 500;
+		-webkit-border-radius: 50%;
 		border-radius: 50%;
 	}
 	.clear-button {
@@ -202,6 +204,7 @@
 		color: #c8c8c8;
 		font-size: 64px;
 		font-weight: 500;
+		-webkit-border-radius: 50%;
 		border-radius: 50%;
 	}
 	.clear-text {
