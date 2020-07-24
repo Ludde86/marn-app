@@ -9,6 +9,7 @@
 .logged-in-item {
 	/* width: 65%; */
 	margin: auto;
+	padding-left: 10px;
 	display: flex;
 	justify-content: center;
 }
@@ -21,10 +22,10 @@
 .logout-btn {
 	/* width: 22%; */
 	margin: auto;
-	border: 1px solid black;
+	border: none;
 	border-radius: 2px;
 	cursor: pointer;
-	background: #e0e0e0;
+	background: #d0d0d0;
 	color: #663399;
 	font-weight: 800;
 }
