@@ -160,51 +160,51 @@
 	}
 	.input-field {
 		/* background: #d0d0d0; */
-		min-height: 100px;
+		min-height: 60px;
 		margin: 0 auto;
 		padding: 0;
 		font-size: 26px;
-		/* border: 2px solid #505050; */
-		border-bottom: 2px solid #505050;
+		border: 2px solid #505050;
+		/* border-bottom: 3px solid #505050; */
 		border-radius: 3px;
 	}
 	.input-submit {
-		width: 25%;
-		min-height: 90px;
+		width: 60px;
+		min-height: 60px;
 		margin: auto;
 		box-shadow: 1px 1px 20px 1px #505050;
 		border: none;
 		border: 2px solid #505050;
 		color: #c8c8c8;
-		font-size: 64px;
+		font-size: 48px;
 		font-weight: 500;
 		-webkit-border-radius: 50%;
 		border-radius: 50%;
 	}
 	.input-update {
-		width: 25%;
-		min-height: 90px;
+		width: 60px;
+		min-height: 60px;
 		margin: auto;
 		box-shadow: 1px 1px 20px 1px #505050;
 		border: none;
 		border: 2px solid #505050;
 		color: #c8c8c8;
-		font-size: 64px;
+		font-size: 48px;
 		font-weight: 500;
 		-webkit-border-radius: 50%;
 		border-radius: 50%;
 	}
 	.clear-button {
 		bottom: 1px;
-		left: 39%;
-		width: 25%;
-		min-height: 90px;
+		left: 43%;
+		width: 60px;
+		min-height: 60px;
 		margin: 20px auto;
 		box-shadow: 1px 1px 20px 1px #505050;
 		border: none;
 		border: 2px solid #505050;
 		color: #c8c8c8;
-		font-size: 64px;
+		font-size: 48px;
 		font-weight: 500;
 		-webkit-border-radius: 50%;
 		border-radius: 50%;
@@ -212,11 +212,11 @@
 	.clear-text {
 		display: flex;
 		flex-direction: column;
-		margin-top: -15px;
+		margin-top: -10px;
 		/* margin-bottom: 10px; */
 		/* align-content: center; */
 		/* max-height: 5px; */
-		font-size: 72px;
+		font-size: 56px;
 	}
 	.item-message {
 		width: 80%;
