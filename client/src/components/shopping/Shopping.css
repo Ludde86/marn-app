@@ -182,8 +182,7 @@
 		color: #c8c8c8;
 		font-size: 48px;
 		font-weight: 500;
-		-webkit-border-radius: 50%;
-		border-radius: 50%;
+		border-radius: 50px;
 	}
 	.input-update {
 		width: 60px;
@@ -195,8 +194,7 @@
 		color: #c8c8c8;
 		font-size: 48px;
 		font-weight: 500;
-		-webkit-border-radius: 50%;
-		border-radius: 50%;
+		border-radius: 50px;
 	}
 	.clear-button {
 		bottom: 1px;
@@ -210,8 +208,7 @@
 		color: #c8c8c8;
 		font-size: 48px;
 		font-weight: 500;
-		-webkit-border-radius: 50%;
-		border-radius: 50%;
+		border-radius: 50px;
 	}
 	.clear-text {
 		display: flex;
