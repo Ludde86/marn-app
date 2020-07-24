@@ -20,7 +20,13 @@ const ShoppingList = () => {
 
 	return (
 		<ul className="list-container">
-			{shoppingList.map((item, index) => <ShoppingItem key={item._id} item={item} />)}
+			{shoppingList.length > 0 ? (
+				shoppingList.map((item, index) => <ShoppingItem key={item._id} item={item} />)
+			) : (
+				<div className="list-empty-text">
+					<h2>Inköpslistan är tom</h2>
+				</div>
+			)}
 		</ul>
 	);
 };
