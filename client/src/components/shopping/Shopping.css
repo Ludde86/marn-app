@@ -27,13 +27,16 @@
 }
 
 .input-submit {
-	width: 25%;
+	min-width: 60px;
+	max-width: 60px;
+	min-height: 60px;
+	max-height: 60px;
 	height: 32px;
 	/* background: #00cc00; */
 	background: #3399ff;
-	border: none;
 	cursor: pointer;
 	border: 1px solid black;
+	border-radius: 50px;
 	margin-left: 40px;
 	font-size: 16px;
 	font-weight: bold;
@@ -49,10 +52,12 @@
 }
 
 .input-update {
-	width: 25%;
-	height: 30px;
+	min-width: 60px;
+	max-width: 60px;
+	min-height: 60px;
+	max-height: 60px;
 	background: #cc9966;
-	border: none;
+	border-radius: 50px;
 	cursor: pointer;
 	border: 1px solid black;
 	margin: 5px auto;
@@ -166,8 +171,6 @@
 	.input-submit {
 		display: flex;
 		justify-content: center;
-		max-width: 60px;
-		min-height: 60px;
 		margin: auto;
 		box-shadow: 1px 1px 20px 1px #505050;
 		border: none;
@@ -175,11 +178,8 @@
 		color: #c8c8c8;
 		font-size: 48px;
 		font-weight: 500;
-		border-radius: 50px;
 	}
 	.input-update {
-		max-width: 60px;
-		min-height: 60px;
 		margin: auto;
 		box-shadow: 1px 1px 20px 1px #505050;
 		border: none;
@@ -187,7 +187,6 @@
 		color: #c8c8c8;
 		font-size: 48px;
 		font-weight: 500;
-		border-radius: 50px;
 	}
 	.clear-button {
 		display: flex;
