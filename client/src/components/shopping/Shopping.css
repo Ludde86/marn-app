@@ -153,6 +153,17 @@
 .list-empty-text {
 	text-align: center;
 }
+
+textarea,
+input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+.input-checkbox {
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+
 @media (max-width: 600px) {
 	.form-container {
 		width: 100%;
@@ -217,4 +228,14 @@
 	.item-btn {
 		width: 20%;
 	}
+
+	textarea,
+	input.text,
+	input[type="text"],
+	input[type="button"],
+	input[type="submit"],
+	.input-checkbox {
+		-webkit-appearance: none;
+		border-radius: 0;
+	}try fix
 }
