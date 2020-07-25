@@ -7,22 +7,27 @@ body {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	/* font-size: 16px;
-	-webkit-appearance: none;
 	-webkit-border-radius: 0;
-	border-radius: 0; */
+	border-radius: 0;
+	font-size: 16px;
 }
 
 /* try disable auto zoom for iOS */
-/* input {
+input {
 	font-size: inherit;
-} */
+}
 
-/* input {
+input {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-} */
+}
+
+button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;

@@ -164,6 +164,8 @@
 		border-radius: 3px;
 	}
 	.input-submit {
+		display: flex;
+		justify-content: center;
 		max-width: 60px;
 		min-height: 60px;
 		margin: auto;
@@ -189,7 +191,8 @@
 	}
 	.clear-button {
 		display: flex;
-		max-width: 60px;
+		min-width: 55px;
+		max-width: 55px;
 		min-height: 55px;
 		max-height: 55px;
 		margin: auto;
