@@ -1,9 +1,11 @@
 .logged-in-container {
 	/* background: #c0c0c0; */
-	background: #d0d0d0;
+	/* background: #d0d0d0; */
+	background: white;
 	display: flex;
 	justify-content: space-evenly;
 	height: 40px;
+	border-bottom: 2px solid black;
 }
 
 .logged-in-item {
@@ -25,7 +27,8 @@
 	border: none;
 	border-radius: 2px;
 	cursor: pointer;
-	background: #d0d0d0;
+	/* background: #d0d0d0; */
+	background: white;
 	color: #663399;
 	font-weight: 800;
 }

@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AuthContext from '../../context/auth/authContext';
+import './Login.css';
 
 const Login = (props) => {
 	const authContext = useContext(AuthContext);
@@ -37,9 +38,9 @@ const Login = (props) => {
 	};
 
 	return (
-		<div className="form-container">
+		<div className="login-container">
 			<h1>Logga In</h1>
-			<form onSubmit={onSubmit}>
+			<form className="login-form-container" onSubmit={onSubmit}>
 				<label htmlFor="name">Namn</label>
 				<input type="text" name="name" value={name} onChange={onChange} />
 				<label htmlFor="password">Lösen</label>
