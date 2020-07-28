@@ -46,11 +46,23 @@ const Register = (props) => {
 			<h1>Skapa Användare</h1>
 			<form className="register-form-container" onSubmit={onSubmit}>
 				<label htmlFor="name">Namn</label>
-				<input type="text" name="name" value={name} onChange={onChange} />
+				<input type="text" name="name" value={name} onChange={onChange} autocomplete="off" />
 				<label htmlFor="password">Lösen</label>
-				<input type="password" name="password" value={password} onChange={onChange} />
+				<input
+					type="password"
+					name="password"
+					value={password}
+					onChange={onChange}
+					autocomplete="new-password"
+				/>
 				<label htmlFor="repeatPassword">Repetera Lösen</label>
-				<input type="password" name="repeatPassword" value={repeatPassword} onChange={onChange} />
+				<input
+					type="password"
+					name="repeatPassword"
+					value={repeatPassword}
+					onChange={onChange}
+					autocomplete="new-password"
+				/>
 				<button type="submit">Skapa Användare</button>
 			</form>
 		</div>
