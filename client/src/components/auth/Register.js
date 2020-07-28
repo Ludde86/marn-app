@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AuthContext from '../../context/auth/authContext';
+import './Register.css';
 
 const Register = (props) => {
 	const authContext = useContext(AuthContext);
@@ -41,9 +42,9 @@ const Register = (props) => {
 	};
 
 	return (
-		<div className="form-container">
+		<div className="register-container">
 			<h1>Skapa Användare</h1>
-			<form onSubmit={onSubmit}>
+			<form className="register-form-container" onSubmit={onSubmit}>
 				<label htmlFor="name">Namn</label>
 				<input type="text" name="name" value={name} onChange={onChange} />
 				<label htmlFor="password">Lösen</label>

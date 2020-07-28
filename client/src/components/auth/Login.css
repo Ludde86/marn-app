@@ -1,6 +1,6 @@
 .login-container {
 	/* border: 2px solid black; */
-	border-radius: 5px;
+	/* border-radius: 5px; */
 	/* width: 50%; */
 	margin: 50px auto;
 }
@@ -26,8 +26,9 @@
 	font-size: 22px;
 }
 .login-form-container button {
-	height: 40px;
+	height: 60px;
 	background: #3399ff;
 	color: white;
 	font-size: 22px;
+	margin-top: 30px;
 }

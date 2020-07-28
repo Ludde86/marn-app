@@ -1,0 +1,29 @@
+.register-container {
+	margin: 50px auto;
+}
+.register-container h1 {
+	text-align: center;
+}
+
+.register-container label {
+	font-size: 24px;
+}
+
+.register-container input {
+	height: 40px;
+	margin-bottom: 20px;
+}
+
+.register-container button {
+	background: #3399ff;
+	color: white;
+	margin-top: 10px;
+	height: 60px;
+	font-size: 22px;
+}
+
+.register-form-container {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+}

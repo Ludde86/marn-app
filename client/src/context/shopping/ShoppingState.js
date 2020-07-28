@@ -55,8 +55,6 @@ const ShoppingState = (props) => {
 		await shoppingList.forEach((element) => {
 			axios.delete(`/api/deleteShopping/${element._id}`);
 		});
-		// await axios.delete('/path', {  })
-		// await axios.delete('/api/clearShopping', { data: {} });
 	};
 
 	const updateItem = async (e, id, message) => {
