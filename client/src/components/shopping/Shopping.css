@@ -36,7 +36,8 @@ button {
 
 .input-field {
 	/* background: #d0d0d0; */
-	background: #f0f0f0;
+	/* background: #f0f0f0; */
+	background: #f8f8f8;
 	border: 2px solid #505050;
 	width: 65%;
 	min-height: 30px;
@@ -151,7 +152,7 @@ button {
 	justify-content: space-between;
 	font-size: 25px;
 	/* background: #c0c0c0; */
-	background: #f0f0f0;
+	background: #f8f8f8;
 	color: #404040;
 }
 .item-container i {
