@@ -40,8 +40,8 @@ const App = () => {
 									<Route exact path="/" component={Start} />
 									<PrivateRoute exact path="/todo" component={Todo} />
 									<PrivateRoute exact path="/shopping" component={Shopping} />
-									<Route exact path="/register" component={Register} />
 									<Route exact path="/login" component={Login} />
+									<Route exact path="/register" component={Register} />
 								</Switch>
 							</ShoppingState>
 						</PostState>

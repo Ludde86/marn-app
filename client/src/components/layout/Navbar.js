@@ -87,10 +87,14 @@ const Navbar = () => {
 	const guestLinks = (
 		<Fragment>
 			<li>
-				<NavLink to="/register">Registrera</NavLink>
+				<NavLink to="/login" activeClassName="selected">
+					Logga In
+				</NavLink>
 			</li>
 			<li>
-				<NavLink to="/login">Logga In</NavLink>
+				<NavLink to="/register" activeClassName="selected">
+					Registrera
+				</NavLink>
 			</li>
 		</Fragment>
 	);
