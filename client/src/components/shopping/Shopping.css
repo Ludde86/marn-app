@@ -56,7 +56,9 @@ button {
 	justify-content: center;
 }
 .input-submit {
-	width: 80px;
+	display: flex;
+	justify-content: center;
+	width: 65px;
 	/* color: #c8c8c8; */
 	color: white;
 	background: #3399ff;
@@ -78,7 +80,9 @@ button {
 }
 
 .input-update {
-	width: 80px;
+	display: flex;
+	justify-content: center;
+	width: 65px;
 	/* color: #c8c8c8; */
 	color: white;
 	background: #cc9966;
@@ -108,7 +112,7 @@ button {
 	bottom: 10px;
 	/* left: 81.6%; */
 	margin-top: 20px;
-	width: 80px;
+	width: 60px;
 	height: 60px;
 	background: #cd5c5c;
 	border: 2px solid #505050;
