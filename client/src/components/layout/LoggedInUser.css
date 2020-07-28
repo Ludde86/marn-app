@@ -30,7 +30,8 @@
 	/* background: #d0d0d0; */
 	background: white;
 	color: #663399;
-	font-weight: 800;
+	font-size: 14px;
+	font-weight: 900;
 }
 
 .logout-btn:hover {
