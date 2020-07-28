@@ -29,9 +29,11 @@ const Shopping = (props) => {
 			{/*<h3 className="shopping-title">Att Handla</h3>*/}
 			<ShoppingForm />
 			<ShoppingList />
-			<button className="clear-button" onClick={clearShoppingList}>
-				<span className="clear-text">-</span>
-			</button>
+			<div className="clear-btn-container">
+				<button className="clear-button" onClick={clearShoppingList}>
+					<span className="clear-text">-</span>
+				</button>
+			</div>
 		</div>
 	);
 };

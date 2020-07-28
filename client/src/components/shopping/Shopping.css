@@ -1,3 +1,26 @@
+textarea,
+button,
+input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+.input-checkbox {
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+
+input[type="submit"] {
+	border-radius: 50px;
+}
+
+input[type="text"] {
+	border-radius: 50px;
+}
+
+button {
+	border-radius: 50px;
+}
+
 .shopping-container {
 	/* background: #c0c0c0; */
 	background: #d0d0d0;
@@ -12,14 +35,14 @@
 .input-field {
 	/* background: #d0d0d0; */
 	background: #f0f0f0;
-	border: none;
-	/* border-bottom: 2px solid black; */
+	border: 2px solid #505050;
 	width: 65%;
-	max-height: 30px;
+	min-height: 30px;
 	padding: 0;
 	font-size: 20px;
 	margin-left: 50px;
 	text-align: center;
+	border-radius: 50px;
 }
 
 .input-field:focus {
@@ -27,21 +50,16 @@
 }
 
 .input-submit {
-	min-width: 60px;
-	max-width: 60px;
-	min-height: 60px;
-	max-height: 60px;
-	/* background: #00cc00; */
+	width: 80px;
 	background: #3399ff;
 	cursor: pointer;
-	border: 1px solid black;
+	border: 2px solid #505050;
 	border-radius: 50px;
 	margin-left: 40px;
 	display: flex;
 	justify-content: center;
 	margin: auto;
 	box-shadow: 1px 1px 20px 1px #505050;
-	border: 2px solid #505050;
 	color: #c8c8c8;
 	font-size: 48px;
 	font-weight: 500;
@@ -57,10 +75,7 @@
 }
 
 .input-update {
-	min-width: 60px;
-	max-width: 60px;
-	min-height: 60px;
-	max-height: 60px;
+	width: 80px;
 	background: #cc9966;
 	border-radius: 50px;
 	cursor: pointer;
@@ -76,19 +91,27 @@
 .input-update:focus {
 	outline: none;
 }
+.clear-btn-container {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
 .clear-button {
+	display: flex;
+	justify-content: center;
 	position: relative;
 	bottom: 10px;
 	/* left: 81.6%; */
 	margin-top: 20px;
-	width: 15%;
-	height: 32px;
+	width: 80px;
+	height: 60px;
 	background: #cd5c5c;
-	border: none;
+	border: 2px solid #505050;
+	box-shadow: 1px 1px 20px 1px #505050;
 	cursor: pointer;
-	border: 1px solid black;
-	font-size: 16px;
-	font-weight: bold;
+	color: #c8c8c8;
+	font-size: 56px;
+	font-weight: 500;
 }
 .clear-button:hover {
 	background: #b22222;
@@ -99,6 +122,9 @@
 }
 .clear-button:focus {
 	outline: none;
+}
+.clear-text {
+	margin-top: -10px;
 }
 .list-container {
 	border-radius: 5px;
@@ -159,16 +185,6 @@
 	text-align: center;
 }
 
-textarea,
-input.text,
-input[type="text"],
-input[type="button"],
-input[type="submit"],
-.input-checkbox {
-	-webkit-appearance: none;
-	border-radius: 0;
-}
-
 @media (max-width: 600px) {
 	.form-container {
 		width: 100%;
@@ -185,6 +201,7 @@ input[type="submit"],
 		border-radius: 3px;
 	}
 	.input-submit {
+		/* border-radius: 50px; */
 	}
 	.input-update {
 		margin: auto;
@@ -195,43 +212,11 @@ input[type="submit"],
 		font-size: 48px;
 		font-weight: 500;
 	}
-	.clear-button {
-		display: flex;
-		min-width: 55px;
-		max-width: 55px;
-		min-height: 55px;
-		max-height: 55px;
-		margin: auto;
-		margin-top: 20px;
-		box-shadow: 1px 1px 20px 1px #505050;
-		border: none;
-		border: 2px solid #505050;
-		color: #c8c8c8;
-		font-size: 48px;
-		font-weight: 500;
-		border-radius: 50px;
-	}
-	.clear-text {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		margin-top: -10px;
-		font-size: 56px;
-	}
+
 	.item-message {
 		width: 80%;
 	}
 	.item-btn {
 		width: 20%;
-	}
-
-	textarea,
-	input.text,
-	input[type="text"],
-	input[type="button"],
-	input[type="submit"],
-	.input-checkbox {
-		-webkit-appearance: none;
-		border-radius: 0;
 	}
 }
