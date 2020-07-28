@@ -135,7 +135,7 @@ button {
 	min-height: 250px;
 	list-style-type: none;
 	margin: 0;
-	padding: 10px 10px;
+	padding: 0 10px;
 	/* background: #f0f0f0; */
 	background: #e0e0e0;
 }
