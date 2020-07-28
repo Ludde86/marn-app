@@ -34,8 +34,8 @@ const App = () => {
 					<TodoState>
 						<PostState>
 							<ShoppingState>
-								<LoggedInUser />
 								<Navbar />
+								<LoggedInUser />
 								<Switch>
 									<Route exact path="/" component={Start} />
 									<PrivateRoute exact path="/todo" component={Todo} />
