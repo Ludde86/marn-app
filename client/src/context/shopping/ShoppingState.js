@@ -15,6 +15,7 @@ const ShoppingState = (props) => {
 	const todoContext = useContext(TodoContext);
 
 	const { setTrue, setFalse, clearMessage } = todoContext;
+	const { shoppingList } = state;
 
 	const getShoppingList = async () => {
 		try {
@@ -51,7 +52,11 @@ const ShoppingState = (props) => {
 	};
 
 	const clearShoppingList = async () => {
-		await axios.delete('/api/clearShopping', { data: {} });
+		await shoppingList.forEach((element) => {
+			axios.delete(`/api/deleteShopping/${element._id}`);
+		});
+		// await axios.delete('/path', {  })
+		// await axios.delete('/api/clearShopping', { data: {} });
 	};
 
 	const updateItem = async (e, id, message) => {
