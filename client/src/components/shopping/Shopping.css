@@ -145,19 +145,21 @@ button {
 	background: #e0e0e0;
 }
 .item-container {
-	border-bottom: 3px solid #505050;
+	/* border-bottom: 3px solid #505050; */
+	border-bottom: 3px solid black;
 	/* border: 2px solid #505050; */
-	/* border-radius: 5px; */
+	/* border-radius: 50px; */
 	width: 93%;
-	height: 40px;
+	height: 60px;
 	margin: 5px auto;
 	padding: 0 5px;
 	display: flex;
 	justify-content: space-between;
 	font-size: 25px;
 	/* background: #c0c0c0; */
-	background: #f8f8f8;
+	/* background: #f8f8f8; */
 	color: #404040;
+	/* color: black; */
 }
 .item-container i {
 	margin: 5px;
@@ -168,6 +170,7 @@ button {
 	width: 85%;
 	overflow: hidden;
 	font-weight: 500;
+	margin: 10px auto;
 }
 .item-message:hover {
 	font-weight: 700;
@@ -176,10 +179,25 @@ button {
 	font-weight: 900;
 }
 .item-btn {
-	width: 15%;
+	width: 120px;
+	height: 40px;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-evenly;
+	margin: 10px auto;
 }
+
+.edit-btn {
+	background: #cc9966;
+	border: 2px solid #404040;
+	border-radius: 50px;
+}
+
+.delete-btn {
+	background: #cd5c5c;
+	border: 2px solid #404040;
+	border-radius: 50px;
+}
+
 .fa-pencil-alt {
 	cursor: pointer;
 }
@@ -205,11 +223,9 @@ button {
 	}
 
 	.item-message {
-		width: 80%;
+		margin-left: 10px;
 	}
-	.item-btn {
-		width: 20%;
-	}
+
 	.item-message:hover {
 		font-weight: 500;
 	}
