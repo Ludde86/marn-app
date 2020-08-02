@@ -32,6 +32,7 @@
 	color: #663399;
 	font-size: 14px;
 	font-weight: 900;
+	letter-spacing: -1px;
 }
 
 .logout-btn:hover {

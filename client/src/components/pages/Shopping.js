@@ -31,7 +31,7 @@ const Shopping = (props) => {
 			<ShoppingList />
 			<div className="clear-btn-container">
 				<button className="clear-button" onClick={clearShoppingList}>
-					<span className="clear-text">-</span>
+					<i className="fas fa-minus" />
 				</button>
 			</div>
 		</div>
