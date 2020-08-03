@@ -1,58 +1,71 @@
-.todo-container__white {
-	min-height: 500px;
-	border: 3px solid black;
-	border-radius: 5px;
-	margin: 60px;
-	background: #ada996; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #eaeaea, #dbdbdb, #f2f2f2, #ada996); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(
-		to right,
-		#eaeaea,
-		#dbdbdb,
-		#f2f2f2,
-		#ada996
-	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.todo-container {
+	min-height: 595px;
+	/* border: 3px solid black; */
+	/* border-radius: 10px; */
+	/* margin: 60px 240px; */
+	background: #484848;
 }
-.todo-container__blue {
-	min-height: 500px;
-	border: 3px solid black;
-	border-radius: 5px;
-	margin: 60px;
-	background: #00416a; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #e4e5e6, #00416a); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #e4e5e6, #00416a);
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.todo-form-container {
+	padding-top: 50px;
 }
-.todo-container__pink {
-	min-height: 500px;
-	border: 3px solid black;
-	border-radius: 5px;
-	margin: 60px; /* background: #ffc9e3; */ /* background: #ffafd6; */ /* background: #ffafd6; */ /* background: #ffb7da; */ /* background: #ffb7db; */
-	/* background: #ffe2f0; */ /* background: #ffdbed; */
-	background: #ee9ca7;
-	/* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #ffdde1, #ee9ca7);
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+.todo-form-container form {
+	width: 93%;
+	display: flex;
+	margin: 0;
 }
-.todo-form-submit {
-	min-width: 190%;
-}
-.todo-form-submit input {
-	border-radius: 5px;
-	border: 2px solid #888;
+
+.todo-form-container input {
+	width: 65%;
+	border-radius: 0;
+	border: none;
+	/* outline: none; */
+	border-bottom: 2px solid #888;
+	margin-left: 40px;
 	padding: 10px;
+	background: #484848;
+	color: #666699;
+	font-size: 24px;
+	text-align: center;
 }
-.todo-form-submit i {
-	background-color: #007bff;
+
+.todo-input-field::placeholder {
+	color: #666699;
+}
+
+.todo-btn-container {
+	width: 35%;
+	display: flex;
+	justify-content: center;
+}
+
+.todo-form-container button {
+	outline: none;
+	border: none;
+	background: #484848;
+}
+
+.todo-add-btn i {
+	transform: scale(1.3);
+	background: #666699;
+}
+
+.todo-update-btn i {
+	background: #cc9966;
+}
+
+.todo-form-container i {
 	color: #fff;
 	padding: .375rem .75rem;
-	margin: 1rem;
+	/* margin: 1rem; */
 	font-size: 1rem;
 	line-height: 1.5;
 	border-radius: 50%;
 	cursor: pointer;
 	outline: none;
+}
+.todo-list-container {
+	padding: 40px;
 }
 .todo-item-container ul {
 	list-style: none;
@@ -60,13 +73,14 @@
 	padding: 0;
 }
 .todo-item-content {
-	background: white;
+	background: #484848;
 	display: flex;
 	justify-content: space-between;
-	border: 1px solid #222;
-	border-radius: 5px;
+	border-bottom: 2px solid #888;
 	height: 50px;
-	margin: 5px;
+	/* margin: 5px; */
+	font-size: 22px;
+	color: #d0d0d0;
 }
 .todo-message {
 	padding: 12px;
@@ -75,7 +89,7 @@
 }
 .todo-item-content:hover {
 	cursor: pointer;
-	border: 2px solid #222;
+	/* border: 2px solid #222; */
 }
 .del-upd-buttons {
 	justify-content: space-between;
@@ -106,15 +120,6 @@
 	cursor: pointer;
 }
 @media (max-width: 600px) {
-	.todo-container__white {
-		margin: 10px;
-	}
-	.todo-container__blue {
-		margin: 10px;
-	}
-	.todo-container__pink {
-		margin: 10px;
-	}
 	.del-upd-buttons {
 		width: 30%;
 	}

@@ -18,28 +18,36 @@ const TodoForm = () => {
 		<div className="todo-form-container">
 			{isEdit ? (
 				<form onSubmit={(e) => updateTodo(e, idToUpdate, objectToUpdate)}>
-					<div className="todo-form-submit">
-						<input
-							type="text"
-							onChange={(e) => setObjectToUpdate(idToUpdate, e.target.value)}
-							name="objectToUpdate"
-							value={objectToUpdate}
-							placeholder={objectToUpdate}
-						/>
-						<input className="update-todo-btn" type="submit" value="Uppdatera" />
+					<input
+						className="todo-input-field"
+						type="text"
+						onChange={(e) => setObjectToUpdate(idToUpdate, e.target.value)}
+						name="objectToUpdate"
+						value={objectToUpdate}
+						placeholder={objectToUpdate}
+						autocomplete="off"
+					/>
+					<div className="todo-btn-container">
+						<button className="todo-update-btn" type="submit">
+							<i className="fas fa-plus" />
+						</button>
 					</div>
 				</form>
 			) : (
-				<form>
-					<div className="todo-form-submit">
-						<input
-							type="text"
-							onChange={(e) => setMessage(e.target.value)}
-							name="message"
-							value={message}
-							placeholder="Lägg till att göra"
-						/>
-						<i className="fas fa-plus" onClick={(e) => addTodoItem(e, message)} />
+				<form onSubmit={(e) => addTodoItem(e, message)}>
+					<input
+						className="todo-input-field"
+						type="text"
+						onChange={(e) => setMessage(e.target.value)}
+						name="message"
+						value={message}
+						placeholder="Lägg till att göra..."
+						autocomplete="off"
+					/>
+					<div className="todo-btn-container">
+						<button className="todo-add-btn" type="submit">
+							<i className="fas fa-plus" />
+						</button>
 					</div>
 				</form>
 			)}
