@@ -41,7 +41,7 @@ const TodoForm = () => {
 						onChange={(e) => setMessage(e.target.value)}
 						name="message"
 						value={message}
-						placeholder="Lägg till att göra"
+						placeholder="Lägg till att göra..."
 						autocomplete="off"
 					/>
 					<div className="todo-btn-container">
