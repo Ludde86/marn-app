@@ -20,7 +20,7 @@ const ShoppingItem = ({ item }) => {
 					<i className="fas fa-pencil-alt" onClick={() => setEditItem(item._id, item.message)} />
 				</div>
 				<div className="delete-btn">
-					<i className="far fa-trash-alt" onClick={() => deleteItem(item._id)} />
+					<i className="fas fa-minus" onClick={() => deleteItem(item._id)} />
 				</div>
 			</span>
 		</li>
