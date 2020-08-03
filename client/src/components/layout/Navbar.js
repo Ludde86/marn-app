@@ -66,7 +66,7 @@ const Navbar = () => {
 		<Fragment>
 			<li>
 				<NavLink exact to="/" activeClassName="selected">
-					Förbättringar
+					Att Förbättra
 				</NavLink>
 			</li>
 			<li>
@@ -76,7 +76,7 @@ const Navbar = () => {
 			</li>
 			<li>
 				<NavLink to="/shopping" activeClassName="selected">
-					Handla
+					Att Handla
 				</NavLink>
 			</li>
 
