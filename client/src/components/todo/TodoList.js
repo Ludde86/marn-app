@@ -33,19 +33,23 @@ const TodoList = () => {
 
 	return (
 		<div className="todo-list-container">
-			{todos.map((todo) => {
-				return (
-					<div className="todo-item-container" key={todo._id}>
-						{todos.length <= 0 ? (
-							'NO DB ENTRIES YET'
-						) : (
-							<ul>
-								<TodoItem todo={todo} />
-							</ul>
-						)}
-					</div>
-				);
-			})}
+			{todos.length > 0 ? (
+				todos.map((todo) => {
+					return (
+						<div className="todo-item-container" key={todo._id}>
+							{todos.length <= 0 ? (
+								'NO DB ENTRIES YET'
+							) : (
+								<ul>
+									<TodoItem todo={todo} />
+								</ul>
+							)}
+						</div>
+					);
+				})
+			) : (
+				<h2 className="todo-list-empty-text">Att Göralistan är tom</h2>
+			)}
 		</div>
 	);
 };

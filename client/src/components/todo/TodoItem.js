@@ -7,10 +7,11 @@ const TodoItem = ({ todo }) => {
 
 	return (
 		<li>
-			<div className="todo-item-content" onClick={() => setIsChecked(todo)}>
+			<div className="todo-item-content">
 				<span
+					onClick={() => setIsChecked(todo)}
 					className="todo-message"
-					style={todo.isChecked ? { textDecoration: 'line-through', color: 'lightgrey' } : null}
+					style={todo.isChecked ? { textDecoration: 'line-through', color: '#B0B0B0' } : null}
 				>
 					{' '}
 					{todo.message}{' '}
