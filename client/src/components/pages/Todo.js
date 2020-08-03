@@ -22,27 +22,11 @@ const Todo = (props) => {
 
 	return (
 		<div>
-			{colorWhite && (
-				<div className="todo-container__white">
-					{/*<h3 className="shopping-title">Att Handla</h3>*/}
-					<TodoForm />
-					<TodoList />
-				</div>
-			)}
-			{colorBlue && (
-				<div className="todo-container__blue">
-					{/*<h3 className="shopping-title">Att Handla</h3>*/}
-					<TodoForm />
-					<TodoList />
-				</div>
-			)}
-			{colorPink && (
-				<div className="todo-container__pink">
-					{/*<h3 className="shopping-title">Att Handla</h3>*/}
-					<TodoForm />
-					<TodoList />
-				</div>
-			)}
+			<div className="todo-container">
+				{/*<h3 className="shopping-title">Att Handla</h3>*/}
+				<TodoForm />
+				<TodoList />
+			</div>
 		</div>
 	);
 };
