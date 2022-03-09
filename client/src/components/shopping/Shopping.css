@@ -7,6 +7,8 @@ input[type="submit"],
 .input-checkbox {
 	-webkit-appearance: none;
 	border-radius: 0;
+	border: none;
+	outline: none;
 }
 
 input[type="submit"] {
@@ -14,95 +16,46 @@ input[type="submit"] {
 }
 
 input[type="text"] {
-	border-radius: 50px;
+	border: none;
+	font-size: 14px;
+	padding: 0 1rem;
 }
 
 button {
-	border-radius: 50px;
+	/* border-radius: 50px; */
 }
 
 .shopping-container {
-	/* background: #c0c0c0; */
-	/* background: #d0d0d0; */
-	/* background: #e0e0e0; */
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .form-container {
-	/* border: 2px solid black; */
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+	margin: 2rem 0;
 	width: 100%;
-	padding: 40px 0;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 1px 1px 3px #333;
+	/* border: 2px solid black; */
+	padding: 0;
+	border-radius: 100px;
+	overflow: hidden;
 }
 
 .input-field {
-	/* background: #d0d0d0; */
-	/* background: #f0f0f0; */
-	background: #f8f8f8;
-	border: 2px solid #505050;
-	width: 65%;
-	min-height: 60px;
-	max-height: 60px;
-	padding: 0;
-	font-size: 32px;
-	/* margin-left: 50px; */
-	text-align: center;
-	border-radius: 50px;
+	/* text-align: center; */
 }
 
 .input-submit {
+	padding: 0.5rem 1rem;
 	border: none;
-	background: #e0e0e0;
+	background: #fff;
+	cursor: pointer;
 }
 
-.input-submit i {
-	background-color: #007bff;
-	color: #fff;
-	padding: .375rem .75rem;
-	margin: 1rem;
-	font-size: 1rem;
-	line-height: 1.5;
-	border: 1.5px solid #505050;
-	border-radius: 50%;
-	cursor: pointer;
-	outline: none;
-	transform: scale(2);
-}
-.input-submit i:hover {
-	background: #3399ff;
-}
-.input-submit i:active {
-	background: #404040;
-}
-.input-submit i:focus {
-	outline: none;
-}
-
-.input-update {
-	border: none;
-	background: #e0e0e0;
-}
-.input-update i {
-	background: #cc9966;
-	color: #fff;
-	padding: .375rem .75rem;
-	margin: 1rem;
-	font-size: 1rem;
-	line-height: 1.5;
-	border: 1.5px solid #505050;
-	border-radius: 50%;
-	cursor: pointer;
-	outline: none;
-	transform: scale(2);
-}
-.input-update:hover {
-	background: #cc6666;
-	font-weight: bold;
-}
-.input-update:focus {
-	outline: none;
-}
 .clear-btn-container {
 	display: flex;
 	justify-content: center;
@@ -134,41 +87,32 @@ button {
 .clear-text {
 	margin-top: -10px;
 }
+
 .list-container {
-	min-height: 340px;
-	list-style-type: none;
-	margin: 0;
-	padding: 0 10px;
-	/* background: #f0f0f0; */
-	background: #e0e0e0;
+	width: 90%;
+	/* border: 1px solid #333; */
+	padding: 0;
 }
 .item-container {
-	/* border-bottom: 3px solid #505050; */
-	border-bottom: 3px solid black;
-	/* border: 2px solid #505050; */
-	/* border-radius: 50px; */
-	width: 93%;
-	height: 60px;
-	margin: 5px auto;
-	padding: 0 5px;
+	margin: 1rem 0;
+	padding: .5rem 0;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	font-size: 25px;
-	/* background: #c0c0c0; */
-	/* background: #f8f8f8; */
-	color: #404040;
-	/* color: black; */
+	align-items: center;
+	border-bottom: 1px solid #333;
+	overflow: hidden;
 }
 .item-container i {
-	margin: 5px;
+	/* margin: 5px; */
 	color: black;
 }
 .item-message {
-	cursor: pointer;
-	width: 85%;
-	overflow: hidden;
-	font-weight: 500;
-	margin: 10px auto;
+	/* padding: 0 1rem; */
+	font-size: 16px;
+	font-weight: 600;
+	font-family: var(--font-family);
+	text-transform: capitalize;
 }
 .item-message:hover {
 	font-weight: 700;
@@ -177,30 +121,16 @@ button {
 	font-weight: 900;
 }
 .item-btn {
-	width: 120px;
-	height: 40px;
 	display: flex;
-	justify-content: space-evenly;
-	margin: 10px auto;
+	justify-content: space-around;
+	align-items: center;
+	width: 4rem;
 }
 
 .edit-btn {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: #cc9966;
-	border: 2px solid #404040;
-	border-radius: 50px;
 }
 
 .delete-btn {
-	width: 35px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: #cd5c5c;
-	border: 2px solid #404040;
-	border-radius: 50px;
 }
 
 .fa-pencil-alt {
@@ -222,10 +152,10 @@ button {
 
 @media (max-width: 600px) {
 	.form-container {
-		padding-top: 35px;
-		padding-bottom: 20px;
+		/* padding-top: 35px;
+		padding-bottom: 20px; */
 	}
-
+	/* 
 	.input-field {
 		width: 70%;
 		min-height: 40px;
@@ -280,5 +210,5 @@ button {
 		justify-content: space-between;
 		margin-right: -10px;
 		transform: scale(0.7);
-	}
+	} */
 }
