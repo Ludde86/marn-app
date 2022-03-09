@@ -1,13 +1,16 @@
-import React, { useContext, Fragment } from 'react';
+import React, { useContext, Fragment, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
 import './Navbar.css';
 import LoggedInUser from './LoggedInUser';
 
 const Navbar = () => {
 	const authContext = useContext(AuthContext);
-	const { isAuthenticated, colorWhite, colorBlue, colorPink } = authContext;
+	const { isAuthenticated, colorWhite, colorBlue, colorPink, logout } = authContext;
+
+	const [ menuOpen, setMenuOpen ] = useState(false);
 
 	// const [ authRoutes ] = useState([
 	// 	{
@@ -62,23 +65,43 @@ const Navbar = () => {
 	// 	}
 	// ]);
 
+	const handleOpenMenu = () => {
+		setMenuOpen(!menuOpen);
+	};
+
+	const onLogout = () => {
+		setMenuOpen(false);
+		logout();
+	};
+
 	const authLinks = (
 		<Fragment>
-			<li>
-				<NavLink exact to="/" activeClassName="selected">
-					Att Förbättra
-				</NavLink>
-			</li>
-			<li>
-				<NavLink to="/todo" activeClassName="selected">
-					Att Göra
-				</NavLink>
-			</li>
-			<li>
-				<NavLink to="/shopping" activeClassName="selected">
-					Att Handla
-				</NavLink>
-			</li>
+			{menuOpen ? <AiOutlineClose onClick={handleOpenMenu} /> : <AiOutlineMenu onClick={handleOpenMenu} />}
+			{menuOpen && (
+				<div className="nav-modal">
+					<li>
+						<NavLink to="/shopping" activeClassName="selected">
+							Inköpslista
+						</NavLink>
+					</li>
+					<li>
+						<NavLink to="/todo" activeClassName="selected">
+							Att Göra
+						</NavLink>
+					</li>
+
+					<li>
+						<NavLink exact to="/start" activeClassName="selected">
+							Förbättringsförslag
+						</NavLink>
+					</li>
+					<li>
+						<button className="logout-btn" onClick={onLogout}>
+							Logga Ut
+						</button>
+					</li>
+				</div>
+			)}
 
 			{/* <li>Hello {user && user.name}</li> */}
 		</Fragment>
@@ -101,9 +124,8 @@ const Navbar = () => {
 
 	return (
 		<div className="navbar-container">
-			<div>
-				<ul>{isAuthenticated ? authLinks : guestLinks}</ul>
-			</div>
+			{isAuthenticated && <LoggedInUser />}
+			<ul>{isAuthenticated ? authLinks : guestLinks}</ul>
 		</div>
 	);
 };

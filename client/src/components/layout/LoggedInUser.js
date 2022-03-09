@@ -5,20 +5,7 @@ import './LoggedInUser.css';
 
 const LoggedInUser = () => {
 	const authContext = useContext(AuthContext);
-	const {
-		user,
-		logout,
-		handleSetWhite,
-		handleSetBlue,
-		handleSetPink,
-		colorWhite,
-		colorBlue,
-		colorPink
-	} = authContext;
-
-	const onLogout = () => {
-		logout();
-	};
+	const { user, handleSetWhite, handleSetBlue, handleSetPink, colorWhite, colorBlue, colorPink } = authContext;
 
 	return (
 		<div>
@@ -27,10 +14,6 @@ const LoggedInUser = () => {
 					<div className="logged-in-item">
 						<span>Inloggad som:</span> <span className="logged-in-user">{user.name}</span>
 					</div>
-
-					<button className="logout-btn" onClick={onLogout}>
-						Logga Ut
-					</button>
 				</div>
 			)}
 		</div>

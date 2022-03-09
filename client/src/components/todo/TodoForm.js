@@ -25,7 +25,7 @@ const TodoForm = () => {
 						name="objectToUpdate"
 						value={objectToUpdate}
 						placeholder={objectToUpdate}
-						autocomplete="off"
+						autoComplete="off"
 					/>
 					<div className="todo-btn-container">
 						<button className="todo-update-btn" type="submit">
@@ -42,7 +42,7 @@ const TodoForm = () => {
 						name="message"
 						value={message}
 						placeholder="Lägg till att göra..."
-						autocomplete="off"
+						autoComplete="off"
 					/>
 					<div className="todo-btn-container">
 						<button className="todo-add-btn" type="submit">

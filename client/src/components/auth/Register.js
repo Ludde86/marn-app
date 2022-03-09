@@ -46,14 +46,14 @@ const Register = (props) => {
 			<h1>Skapa Användare</h1>
 			<form className="register-form-container" onSubmit={onSubmit}>
 				<label htmlFor="name">Namn</label>
-				<input type="text" name="name" value={name} onChange={onChange} autocomplete="off" />
+				<input type="text" name="name" value={name} onChange={onChange} autoComplete="off" />
 				<label htmlFor="password">Lösen</label>
 				<input
 					type="password"
 					name="password"
 					value={password}
 					onChange={onChange}
-					autocomplete="new-password"
+					autoComplete="new-password"
 				/>
 				<label htmlFor="repeatPassword">Repetera Lösen</label>
 				<input
@@ -61,7 +61,7 @@ const Register = (props) => {
 					name="repeatPassword"
 					value={repeatPassword}
 					onChange={onChange}
-					autocomplete="new-password"
+					autoComplete="new-password"
 				/>
 				<button type="submit">Skapa Användare</button>
 			</form>
