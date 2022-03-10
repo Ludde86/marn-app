@@ -21,7 +21,7 @@ const ShoppingForm = () => {
 						value={editItem.message}
 						placeholder={editItem.message}
 					/>
-					<button className="input-submit" type="submit">
+					<button disabled={editItem.message === '' ? true : false} className="input-submit" type="submit">
 						<FiRefreshCcw />
 					</button>
 				</form>
@@ -32,11 +32,11 @@ const ShoppingForm = () => {
 						type="text"
 						name="message"
 						value={message}
-						placeholder="Lägg till att handla..."
+						placeholder="Lägg till..."
 						onChange={(e) => setMessage(e.target.value)}
 					/>
 
-					<button className="input-submit" type="submit">
+					<button disabled={message === '' ? true : false} className="input-submit" type="submit">
 						<FiPlus size={20} />
 					</button>
 				</form>

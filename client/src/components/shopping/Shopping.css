@@ -57,6 +57,10 @@ button {
 	cursor: pointer;
 }
 
+.input-submit:hover {
+	transform: scale(1.1);
+}
+
 .list-container {
 	width: 90%;
 	/* border: 1px solid #333; */
@@ -82,6 +86,7 @@ button {
 	font-weight: 600;
 	font-family: var(--font-family);
 	text-transform: capitalize;
+	cursor: pointer;
 }
 .item-message:hover {
 	font-weight: 700;
@@ -98,9 +103,15 @@ button {
 
 .edit-btn {
 	cursor: pointer;
+	outline: none;
 }
 .edit-btn:hover {
 	transform: scale(1.1);
+}
+.edit-btn:active {
+	transform: scale(1.2);
+	outline: none;
+	background: #fff;
 }
 
 .delete-btn {
@@ -111,12 +122,13 @@ button {
 }
 
 .clear-btn-container {
-	position: absolute;
-	left: 20px;
-	bottom: 20px;
+	align-self: flex-end;
+	margin: 1rem;
+	/* position: sticky;
+	bottom: 0; */
 }
 .clear-button {
-	background: #fff;
+	background: transparent;
 	transform: scale(2);
 	cursor: pointer;
 	border-radius: 100%;
@@ -127,12 +139,12 @@ button {
 	height: 25px;
 }
 .clear-button:hover {
-	background: #ffdab9;
+	/* background: #ffdab9; */
 	transform: scale(2.4);
 }
-.clear-button:active {
+/* .clear-button:active {
 	background: #8b0000;
-}
+} */
 .clear-button:focus {
 	outline: none;
 }
@@ -157,11 +169,18 @@ button {
 	text-align: center;
 }
 
+@media (min-width: 1000px) {
+	.shopping-container {
+		padding: 0 12rem;
+	}
+}
+
 @media (max-width: 600px) {
 	.form-container {
 		/* padding-top: 35px;
 		padding-bottom: 20px; */
 	}
+
 	/* 
 	.input-field {
 		width: 70%;

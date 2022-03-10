@@ -4,10 +4,15 @@
 	justify-content: space-between;
 	align-items: center;
 	margin: 0 2rem;
+	flex: 1;
 }
 
 .menu-btn {
 	cursor: pointer;
+}
+
+.menu-btn:hover {
+	transform: scale(1.1);
 }
 
 .nav-modal {
