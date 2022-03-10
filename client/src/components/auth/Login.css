@@ -17,13 +17,19 @@
 	margin: 50px auto;
 }
 .login-form-container label {
-	font-size: 26px;
+	font-size: 18px;
+	font-weight: 600;
+	color: #777;
+	margin-top: 1rem;
 }
 .login-form-container input {
 	height: 40px;
 	margin-bottom: 10px;
 	text-align: center;
 	font-size: 22px;
+	outline: none;
+	border: none;
+	border-bottom: 1.5px solid #333;
 }
 .login-form-container button {
 	height: 60px;
@@ -31,4 +37,5 @@
 	color: white;
 	font-size: 22px;
 	margin-top: 20px;
+	border-radius: 4px;
 }
