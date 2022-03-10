@@ -76,7 +76,12 @@ const Navbar = () => {
 
 	const authLinks = (
 		<Fragment>
-			{menuOpen ? <AiOutlineClose onClick={handleOpenMenu} /> : <AiOutlineMenu onClick={handleOpenMenu} />}
+			{menuOpen ? (
+				<AiOutlineClose className="menu-btn" onClick={handleOpenMenu} />
+			) : (
+				<AiOutlineMenu className="menu-btn" onClick={handleOpenMenu} />
+			)}
+
 			{menuOpen && (
 				<div className="nav-modal">
 					<li>

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import ShoppingContext from '../../context/shopping/shoppingContext';
 import TodoContext from '../../context/todo/todoContext';
-import { FiRefreshCcw } from 'react-icons/fi';
+import { FiRefreshCcw, FiPlus } from 'react-icons/fi';
 
 const ShoppingForm = () => {
 	const shoppingContext = useContext(ShoppingContext);
@@ -37,7 +37,7 @@ const ShoppingForm = () => {
 					/>
 
 					<button className="input-submit" type="submit">
-						<i className="fas fa-plus" />
+						<FiPlus size={20} />
 					</button>
 				</form>
 			)}
