@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import ShoppingContext from '../../context/shopping/shoppingContext';
+import { FiEdit, FiMinus } from 'react-icons/fi';
 
 const ShoppingItem = ({ item }) => {
 	const shoppingContext = useContext(ShoppingContext);
@@ -15,14 +16,14 @@ const ShoppingItem = ({ item }) => {
 				{item.message}
 			</span>
 
-			<span className="item-btn">
+			<div className="item-btn">
 				<div className="edit-btn">
-					<i className="fas fa-pencil-alt" onClick={() => setEditItem(item._id, item.message)} />
+					<FiEdit onClick={() => setEditItem(item._id, item.message)} />
 				</div>
 				<div className="delete-btn">
-					<i className="fas fa-minus" onClick={() => deleteItem(item._id)} />
+					<FiMinus onClick={() => deleteItem(item._id)} />
 				</div>
-			</span>
+			</div>
 		</li>
 	);
 };

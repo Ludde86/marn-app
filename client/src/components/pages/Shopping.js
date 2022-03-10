@@ -3,6 +3,7 @@ import ShoppingForm from '../shopping/ShoppingForm';
 import ShoppingList from '../shopping/ShoppingList';
 import AuthContext from '../../context/auth/authContext';
 import ShoppingContext from '../../context/shopping/shoppingContext';
+import { FcDeleteDatabase } from 'react-icons/fc';
 
 const Shopping = (props) => {
 	const authContext = useContext(AuthContext);
@@ -31,7 +32,7 @@ const Shopping = (props) => {
 			<ShoppingList />
 			<div className="clear-btn-container">
 				<button className="clear-button" onClick={clearShoppingList}>
-					<i className="far fa-trash-alt" />
+					<FcDeleteDatabase />
 				</button>
 			</div>
 		</div>

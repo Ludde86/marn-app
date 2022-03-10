@@ -6,22 +6,29 @@
 }
 
 .register-container label {
-	font-size: 24px;
+	font-size: 18px;
+	font-weight: 600;
+	color: #777;
+	margin-top: 1rem;
 }
 
 .register-container input {
 	height: 40px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	text-align: center;
 	font-size: 22px;
+	outline: none;
+	border: none;
+	border-bottom: 1.5px solid #333;
 }
 
 .register-container button {
+	height: 60px;
 	background: #3399ff;
 	color: white;
-	margin-top: 10px;
-	height: 60px;
 	font-size: 22px;
+	margin-top: 20px;
+	border-radius: 4px;
 }
 
 .register-form-container {

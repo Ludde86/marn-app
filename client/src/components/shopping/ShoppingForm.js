@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import ShoppingContext from '../../context/shopping/shoppingContext';
 import TodoContext from '../../context/todo/todoContext';
+import { FiRefreshCcw, FiPlus } from 'react-icons/fi';
 
 const ShoppingForm = () => {
 	const shoppingContext = useContext(ShoppingContext);
@@ -20,8 +21,8 @@ const ShoppingForm = () => {
 						value={editItem.message}
 						placeholder={editItem.message}
 					/>
-					<button className="input-update" type="submit">
-						<i className="fas fa-plus" />
+					<button disabled={editItem.message === '' ? true : false} className="input-submit" type="submit">
+						<FiRefreshCcw />
 					</button>
 				</form>
 			) : (
@@ -31,12 +32,12 @@ const ShoppingForm = () => {
 						type="text"
 						name="message"
 						value={message}
-						placeholder="Lägg till att handla..."
+						placeholder="Lägg till..."
 						onChange={(e) => setMessage(e.target.value)}
 					/>
 
-					<button className="input-submit" type="submit">
-						<i className="fas fa-plus" />
+					<button disabled={message === '' ? true : false} className="input-submit" type="submit">
+						<FiPlus size={20} />
 					</button>
 				</form>
 			)}
